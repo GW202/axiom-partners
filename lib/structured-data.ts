@@ -1,4 +1,5 @@
 import type { FAQ } from '@/content/services';
+import type { Insight } from '@/content/insights';
 
 export function generateOrganizationSchema() {
   return {
@@ -89,6 +90,27 @@ export function generateServiceSchema(service: {
       '@type': 'State',
       name: 'Florida',
     },
+  };
+}
+
+export function generateArticleSchema(insight: Insight) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: insight.title,
+    description: insight.description,
+    datePublished: insight.publishedDate,
+    author: {
+      '@type': 'Organization',
+      name: 'Axiom Facility Partners',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Axiom Facility Partners',
+      url: 'https://axiomfacilitypartners.com',
+    },
+    url: `https://axiomfacilitypartners.com/insights/${insight.slug}`,
+    articleSection: insight.category,
   };
 }
 

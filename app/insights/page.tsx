@@ -1,6 +1,8 @@
 import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import CTASection from '@/components/sections/CTASection';
+import InsightCard from '@/components/ui/InsightCard';
+import { insights } from '@/content/insights';
 import { generatePageMetadata } from '@/lib/metadata';
 
 export const metadata = generatePageMetadata({
@@ -18,13 +20,21 @@ export default function InsightsPage() {
         subtitle="Facility maintenance knowledge, industry perspectives, and operational best practices from the Axiom team."
       />
 
-      <SectionWrapper heading="Coming Soon">
-        <div className="max-w-2xl">
-          <p className="text-base leading-relaxed text-navy-700">
-            We&apos;re building a knowledge hub with practical insights on
-            facility maintenance, cost optimization, and operational best
-            practices for commercial property professionals. Check back soon.
-          </p>
+      <SectionWrapper
+        heading="Knowledge Hub"
+        subtitle="Practical guidance for property managers, facility directors, and operations leaders."
+      >
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {insights.map((insight) => (
+            <InsightCard
+              key={insight.slug}
+              title={insight.title}
+              description={insight.description}
+              category={insight.category}
+              readTime={insight.readTime}
+              href={`/insights/${insight.slug}`}
+            />
+          ))}
         </div>
       </SectionWrapper>
 
