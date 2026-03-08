@@ -47,10 +47,10 @@ export const metadata: Metadata = {
     url: 'https://axiomfacilitypartners.com',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Axiom Facility Partners',
+        url: '/hero-lobby.jpg',
+        width: 1536,
+        height: 1024,
+        alt: 'Axiom Facility Partners — premium commercial facility maintenance in a luxury building lobby',
       },
     ],
   },

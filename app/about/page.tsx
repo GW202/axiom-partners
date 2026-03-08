@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import CTASection from '@/components/sections/CTASection';
@@ -20,6 +21,8 @@ export const metadata = generatePageMetadata({
     'premium cleaning company',
     'facility maintenance values',
   ],
+  ogImage: '/team-photo.jpg',
+  ogImageAlt: 'Axiom Facility Partners professional cleaning team in branded navy uniforms',
 });
 
 export default function AboutPage() {
@@ -54,6 +57,26 @@ export default function AboutPage() {
             </AnimatedSection>
           ))}
         </div>
+      </SectionWrapper>
+
+      {/* Team Photo */}
+      <SectionWrapper heading="Our Team">
+        <AnimatedSection>
+          <div className="overflow-hidden rounded-2xl shadow-xl">
+            <Image
+              src="/team-photo.jpg"
+              alt="The Axiom Facility Partners team — professional commercial cleaning crew in branded navy uniforms with equipment, standing in a luxury building lobby"
+              width={1400}
+              height={933}
+              className="w-full object-cover"
+              quality={85}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+            />
+          </div>
+          <p className="mt-4 text-center text-sm text-navy-400">
+            Our trained facility maintenance professionals delivering premium service across Central Florida.
+          </p>
+        </AnimatedSection>
       </SectionWrapper>
 
       {/* Values */}
