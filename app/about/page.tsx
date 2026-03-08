@@ -4,17 +4,37 @@ import CTASection from '@/components/sections/CTASection';
 import { about } from '@/content/about';
 import { locations } from '@/content/locations';
 import { generatePageMetadata } from '@/lib/metadata';
+import { generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata = generatePageMetadata({
   title: 'About',
   description:
     'Axiom Facility Partners is a premium commercial facility maintenance company serving Central Florida. Learn about our mission, values, and commitment to operational excellence.',
   path: '/about',
+  keywords: [
+    'about Axiom Facility Partners',
+    'commercial facility maintenance company',
+    'Central Florida facility management',
+    'premium cleaning company',
+    'facility maintenance values',
+  ],
 });
 
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: 'Home', href: '/' },
+              { name: 'About', href: '/about' },
+            ])
+          ),
+        }}
+      />
+
       <Hero
         title="About Axiom Facility Partners"
         subtitle={about.mission}

@@ -6,6 +6,10 @@ import CTASection from '@/components/sections/CTASection';
 import { industries } from '@/content/industries';
 import { services } from '@/content/services';
 import { generatePageMetadata } from '@/lib/metadata';
+import {
+  generateBreadcrumbSchema,
+  generateSpeakableSchema,
+} from '@/lib/structured-data';
 
 interface IndustryPageProps {
   params: Promise<{ industry: string }>;
@@ -23,6 +27,13 @@ export async function generateMetadata({ params }: IndustryPageProps) {
     title: industry.title,
     description: industry.description,
     path: `/industries/${industry.slug}`,
+    keywords: [
+      `${industry.title.toLowerCase()} facility maintenance`,
+      `${industry.title.toLowerCase()} cleaning`,
+      'commercial facility maintenance',
+      'Central Florida',
+      'Axiom Facility Partners',
+    ],
   });
 }
 
@@ -37,6 +48,27 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: 'Home', href: '/' },
+              { name: 'Industries', href: '/industries' },
+              { name: industry.title, href: `/industries/${industry.slug}` },
+            ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateSpeakableSchema(`/industries/${industry.slug}`)
+          ),
+        }}
+      />
+
       <Hero title={industry.title} subtitle={industry.description} />
 
       {/* Overview */}

@@ -3,6 +3,7 @@ import SectionWrapper from '@/components/sections/SectionWrapper';
 import CTASection from '@/components/sections/CTASection';
 import { industries } from '@/content/industries';
 import { generatePageMetadata } from '@/lib/metadata';
+import { generateBreadcrumbSchema } from '@/lib/structured-data';
 import Link from 'next/link';
 
 export const metadata = generatePageMetadata({
@@ -10,11 +11,31 @@ export const metadata = generatePageMetadata({
   description:
     'Specialized facility maintenance programs for corporate offices, logistics warehouses, commercial property management, and medical offices in Central Florida.',
   path: '/industries',
+  keywords: [
+    'corporate office cleaning',
+    'warehouse cleaning',
+    'medical office cleaning',
+    'commercial property management',
+    'facility maintenance by industry',
+    'Central Florida',
+  ],
 });
 
 export default function IndustriesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: 'Home', href: '/' },
+              { name: 'Industries', href: '/industries' },
+            ])
+          ),
+        }}
+      />
+
       <Hero
         title="Industries We Serve"
         subtitle="Specialized facility maintenance programs designed for the unique demands of each industry we serve."

@@ -5,7 +5,12 @@ import FAQAccordion from '@/components/ui/FAQAccordion';
 import CTASection from '@/components/sections/CTASection';
 import { services } from '@/content/services';
 import { generatePageMetadata } from '@/lib/metadata';
-import { generateServiceSchema, generateFAQSchema } from '@/lib/structured-data';
+import {
+  generateServiceSchema,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  generateSpeakableSchema,
+} from '@/lib/structured-data';
 
 interface ServicePageProps {
   params: Promise<{ service: string }>;
@@ -23,6 +28,13 @@ export async function generateMetadata({ params }: ServicePageProps) {
     title: service.title,
     description: service.description,
     path: `/services/${service.slug}`,
+    keywords: [
+      service.title.toLowerCase(),
+      'commercial facility maintenance',
+      'Central Florida',
+      `${service.title.toLowerCase()} services`,
+      'Axiom Facility Partners',
+    ],
   });
 }
 
@@ -43,6 +55,26 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(generateFAQSchema(service.faqs)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: 'Home', href: '/' },
+              { name: 'Services', href: '/services' },
+              { name: service.title, href: `/services/${service.slug}` },
+            ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateSpeakableSchema(`/services/${service.slug}`)
+          ),
         }}
       />
 

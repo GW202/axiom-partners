@@ -4,17 +4,40 @@ import ServiceCard from '@/components/ui/ServiceCard';
 import CTASection from '@/components/sections/CTASection';
 import { services } from '@/content/services';
 import { generatePageMetadata } from '@/lib/metadata';
+import { generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata = generatePageMetadata({
   title: 'Our Services',
   description:
     'Comprehensive commercial facility maintenance services including office cleaning, warehouse cleaning, day porter services, floor care, and disinfection protocols.',
   path: '/services',
+  keywords: [
+    'commercial cleaning services',
+    'facility maintenance services',
+    'office cleaning',
+    'warehouse cleaning',
+    'day porter',
+    'floor care',
+    'disinfection',
+    'Central Florida',
+  ],
 });
 
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: 'Home', href: '/' },
+              { name: 'Services', href: '/services' },
+            ])
+          ),
+        }}
+      />
+
       <Hero
         title="Our Services"
         subtitle="Comprehensive facility maintenance programs built for commercial operations that demand reliability, precision, and asset protection."

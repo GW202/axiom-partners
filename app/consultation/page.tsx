@@ -1,17 +1,37 @@
 import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import { generatePageMetadata } from '@/lib/metadata';
+import { generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata = generatePageMetadata({
   title: 'Request a Facility Consultation',
   description:
     'Schedule a consultation with Axiom Facility Partners. We\'ll assess your facility needs and design a maintenance program built for your operation.',
   path: '/consultation',
+  keywords: [
+    'facility consultation',
+    'commercial cleaning quote',
+    'facility maintenance assessment',
+    'Central Florida facility services',
+    'free facility consultation',
+  ],
 });
 
 export default function ConsultationPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: 'Home', href: '/' },
+              { name: 'Consultation', href: '/consultation' },
+            ])
+          ),
+        }}
+      />
+
       <Hero
         title="Request a Facility Consultation"
         subtitle="Tell us about your facility and we'll design a maintenance program built for your operation. No obligation, no pressure — just a straightforward conversation about what your building needs."

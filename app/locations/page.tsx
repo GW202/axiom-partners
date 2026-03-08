@@ -3,6 +3,7 @@ import SectionWrapper from '@/components/sections/SectionWrapper';
 import CTASection from '@/components/sections/CTASection';
 import { locations } from '@/content/locations';
 import { generatePageMetadata } from '@/lib/metadata';
+import { generateBreadcrumbSchema } from '@/lib/structured-data';
 import Link from 'next/link';
 
 export const metadata = generatePageMetadata({
@@ -10,11 +11,31 @@ export const metadata = generatePageMetadata({
   description:
     'Axiom Facility Partners provides commercial facility maintenance across Central Florida including Orlando, Lake Mary, Sanford, Winter Park, and Tampa.',
   path: '/locations',
+  keywords: [
+    'Central Florida commercial cleaning',
+    'Orlando facility maintenance',
+    'Tampa facility maintenance',
+    'Winter Park cleaning services',
+    'Lake Mary janitorial services',
+    'Sanford warehouse cleaning',
+  ],
 });
 
 export default function LocationsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: 'Home', href: '/' },
+              { name: 'Locations', href: '/locations' },
+            ])
+          ),
+        }}
+      />
+
       <Hero
         title="Service Areas"
         subtitle="Premium commercial facility maintenance across Central Florida. We serve Orlando and the surrounding metro area with the same standard of excellence at every location."

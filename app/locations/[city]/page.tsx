@@ -7,7 +7,11 @@ import { locations } from '@/content/locations';
 import { services } from '@/content/services';
 import { industries } from '@/content/industries';
 import { generatePageMetadata } from '@/lib/metadata';
-import { generateLocalBusinessSchemaForCity } from '@/lib/structured-data';
+import {
+  generateLocalBusinessSchemaForCity,
+  generateBreadcrumbSchema,
+  generateSpeakableSchema,
+} from '@/lib/structured-data';
 
 interface CityPageProps {
   params: Promise<{ city: string }>;
@@ -25,6 +29,13 @@ export async function generateMetadata({ params }: CityPageProps) {
     title: `Commercial Facility Maintenance ${location.name}`,
     description: `Premium commercial facility maintenance in ${location.name}, ${location.state}. Office cleaning, warehouse cleaning, day porter services, and more.`,
     path: `/locations/${location.slug}`,
+    keywords: [
+      `${location.name} commercial cleaning`,
+      `${location.name} facility maintenance`,
+      `${location.name} janitorial services`,
+      `${location.state} facility management`,
+      'Axiom Facility Partners',
+    ],
   });
 }
 
@@ -47,6 +58,29 @@ export default async function CityDetailPage({ params }: CityPageProps) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             generateLocalBusinessSchemaForCity(location.name, location.state)
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: 'Home', href: '/' },
+              { name: 'Locations', href: '/locations' },
+              {
+                name: location.name,
+                href: `/locations/${location.slug}`,
+              },
+            ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateSpeakableSchema(`/locations/${location.slug}`)
           ),
         }}
       />

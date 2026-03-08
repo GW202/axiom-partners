@@ -4,6 +4,10 @@ import ServiceCard from '@/components/ui/ServiceCard';
 import CTASection from '@/components/sections/CTASection';
 import { services } from '@/content/services';
 import { industries } from '@/content/industries';
+import {
+  generateWebSiteSchema,
+  generateSpeakableSchema,
+} from '@/lib/structured-data';
 
 const valueProps = [
   {
@@ -31,6 +35,19 @@ const valueProps = [
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateWebSiteSchema()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateSpeakableSchema('/')),
+        }}
+      />
+
       <Hero
         title="Your Facility. Our Standard."
         subtitle="Axiom Facility Partners delivers premium commercial maintenance designed to protect your building assets, ensure operational continuity, and elevate your facility standards across Central Florida."
