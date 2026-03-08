@@ -30,15 +30,13 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="inline-block rounded-lg bg-white p-2">
-              <Image
-                src="/logo-vertical.jpg"
-                alt="Axiom Facility Partners"
-                width={120}
-                height={120}
-                className="h-14 w-auto"
-              />
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Axiom Facility Partners"
+              width={689}
+              height={577}
+              className="h-16 w-auto brightness-0 invert"
+            />
             <p className="mt-5 text-sm leading-relaxed text-navy-400">
               Premium commercial facility maintenance protecting your building
               assets with operational excellence across Central Florida.

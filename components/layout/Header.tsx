@@ -23,10 +23,10 @@ export default function Header() {
         <nav className="flex h-18 items-center justify-between">
           <Link href="/" className="group flex items-center">
             <Image
-              src="/logo-vertical.jpg"
+              src="/logo.png"
               alt="Axiom Facility Partners"
-              width={160}
-              height={160}
+              width={689}
+              height={577}
               className="h-12 w-auto sm:h-14"
               priority
             />
