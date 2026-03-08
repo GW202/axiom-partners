@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Container from './Container';
 
@@ -20,20 +21,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-navy-100/80 bg-white/80 backdrop-blur-xl">
       <Container>
         <nav className="flex h-18 items-center justify-between">
-          <Link href="/" className="group flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy-950 transition-all duration-300 group-hover:bg-bronze-600">
-              <span className="text-sm font-black tracking-tighter text-white">
-                A
-              </span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-tight text-navy-950">
-                AXIOM
-              </span>
-              <span className="hidden text-[9px] font-medium uppercase tracking-[0.2em] text-navy-400 sm:block">
-                Facility Partners
-              </span>
-            </div>
+          <Link href="/" className="group flex items-center">
+            <Image
+              src="/logo-vertical.jpg"
+              alt="Axiom Facility Partners"
+              width={160}
+              height={160}
+              className="h-12 w-auto sm:h-14"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

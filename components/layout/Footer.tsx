@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Container from './Container';
 
 const serviceLinks = [
@@ -29,31 +30,25 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-bronze-600">
-                <span className="text-sm font-black tracking-tighter text-white">
-                  A
-                </span>
-              </div>
-              <div>
-                <p className="text-sm font-bold tracking-tight text-white">
-                  AXIOM
-                </p>
-                <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-navy-400">
-                  Facility Partners
-                </p>
-              </div>
+            <div className="inline-block rounded-lg bg-white p-2">
+              <Image
+                src="/logo-vertical.jpg"
+                alt="Axiom Facility Partners"
+                width={120}
+                height={120}
+                className="h-14 w-auto"
+              />
             </div>
             <p className="mt-5 text-sm leading-relaxed text-navy-400">
               Premium commercial facility maintenance protecting your building
               assets with operational excellence across Central Florida.
             </p>
-            <div className="mt-6 flex items-center gap-2 text-sm text-navy-300">
+            <a href="tel:+14075550100" className="mt-6 flex items-center gap-2 text-sm text-navy-300 transition-colors duration-300 hover:text-white">
               <svg className="h-4 w-4 text-bronze-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
               </svg>
               <span>(407) 555-0100</span>
-            </div>
+            </a>
           </div>
 
           {/* Services */}
@@ -121,9 +116,21 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Axiom Facility Partners. All
               rights reserved.
             </p>
-            <p className="text-xs text-navy-600">
-              Serving Central Florida with operational excellence.
-            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/privacy"
+                className="text-xs text-navy-500 transition-colors duration-300 hover:text-navy-300"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-navy-700">|</span>
+              <Link
+                href="/terms"
+                className="text-xs text-navy-500 transition-colors duration-300 hover:text-navy-300"
+              >
+                Terms &amp; Conditions
+              </Link>
+            </div>
           </div>
         </div>
       </Container>

@@ -11,6 +11,13 @@ export function generateOrganizationSchema() {
     description:
       'Premium commercial facility maintenance company serving Central Florida. Specializing in office buildings, warehouses, and commercial properties.',
     url: SITE_URL,
+    logo: `${SITE_URL}/logo-vertical.jpg`,
+    image: [
+      `${SITE_URL}/hero-lobby.jpg`,
+      `${SITE_URL}/team-photo.jpg`,
+      `${SITE_URL}/team-action.jpg`,
+      `${SITE_URL}/og-image.jpg`,
+    ],
     telephone: '+14075550100',
     areaServed: {
       '@type': 'State',
@@ -34,6 +41,8 @@ export function generateLocalBusinessSchema() {
     description:
       'Premium commercial facility maintenance serving Central Florida.',
     url: SITE_URL,
+    image: `${SITE_URL}/team-photo.jpg`,
+    logo: `${SITE_URL}/logo-vertical.jpg`,
     telephone: '+14075550100',
     priceRange: '$$$$',
     address: {
@@ -92,9 +101,11 @@ export function generateServiceSchema(service: {
     '@type': 'Service',
     name: service.title,
     description: service.description,
+    image: `${SITE_URL}/team-action.jpg`,
     provider: {
       '@type': 'Organization',
       name: ORG_NAME,
+      logo: `${SITE_URL}/logo-vertical.jpg`,
     },
     url: `${SITE_URL}/services/${service.slug}`,
     areaServed: {

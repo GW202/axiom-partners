@@ -45,6 +45,18 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://axiomfacilitypartners.com',
+    images: [
+      {
+        url: '/hero-lobby.jpg',
+        width: 1536,
+        height: 1024,
+        alt: 'Axiom Facility Partners — premium commercial facility maintenance in a luxury building lobby',
+      },
+    ],
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon-180.png',
   },
   twitter: {
     card: 'summary_large_image',

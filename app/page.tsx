@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import ServiceCard from '@/components/ui/ServiceCard';
@@ -91,6 +92,23 @@ export default function Home() {
             </AnimatedSection>
           ))}
         </div>
+      </section>
+
+      {/* Hero Image — Premium Lobby */}
+      <section className="relative overflow-hidden">
+        <AnimatedSection>
+          <Image
+            src="/hero-lobby.jpg"
+            alt="Axiom Facility Partners — premium commercial facility maintenance in a luxury building lobby"
+            width={1536}
+            height={1024}
+            className="h-[28rem] w-full object-cover object-center lg:h-[36rem]"
+            quality={85}
+            priority
+            sizes="100vw"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cream-50 via-transparent to-transparent" />
+        </AnimatedSection>
       </section>
 
       {/* Services Overview */}

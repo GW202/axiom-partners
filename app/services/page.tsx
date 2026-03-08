@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import ServiceCard from '@/components/ui/ServiceCard';
@@ -22,6 +23,8 @@ export const metadata = generatePageMetadata({
     'disinfection',
     'Central Florida',
   ],
+  ogImage: '/team-action.jpg',
+  ogImageAlt: 'Axiom Facility Partners team performing commercial cleaning services — surface disinfection, vacuuming, and sanitization',
 });
 
 export default function ServicesPage() {
@@ -60,6 +63,27 @@ export default function ServicesPage() {
             </AnimatedSection>
           ))}
         </div>
+      </SectionWrapper>
+
+      {/* Service in Action */}
+      <SectionWrapper
+        heading="Service in Action"
+        subtitle="Our trained professionals delivering precision facility maintenance across commercial properties."
+        dark
+      >
+        <AnimatedSection>
+          <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <Image
+              src="/team-action.jpg"
+              alt="Axiom Facility Partners team in action — commercial cleaning professionals performing surface disinfection, floor vacuuming, and conference table sanitization in a premium office environment"
+              width={1400}
+              height={933}
+              className="w-full object-cover"
+              quality={85}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+            />
+          </div>
+        </AnimatedSection>
       </SectionWrapper>
 
       <CTASection />
