@@ -3,11 +3,16 @@ import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import ServiceCard from '@/components/ui/ServiceCard';
 import CTASection from '@/components/sections/CTASection';
+import AnimatedSection from '@/components/ui/AnimatedSection';
 import { locations } from '@/content/locations';
 import { services } from '@/content/services';
 import { industries } from '@/content/industries';
 import { generatePageMetadata } from '@/lib/metadata';
-import { generateLocalBusinessSchemaForCity } from '@/lib/structured-data';
+import {
+  generateLocalBusinessSchemaForCity,
+  generateBreadcrumbSchema,
+  generateSpeakableSchema,
+} from '@/lib/structured-data';
 
 interface CityPageProps {
   params: Promise<{ city: string }>;
@@ -25,6 +30,13 @@ export async function generateMetadata({ params }: CityPageProps) {
     title: `Commercial Facility Maintenance ${location.name}`,
     description: `Premium commercial facility maintenance in ${location.name}, ${location.state}. Office cleaning, warehouse cleaning, day porter services, and more.`,
     path: `/locations/${location.slug}`,
+    keywords: [
+      `${location.name} commercial cleaning`,
+      `${location.name} facility maintenance`,
+      `${location.name} janitorial services`,
+      `${location.state} facility management`,
+      'Axiom Facility Partners',
+    ],
   });
 }
 
@@ -50,10 +62,34 @@ export default async function CityDetailPage({ params }: CityPageProps) {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: 'Home', href: '/' },
+              { name: 'Locations', href: '/locations' },
+              {
+                name: location.name,
+                href: `/locations/${location.slug}`,
+              },
+            ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateSpeakableSchema(`/locations/${location.slug}`)
+          ),
+        }}
+      />
 
       <Hero
         title={`${location.name} Commercial Facility Maintenance`}
         subtitle={location.description}
+        badge={`Serving ${location.name}, ${location.state}`}
       />
 
       {/* Services Available */}
@@ -62,13 +98,14 @@ export default async function CityDetailPage({ params }: CityPageProps) {
         subtitle="Comprehensive facility maintenance programs available in your area."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {cityServices.map((service) => (
-            <ServiceCard
-              key={service.slug}
-              title={service.title}
-              description={service.description}
-              href={`/services/${service.slug}`}
-            />
+          {cityServices.map((service, i) => (
+            <AnimatedSection key={service.slug} delay={i * 0.08}>
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                href={`/services/${service.slug}`}
+              />
+            </AnimatedSection>
           ))}
         </div>
       </SectionWrapper>
@@ -80,18 +117,17 @@ export default async function CityDetailPage({ params }: CityPageProps) {
         dark
       >
         <div className="grid gap-6 md:grid-cols-2">
-          {cityIndustries.map((industry) => (
-            <div
-              key={industry.slug}
-              className="rounded-sm border border-navy-700 bg-navy-900 p-6"
-            >
-              <h3 className="text-lg font-semibold text-white">
-                {industry.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-300">
-                {industry.description}
-              </p>
-            </div>
+          {cityIndustries.map((industry, i) => (
+            <AnimatedSection key={industry.slug} delay={i * 0.1}>
+              <div className="glass-card rounded-xl p-7 transition-all duration-300 hover:bg-white/[0.04]">
+                <h3 className="text-lg font-semibold text-white">
+                  {industry.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-navy-300">
+                  {industry.description}
+                </p>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
       </SectionWrapper>

@@ -9,10 +9,12 @@ export function generatePageMetadata({
   title,
   description = DEFAULT_DESCRIPTION,
   path = '',
+  keywords,
 }: {
   title?: string;
   description?: string;
   path?: string;
+  keywords?: string[];
 }): Metadata {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
   const url = `${SITE_URL}${path}`;
@@ -20,12 +22,26 @@ export function generatePageMetadata({
   return {
     title: fullTitle,
     description,
+    keywords: keywords ?? [
+      'commercial facility maintenance',
+      'office building cleaning',
+      'Central Florida',
+      'facility management',
+      'janitorial services',
+      'Axiom Facility Partners',
+    ],
     openGraph: {
       title: fullTitle,
       description,
       url,
       siteName: SITE_NAME,
       type: 'website',
+      locale: 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: fullTitle,
+      description,
     },
     alternates: {
       canonical: url,
