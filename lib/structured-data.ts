@@ -11,6 +11,8 @@ export function generateOrganizationSchema() {
     description:
       'Premium commercial facility maintenance company serving Central Florida. Specializing in office buildings, warehouses, and commercial properties.',
     url: SITE_URL,
+    logo: `${SITE_URL}/logo-vertical.jpg`,
+    image: `${SITE_URL}/og-image.jpg`,
     telephone: '+14075550100',
     areaServed: {
       '@type': 'State',

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Container from './Container';
 
 const serviceLinks = [
@@ -29,20 +30,14 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-bronze-600">
-                <span className="text-sm font-black tracking-tighter text-white">
-                  A
-                </span>
-              </div>
-              <div>
-                <p className="text-sm font-bold tracking-tight text-white">
-                  AXIOM
-                </p>
-                <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-navy-400">
-                  Facility Partners
-                </p>
-              </div>
+            <div className="inline-block rounded-lg bg-white p-2">
+              <Image
+                src="/logo-vertical.jpg"
+                alt="Axiom Facility Partners"
+                width={120}
+                height={120}
+                className="h-14 w-auto"
+              />
             </div>
             <p className="mt-5 text-sm leading-relaxed text-navy-400">
               Premium commercial facility maintenance protecting your building

@@ -45,6 +45,18 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://axiomfacilitypartners.com',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Axiom Facility Partners',
+      },
+    ],
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon-180.png',
   },
   twitter: {
     card: 'summary_large_image',
