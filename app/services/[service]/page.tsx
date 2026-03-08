@@ -3,6 +3,7 @@ import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import CTASection from '@/components/sections/CTASection';
+import AnimatedSection from '@/components/ui/AnimatedSection';
 import { services } from '@/content/services';
 import { generatePageMetadata } from '@/lib/metadata';
 import {
@@ -78,15 +79,21 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         }}
       />
 
-      <Hero title={service.title} subtitle={service.description} />
+      <Hero
+        title={service.title}
+        subtitle={service.description}
+        badge="Premium Service"
+      />
 
       {/* Overview */}
       <SectionWrapper heading="Overview">
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl space-y-5">
           {service.longDescription.map((paragraph, i) => (
-            <p key={i} className="text-base leading-relaxed text-navy-700">
-              {paragraph}
-            </p>
+            <AnimatedSection key={i} delay={i * 0.1}>
+              <p className="text-base leading-relaxed text-navy-600">
+                {paragraph}
+              </p>
+            </AnimatedSection>
           ))}
         </div>
       </SectionWrapper>
@@ -99,14 +106,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       >
         <div className="grid gap-4 md:grid-cols-2">
           {service.protocols.map((protocol, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <span className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-bronze-600 text-xs font-bold text-white">
-                {i + 1}
-              </span>
-              <span className="text-sm leading-relaxed text-navy-200">
-                {protocol}
-              </span>
-            </div>
+            <AnimatedSection key={i} delay={i * 0.06}>
+              <div className="glass-card flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-white/[0.04]">
+                <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-bronze-400/15 text-xs font-bold text-bronze-300">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="text-sm leading-relaxed text-navy-200">
+                  {protocol}
+                </span>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
       </SectionWrapper>
@@ -116,21 +125,33 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         heading="Benefits to Your Operation"
         subtitle="Measurable impact on your facility's performance and value."
       >
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {service.benefits.map((benefit, i) => (
-            <div
-              key={i}
-              className="border-l-2 border-bronze-500 pl-4"
-            >
-              <p className="text-sm leading-relaxed text-navy-700">{benefit}</p>
-            </div>
+            <AnimatedSection key={i} delay={i * 0.08}>
+              <div className="flex items-start gap-3 rounded-lg border border-navy-100 bg-white p-5 shadow-sm">
+                <svg
+                  className="mt-0.5 h-5 w-5 flex-shrink-0 text-bronze-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+                <p className="text-sm leading-relaxed text-navy-600">{benefit}</p>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
       </SectionWrapper>
 
       {/* FAQ */}
       <SectionWrapper heading="Frequently Asked Questions" dark>
-        <div className="mx-auto max-w-2xl rounded-sm bg-white p-6 lg:p-8">
+        <div className="mx-auto max-w-2xl overflow-hidden rounded-xl bg-white p-6 shadow-2xl shadow-navy-950/20 lg:p-8">
           <FAQAccordion faqs={service.faqs} />
         </div>
       </SectionWrapper>
