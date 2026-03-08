@@ -1,6 +1,7 @@
 import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import ConsultationForm from '@/components/ui/ConsultationForm';
 import { generatePageMetadata } from '@/lib/metadata';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
 
@@ -83,11 +84,18 @@ export default function ConsultationPage() {
               </AnimatedSection>
             ))}
           </div>
-          <AnimatedSection delay={0.4}>
-            <p className="pt-4 text-sm text-navy-400">
-              Full consultation form coming soon. In the meantime, call us
-              directly or reach out via email.
-            </p>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper
+        heading="Start Your Consultation"
+        subtitle="Fill out the form below and our team will be in touch within one business day."
+      >
+        <div className="mx-auto max-w-2xl">
+          <AnimatedSection>
+            <div className="rounded-xl border border-navy-100 bg-white p-8 shadow-sm sm:p-10">
+              <ConsultationForm />
+            </div>
           </AnimatedSection>
         </div>
       </SectionWrapper>

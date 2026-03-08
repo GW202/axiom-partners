@@ -116,9 +116,21 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Axiom Facility Partners. All
               rights reserved.
             </p>
-            <p className="text-xs text-navy-600">
-              Serving Central Florida with operational excellence.
-            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/privacy"
+                className="text-xs text-navy-500 transition-colors duration-300 hover:text-navy-300"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-navy-700">|</span>
+              <Link
+                href="/terms"
+                className="text-xs text-navy-500 transition-colors duration-300 hover:text-navy-300"
+              >
+                Terms &amp; Conditions
+              </Link>
+            </div>
           </div>
         </div>
       </Container>
