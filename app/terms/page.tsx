@@ -84,7 +84,7 @@ const sections = [
   {
     heading: '12. Contact Information',
     content:
-      'For questions regarding these Terms and Conditions, please contact:\n\nAxiom Facility Partners\nWebsite: axiomfacilitypartners.com',
+      'For questions regarding these Terms and Conditions, please contact:\n\nAxiom Facility Partners\nEmail: info@axiomfacilitypartners.com\nPhone: (407) 294-6601\nWebsite: axiomfacilitypartners.com',
   },
 ];
 

@@ -132,7 +132,7 @@ const sections = [
   {
     heading: '12. Contact Information',
     content:
-      'If you have questions regarding this Privacy Policy, please contact:\n\nAxiom Facility Partners\nWebsite: axiomfacilitypartners.com',
+      'If you have questions regarding this Privacy Policy, please contact:\n\nAxiom Facility Partners\nEmail: info@axiomfacilitypartners.com\nPhone: (407) 294-6601\nWebsite: axiomfacilitypartners.com',
   },
 ];
 

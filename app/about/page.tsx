@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import CTASection from '@/components/sections/CTASection';
+import Testimonials from '@/components/sections/Testimonials';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { about } from '@/content/about';
 import { locations } from '@/content/locations';
@@ -123,6 +124,8 @@ export default function AboutPage() {
           ))}
         </div>
       </SectionWrapper>
+
+      <Testimonials />
 
       <CTASection />
     </>

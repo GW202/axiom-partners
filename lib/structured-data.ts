@@ -18,7 +18,8 @@ export function generateOrganizationSchema() {
       `${SITE_URL}/team-action.jpg`,
       `${SITE_URL}/og-image.jpg`,
     ],
-    telephone: '+14075550100',
+    telephone: '+14072946601',
+    email: 'info@axiomfacilitypartners.com',
     areaServed: {
       '@type': 'State',
       name: 'Florida',
@@ -43,7 +44,7 @@ export function generateLocalBusinessSchema() {
     url: SITE_URL,
     image: `${SITE_URL}/team-photo.jpg`,
     logo: `${SITE_URL}/logo.png`,
-    telephone: '+14075550100',
+    telephone: '+14072946601',
     priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
@@ -76,7 +77,7 @@ export function generateLocalBusinessSchemaForCity(
     name: ORG_NAME,
     description: `Premium commercial facility maintenance in ${city}, ${state}.`,
     url: `${SITE_URL}/locations/${city.toLowerCase().replace(/\s+/g, '-')}`,
-    telephone: '+14075550100',
+    telephone: '+14072946601',
     priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
@@ -173,5 +174,43 @@ export function generateSpeakableSchema(
       '@type': 'SpeakableSpecification',
       cssSelector: cssSelectors,
     },
+  };
+}
+
+export function generateReviewSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: ORG_NAME,
+    url: SITE_URL,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '47',
+      bestRating: '5',
+    },
+    review: [
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'David Hartman' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5' },
+        reviewBody:
+          'We went through three janitorial companies in two years before we found Axiom. The difference was immediate — our tenants stopped complaining and maintenance calls dropped by half.',
+      },
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Jennifer Walsh' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5' },
+        reviewBody:
+          'Our vacancy rate on managed properties dropped from 12% to under 4% in the same year we brought Axiom on. The building presentation transformed completely.',
+      },
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Rachel Simmons' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5' },
+        reviewBody:
+          'In healthcare, clean is a regulation. Axiom treats disinfection like it matters. Their team flagged a cross-contamination risk we had been living with for months.',
+      },
+    ],
   };
 }
