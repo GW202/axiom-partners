@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { sendConsultationNotification } from '@/lib/email';
+import { addSubmission } from '@/lib/submissions';
 
 interface ConsultationRequest {
   name: string;
@@ -102,7 +103,10 @@ export async function POST(request: Request) {
       message: body.message ? sanitize(body.message) : undefined,
     };
 
-    // Save to database (graceful fallback if DB not connected)
+    // Save to file-based storage (always works)
+    addSubmission(sanitized);
+
+    // Also save to database if connected
     if (process.env.DATABASE_URL) {
       try {
         await prisma.consultationSubmission.create({
@@ -111,9 +115,6 @@ export async function POST(request: Request) {
       } catch (dbErr) {
         console.error('[Database Error]', dbErr);
       }
-    } else {
-      console.warn('[Database] DATABASE_URL not set — logging submission');
-      console.log('[Consultation Request]', JSON.stringify(sanitized, null, 2));
     }
 
     // Send email notification (non-blocking — don't fail the request if email fails)
