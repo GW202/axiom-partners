@@ -1,13 +1,15 @@
 import type { FAQ } from '@/content/services';
+import { getSiteConfig } from '@/lib/site-config';
 
 const SITE_URL = 'https://axiomfacilitypartners.com';
 const ORG_NAME = 'Axiom Facility Partners';
 
 export function generateOrganizationSchema() {
+  const config = getSiteConfig();
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: ORG_NAME,
+    name: config.companyName,
     description:
       'Premium commercial facility maintenance company serving Central Florida. Specializing in office buildings, warehouses, and commercial properties.',
     url: SITE_URL,
@@ -18,8 +20,8 @@ export function generateOrganizationSchema() {
       `${SITE_URL}/team-action.jpg`,
       `${SITE_URL}/og-image.jpg`,
     ],
-    telephone: '+14072946601',
-    email: 'info@axiomfacilitypartners.com',
+    telephone: config.phoneRaw,
+    email: config.email,
     areaServed: {
       '@type': 'State',
       name: 'Florida',
@@ -35,24 +37,25 @@ export function generateOrganizationSchema() {
 }
 
 export function generateLocalBusinessSchema() {
+  const config = getSiteConfig();
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: ORG_NAME,
+    name: config.companyName,
     description:
       'Premium commercial facility maintenance serving Central Florida.',
     url: SITE_URL,
     image: `${SITE_URL}/team-photo.jpg`,
     logo: `${SITE_URL}/logo.png`,
-    telephone: '+14072946601',
+    telephone: config.phoneRaw,
     priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '100 E Pine St',
-      addressLocality: 'Orlando',
-      addressRegion: 'FL',
-      postalCode: '32801',
-      addressCountry: 'US',
+      streetAddress: config.streetAddress,
+      addressLocality: config.city,
+      addressRegion: config.state,
+      postalCode: config.postalCode,
+      addressCountry: config.country,
     },
     areaServed: [
       { '@type': 'City', name: 'Orlando' },
@@ -78,13 +81,14 @@ export function generateLocalBusinessSchemaForCity(
   city: string,
   state: string
 ) {
+  const config = getSiteConfig();
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: ORG_NAME,
+    name: config.companyName,
     description: `Premium commercial facility maintenance in ${city}, ${state}.`,
     url: `${SITE_URL}/locations/${city.toLowerCase().replace(/\s+/g, '-')}`,
-    telephone: '+14072946601',
+    telephone: config.phoneRaw,
     priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',

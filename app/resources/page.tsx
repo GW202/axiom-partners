@@ -2,7 +2,7 @@ import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import CTASection from '@/components/sections/CTASection';
 import BlogSearch from '@/components/ui/BlogSearch';
-import { blogPosts } from '@/content/blog';
+import { getAllBlogPosts } from '@/lib/admin-articles';
 import { generatePageMetadata } from '@/lib/metadata';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
 
@@ -43,7 +43,7 @@ export default function ResourcesPage() {
       />
 
       <SectionWrapper heading="Latest Articles">
-        <BlogSearch posts={blogPosts} />
+        <BlogSearch posts={getAllBlogPosts()} />
       </SectionWrapper>
 
       <CTASection />

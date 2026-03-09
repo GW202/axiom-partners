@@ -3,6 +3,7 @@ import SectionWrapper from '@/components/sections/SectionWrapper';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { generatePageMetadata } from '@/lib/metadata';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
+import { getSiteConfig } from '@/lib/site-config';
 
 export const metadata = generatePageMetadata({
   title: 'Privacy Policy',
@@ -132,7 +133,7 @@ const sections = [
   {
     heading: '12. Contact Information',
     content:
-      'If you have questions regarding this Privacy Policy, please contact:\n\nAxiom Facility Partners\nEmail: info@axiomfacilitypartners.com\nPhone: (407) 294-6601\nWebsite: axiomfacilitypartners.com',
+      `If you have questions regarding this Privacy Policy, please contact:\n\n${getSiteConfig().companyName}\nEmail: ${getSiteConfig().email}\nPhone: ${getSiteConfig().phone}\nWebsite: axiomfacilitypartners.com`,
   },
 ];
 
