@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ConsultationSubmission {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  phone         String?
+  company       String
+  facilityType  String
+  squareFootage String?
+  services      String[]
+  message       String?
+  createdAt     DateTime @default(now())
+
+  @@index([email])
+  @@index([createdAt])
+}

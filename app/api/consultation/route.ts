@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
+import { sendConsultationNotification } from '@/lib/email';
 
 interface ConsultationRequest {
   name: string;
@@ -35,7 +37,6 @@ function validateEmail(email: string): boolean {
 }
 
 function validatePhone(phone: string): boolean {
-  // Allow common US phone formats
   return /^[\d\s().+-]{7,20}$/.test(phone);
 }
 
@@ -99,18 +100,24 @@ export async function POST(request: Request) {
       squareFootage: body.squareFootage ? sanitize(body.squareFootage) : undefined,
       services: body.services || [],
       message: body.message ? sanitize(body.message) : undefined,
-      submittedAt: new Date().toISOString(),
     };
 
-    // TODO: Replace with actual email service (SendGrid, Resend, etc.)
-    // For now, log the submission server-side
-    console.log('[Consultation Request]', JSON.stringify(sanitized, null, 2));
+    // Save to database
+    await prisma.consultationSubmission.create({
+      data: sanitized,
+    });
+
+    // Send email notification (non-blocking — don't fail the request if email fails)
+    sendConsultationNotification(sanitized).catch((err) => {
+      console.error('[Email Error]', err);
+    });
 
     return NextResponse.json(
       { success: true, message: 'Consultation request received.' },
       { status: 200 }
     );
-  } catch {
+  } catch (err) {
+    console.error('[Consultation API Error]', err);
     return NextResponse.json(
       { error: 'Invalid request. Please try again.' },
       { status: 400 }
