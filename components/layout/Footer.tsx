@@ -17,6 +17,7 @@ const companyLinks = [
   { href: '/industries', label: 'Industries' },
   { href: '/locations', label: 'Locations' },
   { href: '/resources', label: 'Resources' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/consultation', label: 'Request Consultation' },
 ];
 
