@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Container from '@/components/layout/Container';
 
 export default function Error({
@@ -28,12 +29,12 @@ export default function Error({
             >
               Try Again
             </button>
-            <a
+            <Link
               href="/"
               className="rounded-md border border-white/10 px-6 py-3 text-sm font-semibold text-navy-200 transition-all duration-300 hover:border-white/20 hover:text-white"
             >
               Back to Home
-            </a>
+            </Link>
           </div>
         </div>
       </Container>
