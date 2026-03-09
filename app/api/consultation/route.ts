@@ -23,6 +23,7 @@ const VALID_FACILITY_TYPES = [
 const VALID_SERVICES = [
   'Office Building Cleaning',
   'Warehouse Facility Cleaning',
+  'Facilities Management',
   'Day Porter Services',
   'Floor Care & Maintenance',
   'Disinfection Protocols',
