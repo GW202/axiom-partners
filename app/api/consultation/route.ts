@@ -102,10 +102,19 @@ export async function POST(request: Request) {
       message: body.message ? sanitize(body.message) : undefined,
     };
 
-    // Save to database
-    await prisma.consultationSubmission.create({
-      data: sanitized,
-    });
+    // Save to database (graceful fallback if DB not connected)
+    if (process.env.DATABASE_URL) {
+      try {
+        await prisma.consultationSubmission.create({
+          data: sanitized,
+        });
+      } catch (dbErr) {
+        console.error('[Database Error]', dbErr);
+      }
+    } else {
+      console.warn('[Database] DATABASE_URL not set — logging submission');
+      console.log('[Consultation Request]', JSON.stringify(sanitized, null, 2));
+    }
 
     // Send email notification (non-blocking — don't fail the request if email fails)
     sendConsultationNotification(sanitized).catch((err) => {
