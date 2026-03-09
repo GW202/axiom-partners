@@ -130,6 +130,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             <AnimatedSection key={i} delay={i * 0.08}>
               <div className="flex items-start gap-3 rounded-lg border border-navy-100 bg-white p-5 shadow-sm">
                 <svg
+                  aria-hidden="true"
                   className="mt-0.5 h-5 w-5 flex-shrink-0 text-bronze-500"
                   fill="none"
                   viewBox="0 0 24 24"

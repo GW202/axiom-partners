@@ -60,6 +60,7 @@ export default function Header() {
           >
             <svg
               className="h-6 w-6 text-navy-950"
+              aria-hidden="true"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}

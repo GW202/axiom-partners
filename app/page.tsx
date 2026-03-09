@@ -149,6 +149,7 @@ export default function Home() {
               <div className="glass-card group rounded-xl p-8 transition-all duration-500 hover:border-bronze-400/20 hover:bg-white/[0.04]">
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-bronze-400/10">
                   <svg
+                    aria-hidden="true"
                     className="h-6 w-6 text-bronze-400"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -188,6 +189,7 @@ export default function Home() {
               >
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-navy-950/5 transition-colors duration-300 group-hover:bg-bronze-50">
                   <svg
+                    aria-hidden="true"
                     className="h-6 w-6 text-navy-400 transition-colors duration-300 group-hover:text-bronze-600"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -211,6 +213,7 @@ export default function Home() {
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-bronze-600">
                     View solutions
                     <svg
+                      aria-hidden="true"
                       className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                       fill="none"
                       viewBox="0 0 24 24"

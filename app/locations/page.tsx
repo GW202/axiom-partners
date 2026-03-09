@@ -56,6 +56,7 @@ export default function LocationsPage() {
               >
                 <div className="mb-3 flex items-center gap-2">
                   <svg
+                    aria-hidden="true"
                     className="h-4 w-4 text-bronze-500"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -86,6 +87,7 @@ export default function LocationsPage() {
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-bronze-600">
                   View services
                   <svg
+                    aria-hidden="true"
                     className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
                     viewBox="0 0 24 24"

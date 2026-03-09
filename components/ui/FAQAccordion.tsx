@@ -35,6 +35,7 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
               }`}
             >
               <svg
+                aria-hidden="true"
                 width="16"
                 height="16"
                 viewBox="0 0 16 16"

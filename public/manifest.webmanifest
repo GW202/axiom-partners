@@ -1,0 +1,16 @@
+{
+  "name": "Axiom Facility Partners",
+  "short_name": "Axiom",
+  "description": "Premium commercial facility maintenance across Central Florida.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#0a1628",
+  "icons": [
+    {
+      "src": "/apple-touch-icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
