@@ -6,6 +6,7 @@ import { getSiteConfig } from '@/lib/site-config';
 const serviceLinks = [
   { href: '/services/office-building-cleaning', label: 'Office Building Cleaning' },
   { href: '/services/warehouse-facility-cleaning', label: 'Warehouse Cleaning' },
+  { href: '/services/facilities-management', label: 'Facilities Management' },
   { href: '/services/day-porter-services', label: 'Day Porter Services' },
   { href: '/services/floor-care-maintenance', label: 'Floor Care' },
   { href: '/services/disinfection-protocols', label: 'Disinfection Protocols' },

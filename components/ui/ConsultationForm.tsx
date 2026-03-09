@@ -15,6 +15,7 @@ const facilityTypes = [
 const serviceInterests = [
   'Office Building Cleaning',
   'Warehouse Facility Cleaning',
+  'Facilities Management',
   'Day Porter Services',
   'Floor Care & Maintenance',
   'Disinfection Protocols',

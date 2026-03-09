@@ -2,7 +2,26 @@ import fs from 'fs';
 import path from 'path';
 import type { BlogPost, BlogCategory } from '@/content/blog';
 
-const ARTICLES_PATH = path.join(process.cwd(), 'data', 'articles.json');
+// Use /tmp on serverless (Vercel), fall back to project dir for local dev
+function getDataDir(): string {
+  const tmpPath = path.join('/tmp', 'axiom-data');
+  const localPath = path.join(process.cwd(), 'data');
+
+  try {
+    if (!fs.existsSync(localPath)) {
+      fs.mkdirSync(localPath, { recursive: true });
+    }
+    const testFile = path.join(localPath, '.write-test');
+    fs.writeFileSync(testFile, '');
+    fs.unlinkSync(testFile);
+    return localPath;
+  } catch {
+    if (!fs.existsSync(tmpPath)) {
+      fs.mkdirSync(tmpPath, { recursive: true });
+    }
+    return tmpPath;
+  }
+}
 
 export interface AdminArticle {
   slug: string;
@@ -20,8 +39,9 @@ export interface AdminArticle {
 
 export function getAdminArticles(): AdminArticle[] {
   try {
-    if (fs.existsSync(ARTICLES_PATH)) {
-      const raw = fs.readFileSync(ARTICLES_PATH, 'utf-8');
+    const articlesPath = path.join(getDataDir(), 'articles.json');
+    if (fs.existsSync(articlesPath)) {
+      const raw = fs.readFileSync(articlesPath, 'utf-8');
       return JSON.parse(raw);
     }
   } catch {
@@ -31,10 +51,7 @@ export function getAdminArticles(): AdminArticle[] {
 }
 
 export function saveArticle(article: AdminArticle): AdminArticle[] {
-  const dir = path.dirname(ARTICLES_PATH);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
+  const articlesPath = path.join(getDataDir(), 'articles.json');
   const articles = getAdminArticles();
   const existingIndex = articles.findIndex((a) => a.slug === article.slug);
   if (existingIndex >= 0) {
@@ -42,27 +59,22 @@ export function saveArticle(article: AdminArticle): AdminArticle[] {
   } else {
     articles.unshift(article);
   }
-  fs.writeFileSync(ARTICLES_PATH, JSON.stringify(articles, null, 2));
+  fs.writeFileSync(articlesPath, JSON.stringify(articles, null, 2));
   return articles;
 }
 
 export function deleteArticle(slug: string): AdminArticle[] {
+  const articlesPath = path.join(getDataDir(), 'articles.json');
   const articles = getAdminArticles().filter((a) => a.slug !== slug);
-  const dir = path.dirname(ARTICLES_PATH);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  fs.writeFileSync(ARTICLES_PATH, JSON.stringify(articles, null, 2));
+  fs.writeFileSync(articlesPath, JSON.stringify(articles, null, 2));
   return articles;
 }
 
 export function getAllBlogPosts(): BlogPost[] {
-  // Dynamic import workaround - merge static + admin articles
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { blogPosts } = require('@/content/blog');
   const adminArticles = getAdminArticles();
   const allPosts = [...adminArticles, ...blogPosts] as BlogPost[];
-  // Sort by date descending
   allPosts.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
   return allPosts;
 }

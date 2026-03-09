@@ -28,6 +28,7 @@ export const industries: Industry[] = [
     services: [
       'office-building-cleaning',
       'day-porter-services',
+      'facilities-management',
       'floor-care-maintenance',
       'disinfection-protocols',
     ],
@@ -75,6 +76,7 @@ export const industries: Industry[] = [
     services: [
       'office-building-cleaning',
       'day-porter-services',
+      'facilities-management',
       'floor-care-maintenance',
       'disinfection-protocols',
     ],

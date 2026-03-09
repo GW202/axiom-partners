@@ -16,7 +16,7 @@ import {
 
 const stats = [
   { value: '10+', label: 'Cities Served', detail: 'Across Central Florida' },
-  { value: '5', label: 'Core Services', detail: 'Facility maintenance solutions' },
+  { value: '6', label: 'Core Services', detail: 'Facility maintenance solutions' },
   { value: '80%+', label: 'Coverage Target', detail: 'Quality assurance standard' },
   { value: '24/7', label: 'Availability', detail: 'Flexible scheduling' },
 ];
