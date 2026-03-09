@@ -30,7 +30,20 @@ interface AdminArticle {
   faqs: { question: string; answer: string }[];
 }
 
-type Tab = 'config' | 'articles' | 'new-article';
+interface ConsultationSubmission {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  company: string;
+  facilityType: string;
+  squareFootage: string | null;
+  services: string[];
+  message: string | null;
+  createdAt: string;
+}
+
+type Tab = 'config' | 'submissions' | 'articles' | 'new-article';
 
 /* ─── Login Gate ─── */
 function LoginForm({ onLogin }: { onLogin: () => void }) {
@@ -143,6 +156,7 @@ export default function AdminPage() {
 
   const tabs: { id: Tab; label: string }[] = [
     { id: 'config', label: 'Site Settings' },
+    { id: 'submissions', label: 'Submissions' },
     { id: 'articles', label: 'Articles' },
     { id: 'new-article', label: 'New Article' },
   ];
@@ -184,8 +198,211 @@ export default function AdminPage() {
       </div>
 
       {tab === 'config' && <ConfigPanel />}
+      {tab === 'submissions' && <SubmissionsPanel />}
       {tab === 'articles' && <ArticlesPanel onEdit={() => setTab('new-article')} />}
       {tab === 'new-article' && <ArticleEditor onSaved={() => setTab('articles')} />}
+    </div>
+  );
+}
+
+/* ─── Submissions Panel ─── */
+function SubmissionsPanel() {
+  const [submissions, setSubmissions] = useState<ConsultationSubmission[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [expanded, setExpanded] = useState<string | null>(null);
+  const [dbMessage, setDbMessage] = useState('');
+
+  const loadSubmissions = useCallback((p: number) => {
+    setLoading(true);
+    fetch(`/api/admin/submissions?page=${p}&limit=20`)
+      .then((r) => r.json())
+      .then((data) => {
+        setSubmissions(data.submissions || []);
+        setTotalPages(data.totalPages || 0);
+        setTotal(data.total || 0);
+        setDbMessage(data.message || '');
+        setLoading(false);
+      })
+      .catch(() => {
+        setDbMessage('Failed to load submissions.');
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    loadSubmissions(page);
+  }, [page, loadSubmissions]);
+
+  async function handleDelete(id: string) {
+    if (!confirm('Delete this submission?')) return;
+    const res = await fetch('/api/admin/submissions', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id }),
+    });
+    if (res.ok) {
+      loadSubmissions(page);
+    }
+  }
+
+  function formatDate(dateStr: string) {
+    return new Date(dateStr).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+  }
+
+  if (loading) {
+    return <p className="text-sm text-navy-500">Loading submissions...</p>;
+  }
+
+  if (dbMessage) {
+    return (
+      <div className="rounded-xl border border-navy-100 bg-navy-50/50 py-16 text-center">
+        <p className="text-sm text-navy-500">{dbMessage}</p>
+        <p className="mt-1 text-xs text-navy-400">
+          Configure DATABASE_URL to enable submission storage.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      <p className="text-sm text-navy-500">
+        {total} consultation submission{total !== 1 ? 's' : ''}
+      </p>
+
+      {submissions.length === 0 ? (
+        <div className="rounded-xl border border-navy-100 bg-navy-50/50 py-16 text-center">
+          <p className="text-sm text-navy-500">No submissions yet.</p>
+        </div>
+      ) : (
+        <div className="space-y-3">
+          {submissions.map((sub) => (
+            <div
+              key={sub.id}
+              className="rounded-xl border border-navy-100 bg-white shadow-sm"
+            >
+              <button
+                type="button"
+                onClick={() => setExpanded(expanded === sub.id ? null : sub.id)}
+                className="flex w-full items-center justify-between p-5 text-left"
+              >
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="rounded-full bg-bronze-50 px-2 py-0.5 text-xs font-medium text-bronze-700">
+                      {sub.facilityType}
+                    </span>
+                    <time className="text-xs text-navy-400" dateTime={sub.createdAt}>
+                      {formatDate(sub.createdAt)}
+                    </time>
+                  </div>
+                  <h3 className="mt-1 truncate text-sm font-semibold text-navy-950">
+                    {sub.name} — {sub.company}
+                  </h3>
+                  <p className="mt-0.5 truncate text-xs text-navy-500">{sub.email}</p>
+                </div>
+                <span className="ml-4 flex-shrink-0 text-navy-400">
+                  {expanded === sub.id ? '▲' : '▼'}
+                </span>
+              </button>
+
+              {expanded === sub.id && (
+                <div className="border-t border-navy-100 px-5 pb-5 pt-4">
+                  <dl className="grid gap-3 text-sm sm:grid-cols-2">
+                    <div>
+                      <dt className="text-xs font-medium text-navy-400">Email</dt>
+                      <dd className="text-navy-950">
+                        <a href={`mailto:${sub.email}`} className="text-bronze-600 hover:underline">
+                          {sub.email}
+                        </a>
+                      </dd>
+                    </div>
+                    {sub.phone && (
+                      <div>
+                        <dt className="text-xs font-medium text-navy-400">Phone</dt>
+                        <dd className="text-navy-950">
+                          <a href={`tel:${sub.phone}`} className="text-bronze-600 hover:underline">
+                            {sub.phone}
+                          </a>
+                        </dd>
+                      </div>
+                    )}
+                    {sub.squareFootage && (
+                      <div>
+                        <dt className="text-xs font-medium text-navy-400">Square Footage</dt>
+                        <dd className="text-navy-950">{sub.squareFootage}</dd>
+                      </div>
+                    )}
+                    {sub.services.length > 0 && (
+                      <div className="sm:col-span-2">
+                        <dt className="text-xs font-medium text-navy-400">Services Requested</dt>
+                        <dd className="mt-1 flex flex-wrap gap-1.5">
+                          {sub.services.map((s) => (
+                            <span
+                              key={s}
+                              className="rounded-full bg-navy-50 px-2.5 py-0.5 text-xs text-navy-700"
+                            >
+                              {s}
+                            </span>
+                          ))}
+                        </dd>
+                      </div>
+                    )}
+                    {sub.message && (
+                      <div className="sm:col-span-2">
+                        <dt className="text-xs font-medium text-navy-400">Message</dt>
+                        <dd className="mt-1 whitespace-pre-wrap text-navy-800">{sub.message}</dd>
+                      </div>
+                    )}
+                  </dl>
+                  <div className="mt-4 flex justify-end">
+                    <button
+                      type="button"
+                      onClick={() => handleDelete(sub.id)}
+                      className="rounded-md border border-red-200 px-3 py-1.5 text-xs font-medium text-red-600 transition-colors hover:bg-red-50"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center gap-2 pt-4">
+          <button
+            type="button"
+            disabled={page <= 1}
+            onClick={() => setPage(page - 1)}
+            className="rounded-md border border-navy-200 px-3 py-1.5 text-sm font-medium text-navy-600 transition-colors hover:bg-navy-50 disabled:opacity-40"
+          >
+            Previous
+          </button>
+          <span className="text-sm text-navy-500">
+            Page {page} of {totalPages}
+          </span>
+          <button
+            type="button"
+            disabled={page >= totalPages}
+            onClick={() => setPage(page + 1)}
+            className="rounded-md border border-navy-200 px-3 py-1.5 text-sm font-medium text-navy-600 transition-colors hover:bg-navy-50 disabled:opacity-40"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }
