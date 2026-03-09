@@ -4,12 +4,14 @@ import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import ServiceCard from '@/components/ui/ServiceCard';
 import CTASection from '@/components/sections/CTASection';
+import Testimonials from '@/components/sections/Testimonials';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { services } from '@/content/services';
 import { industries } from '@/content/industries';
 import {
   generateWebSiteSchema,
   generateSpeakableSchema,
+  generateReviewSchema,
 } from '@/lib/structured-data';
 
 const stats = [
@@ -66,6 +68,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(generateSpeakableSchema('/')),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateReviewSchema()),
         }}
       />
 
@@ -222,6 +230,8 @@ export default function Home() {
           ))}
         </div>
       </SectionWrapper>
+
+      <Testimonials />
 
       <CTASection />
     </>
