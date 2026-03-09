@@ -48,8 +48,10 @@ export function generateLocalBusinessSchema() {
     priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '100 E Pine St',
       addressLocality: 'Orlando',
       addressRegion: 'FL',
+      postalCode: '32801',
       addressCountry: 'US',
     },
     areaServed: [
@@ -63,6 +65,11 @@ export function generateLocalBusinessSchema() {
       { '@type': 'City', name: 'Ocoee' },
       { '@type': 'City', name: 'Clermont' },
       { '@type': 'City', name: 'Apopka' },
+      { '@type': 'City', name: 'Kissimmee' },
+      { '@type': 'City', name: 'Melbourne' },
+      { '@type': 'City', name: 'Ocala' },
+      { '@type': 'City', name: 'Lakeland' },
+      { '@type': 'City', name: 'Daytona Beach' },
     ],
   };
 }
@@ -173,6 +180,43 @@ export function generateSpeakableSchema(
     speakable: {
       '@type': 'SpeakableSpecification',
       cssSelector: cssSelectors,
+    },
+  };
+}
+
+export function generateArticleSchema(post: {
+  title: string;
+  description: string;
+  slug: string;
+  publishedAt: string;
+  author: string;
+  tags: string[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    url: `${SITE_URL}/resources/${post.slug}`,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    author: {
+      '@type': 'Organization',
+      name: post.author,
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: ORG_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+    keywords: post.tags.join(', '),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/resources/${post.slug}`,
     },
   };
 }

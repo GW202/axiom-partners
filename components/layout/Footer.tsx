@@ -14,12 +14,14 @@ const companyLinks = [
   { href: '/about', label: 'About' },
   { href: '/industries', label: 'Industries' },
   { href: '/locations', label: 'Locations' },
+  { href: '/resources', label: 'Resources' },
   { href: '/consultation', label: 'Request Consultation' },
 ];
 
 const locations = [
   'Orlando', 'Lake Mary', 'Sanford', 'Winter Park', 'Tampa',
   'Winter Garden', 'Windermere', 'Ocoee', 'Clermont', 'Apopka',
+  'Kissimmee', 'Melbourne', 'Ocala', 'Lakeland', 'Daytona Beach',
 ];
 
 export default function Footer() {
@@ -102,12 +104,13 @@ export default function Footer() {
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {locations.map((loc) => (
-                <span
+                <Link
                   key={loc}
-                  className="rounded-md border border-navy-800 bg-navy-900/50 px-2.5 py-1 text-xs text-navy-400"
+                  href={`/locations/${loc.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="rounded-md border border-navy-800 bg-navy-900/50 px-2.5 py-1 text-xs text-navy-400 transition-colors duration-300 hover:border-bronze-400/30 hover:text-white"
                 >
                   {loc}
-                </span>
+                </Link>
               ))}
             </div>
           </div>

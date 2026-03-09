@@ -33,6 +33,7 @@ export default function ConsultationForm() {
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -53,9 +54,20 @@ export default function ConsultationForm() {
     e.preventDefault();
     setStatus('submitting');
 
-    // Simulate form submission — replace with actual API endpoint
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch('/api/consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        setErrorMessage(data?.error || 'Something went wrong. Please try again or call us directly.');
+        setStatus('error');
+        return;
+      }
+
       setStatus('success');
       setFormData({
         name: '',
@@ -68,6 +80,7 @@ export default function ConsultationForm() {
         message: '',
       });
     } catch {
+      setErrorMessage('Unable to reach our server. Please try again or call us directly.');
       setStatus('error');
     }
   }
@@ -306,8 +319,8 @@ export default function ConsultationForm() {
             </div>
 
             {status === 'error' && (
-              <p className="text-sm text-red-600">
-                Something went wrong. Please try again or call us directly.
+              <p className="text-sm text-red-600" role="alert">
+                {errorMessage}
               </p>
             )}
           </motion.form>

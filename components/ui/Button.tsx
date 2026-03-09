@@ -40,5 +40,5 @@ export default function Button({
     );
   }
 
-  return <button className={classes}>{children}</button>;
+  return <button type="button" className={classes}>{children}</button>;
 }
