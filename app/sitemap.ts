@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { services } from '@/content/services';
 import { industries } from '@/content/industries';
 import { locations } from '@/content/locations';
+import { blogPosts } from '@/content/blog';
 
 const SITE_URL = 'https://axiomfacilitypartners.com';
 
@@ -80,5 +81,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages, ...industryPages, ...locationPages];
+  const resourcesPages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/resources`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...blogPosts.map((post) => ({
+      url: `${SITE_URL}/resources/${post.slug}`,
+      lastModified: post.publishedAt,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ];
+
+  return [...staticPages, ...servicePages, ...industryPages, ...locationPages, ...resourcesPages];
 }

@@ -14,12 +14,14 @@ const companyLinks = [
   { href: '/about', label: 'About' },
   { href: '/industries', label: 'Industries' },
   { href: '/locations', label: 'Locations' },
+  { href: '/resources', label: 'Resources' },
   { href: '/consultation', label: 'Request Consultation' },
 ];
 
 const locations = [
   'Orlando', 'Lake Mary', 'Sanford', 'Winter Park', 'Tampa',
   'Winter Garden', 'Windermere', 'Ocoee', 'Clermont', 'Apopka',
+  'Kissimmee', 'Melbourne', 'Ocala', 'Lakeland', 'Daytona Beach',
 ];
 
 export default function Footer() {

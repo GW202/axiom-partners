@@ -45,7 +45,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/insights",
-        destination: "/",
+        destination: "/resources",
         permanent: true,
       },
     ];

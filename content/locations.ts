@@ -192,4 +192,104 @@ export const locations: Location[] = [
       'commercial-property-management',
     ],
   },
+  {
+    slug: 'kissimmee',
+    name: 'Kissimmee',
+    state: 'Florida',
+    description:
+      'Kissimmee\'s position along the US-192 corridor and proximity to major tourism infrastructure drives strong demand for commercial facility maintenance. From hospitality-adjacent office complexes to distribution centers serving the tourism corridor, Axiom Facility Partners delivers reliable maintenance programs to Kissimmee\'s diverse commercial properties.',
+    services: [
+      'office-building-cleaning',
+      'warehouse-facility-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'corporate-offices',
+      'logistics-warehouses',
+      'commercial-property-management',
+      'medical-offices',
+    ],
+  },
+  {
+    slug: 'melbourne',
+    name: 'Melbourne',
+    state: 'Florida',
+    description:
+      'Melbourne\'s Space Coast location attracts aerospace, defense, and technology companies that demand exacting facility maintenance standards. Axiom Facility Partners serves Melbourne\'s advanced manufacturing facilities, corporate offices, and medical complexes with precision-driven maintenance programs built for high-standard environments.',
+    services: [
+      'office-building-cleaning',
+      'warehouse-facility-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'corporate-offices',
+      'logistics-warehouses',
+      'commercial-property-management',
+      'medical-offices',
+    ],
+  },
+  {
+    slug: 'ocala',
+    name: 'Ocala',
+    state: 'Florida',
+    description:
+      'Ocala\'s growing distribution and logistics sector along the I-75 corridor, combined with expanding medical and professional services, creates substantial demand for commercial facility maintenance. Axiom Facility Partners brings Central Florida\'s premium maintenance standards to Ocala\'s commercial buildings, warehouses, and healthcare facilities.',
+    services: [
+      'office-building-cleaning',
+      'warehouse-facility-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'logistics-warehouses',
+      'corporate-offices',
+      'commercial-property-management',
+      'medical-offices',
+    ],
+  },
+  {
+    slug: 'lakeland',
+    name: 'Lakeland',
+    state: 'Florida',
+    description:
+      'Lakeland\'s strategic location between Orlando and Tampa on the I-4 corridor has made it one of Florida\'s fastest-growing logistics and distribution markets. Axiom Facility Partners provides industrial-grade warehouse maintenance, corporate office cleaning, and commercial facility programs for Lakeland\'s booming business community.',
+    services: [
+      'office-building-cleaning',
+      'warehouse-facility-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'logistics-warehouses',
+      'corporate-offices',
+      'commercial-property-management',
+      'medical-offices',
+    ],
+  },
+  {
+    slug: 'daytona-beach',
+    name: 'Daytona Beach',
+    state: 'Florida',
+    description:
+      'Daytona Beach\'s commercial and professional services sector, anchored by healthcare facilities, corporate offices, and growing logistics operations along the I-95 corridor, requires reliable facility maintenance. Axiom Facility Partners extends premium maintenance services to Daytona Beach\'s diverse commercial portfolio.',
+    services: [
+      'office-building-cleaning',
+      'warehouse-facility-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'corporate-offices',
+      'logistics-warehouses',
+      'commercial-property-management',
+      'medical-offices',
+    ],
+  },
 ];
