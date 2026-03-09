@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { getSubmissions, deleteSubmission } from '@/lib/submissions';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -7,36 +7,16 @@ export async function GET(request: Request) {
   const limit = Math.min(50, Math.max(1, parseInt(searchParams.get('limit') || '20', 10)));
   const skip = (page - 1) * limit;
 
-  if (!process.env.DATABASE_URL) {
-    return NextResponse.json(
-      { submissions: [], total: 0, page, totalPages: 0, message: 'Database not connected.' },
-      { status: 200 }
-    );
-  }
+  const all = getSubmissions();
+  const total = all.length;
+  const submissions = all.slice(skip, skip + limit);
 
-  try {
-    const [submissions, total] = await Promise.all([
-      prisma.consultationSubmission.findMany({
-        orderBy: { createdAt: 'desc' },
-        skip,
-        take: limit,
-      }),
-      prisma.consultationSubmission.count(),
-    ]);
-
-    return NextResponse.json({
-      submissions,
-      total,
-      page,
-      totalPages: Math.ceil(total / limit),
-    });
-  } catch (err) {
-    console.error('[Submissions API Error]', err);
-    return NextResponse.json(
-      { submissions: [], total: 0, page, totalPages: 0, error: 'Failed to fetch submissions.' },
-      { status: 200 }
-    );
-  }
+  return NextResponse.json({
+    submissions,
+    total,
+    page,
+    totalPages: Math.ceil(total / limit),
+  });
 }
 
 export async function DELETE(request: Request) {
@@ -46,11 +26,11 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'Submission ID is required.' }, { status: 400 });
     }
 
-    if (!process.env.DATABASE_URL) {
-      return NextResponse.json({ error: 'Database not connected.' }, { status: 503 });
+    const deleted = deleteSubmission(id);
+    if (!deleted) {
+      return NextResponse.json({ error: 'Submission not found.' }, { status: 404 });
     }
 
-    await prisma.consultationSubmission.delete({ where: { id } });
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error('[Delete Submission Error]', err);
