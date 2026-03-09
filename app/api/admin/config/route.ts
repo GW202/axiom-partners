@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { getSiteConfig, saveSiteConfig, type SiteConfig } from '@/lib/site-config';
 
 export const dynamic = 'force-dynamic';
@@ -34,6 +35,8 @@ export async function PUT(request: Request) {
 
   try {
     const updated = saveSiteConfig(sanitized);
+    // Revalidate all pages so server components (Footer, etc.) pick up new config
+    revalidatePath('/', 'layout');
     return NextResponse.json(updated);
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error';
