@@ -42,11 +42,6 @@ export default function SectionWrapper({
               <div
                 className={`h-px w-8 ${dark ? 'bg-bronze-400' : 'bg-bronze-500'}`}
               />
-              <span
-                className={`text-xs font-semibold uppercase tracking-[0.2em] ${dark ? 'text-bronze-400' : 'text-bronze-600'}`}
-              >
-                {heading}
-              </span>
             </div>
             <h2
               className={`text-3xl font-bold tracking-tight lg:text-4xl ${dark ? 'text-white' : 'text-navy-950'}`}
