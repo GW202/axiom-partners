@@ -48,8 +48,10 @@ export function generateLocalBusinessSchema() {
     priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '100 E Pine St',
       addressLocality: 'Orlando',
       addressRegion: 'FL',
+      postalCode: '32801',
       addressCountry: 'US',
     },
     areaServed: [
