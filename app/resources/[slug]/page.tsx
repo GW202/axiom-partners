@@ -5,7 +5,7 @@ import SectionWrapper from '@/components/sections/SectionWrapper';
 import CTASection from '@/components/sections/CTASection';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import FAQAccordion from '@/components/ui/FAQAccordion';
-import { blogPosts } from '@/content/blog';
+import { getAllBlogPosts } from '@/lib/admin-articles';
 import { generatePageMetadata } from '@/lib/metadata';
 import {
   generateBreadcrumbSchema,
@@ -14,17 +14,19 @@ import {
   generateArticleSchema,
 } from '@/lib/structured-data';
 
+export const dynamicParams = true;
+
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return blogPosts.map((p) => ({ slug: p.slug }));
+  return getAllBlogPosts().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = getAllBlogPosts().find((p) => p.slug === slug);
   if (!post) return {};
   return generatePageMetadata({
     title: post.title,
@@ -36,10 +38,10 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = getAllBlogPosts().find((p) => p.slug === slug);
   if (!post) notFound();
 
-  const relatedPosts = blogPosts
+  const relatedPosts = getAllBlogPosts()
     .filter((p) => p.slug !== post.slug)
     .filter(
       (p) =>

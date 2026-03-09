@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { services } from '@/content/services';
 import { industries } from '@/content/industries';
 import { locations } from '@/content/locations';
-import { blogPosts } from '@/content/blog';
+import { getAllBlogPosts } from '@/lib/admin-articles';
 
 const SITE_URL = 'https://axiomfacilitypartners.com';
 
@@ -88,7 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    ...blogPosts.map((post) => ({
+    ...getAllBlogPosts().map((post) => ({
       url: `${SITE_URL}/resources/${post.slug}`,
       lastModified: post.publishedAt,
       changeFrequency: 'monthly' as const,

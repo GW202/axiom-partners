@@ -5,6 +5,7 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 import ConsultationForm from '@/components/ui/ConsultationForm';
 import { generatePageMetadata } from '@/lib/metadata';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
+import { getSiteConfig } from '@/lib/site-config';
 
 export const metadata = generatePageMetadata({
   title: 'Request a Facility Consultation',
@@ -23,6 +24,8 @@ export const metadata = generatePageMetadata({
 });
 
 export default function ConsultationPage() {
+  const config = getSiteConfig();
+
   return (
     <>
       <script
@@ -40,8 +43,8 @@ export default function ConsultationPage() {
       <Hero
         title="Request a Facility Consultation"
         subtitle="Tell us about your facility and we'll design a maintenance program built for your operation. No obligation, no pressure — just a straightforward conversation about what your building needs."
-        ctaText="Call Us: (407) 294-6601"
-        ctaHref="tel:+14072946601"
+        ctaText={`Call Us: ${config.phone}`}
+        ctaHref={`tel:${config.phoneRaw}`}
       />
 
       <SectionWrapper heading="What to Expect">

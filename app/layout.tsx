@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://axiomfacilitypartners.com'),
   title: {
     default:
-      'Axiom Facility Partners | Premium Commercial Facility Maintenance',
+      'Axiom | Premium Facility Maintenance | Commercial Cleaning',
     template: '%s | Axiom Facility Partners',
   },
   description:
-    'Premium commercial facility maintenance for office buildings, warehouses, and commercial properties in Central Florida. Protecting your facility assets with operational excellence.',
+    'Premium commercial facility maintenance and commercial cleaning for office buildings, warehouses, and commercial properties in Central Florida. Protecting your facility assets with operational excellence.',
   keywords: [
     'commercial facility maintenance',
     'office building cleaning',
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     'Axiom Facility Partners',
   ],
   openGraph: {
-    title: 'Axiom Facility Partners | Premium Commercial Facility Maintenance',
+    title: 'Axiom | Premium Facility Maintenance | Commercial Cleaning',
     description:
-      'Premium commercial facility maintenance for office buildings, warehouses, and commercial properties in Central Florida.',
+      'Premium commercial facility maintenance and commercial cleaning for office buildings, warehouses, and commercial properties in Central Florida.',
     siteName: 'Axiom Facility Partners',
     type: 'website',
     locale: 'en_US',
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Axiom Facility Partners | Premium Commercial Facility Maintenance',
+    title: 'Axiom | Premium Facility Maintenance | Commercial Cleaning',
     description:
-      'Premium commercial facility maintenance for office buildings, warehouses, and commercial properties in Central Florida.',
+      'Premium commercial facility maintenance and commercial cleaning for office buildings, warehouses, and commercial properties in Central Florida.',
   },
   robots: {
     index: true,
