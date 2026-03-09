@@ -26,6 +26,7 @@ export default function ServiceCard({
         <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-navy-950/5 transition-colors duration-300 group-hover:bg-bronze-50">
           <svg
             className="h-5 w-5 text-navy-400 transition-colors duration-300 group-hover:text-bronze-600"
+            aria-hidden="true"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
@@ -48,6 +49,7 @@ export default function ServiceCard({
           <span>Learn more</span>
           <svg
             className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            aria-hidden="true"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}

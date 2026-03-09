@@ -101,6 +101,7 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
               <div className="glass-card flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-white/[0.04]">
                 <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-bronze-400/15">
                   <svg
+                    aria-hidden="true"
                     className="h-3.5 w-3.5 text-bronze-400"
                     fill="none"
                     viewBox="0 0 24 24"

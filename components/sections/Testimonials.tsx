@@ -43,6 +43,7 @@ export default function Testimonials() {
                 {/* Quote mark */}
                 <svg
                   className="absolute -top-3 left-8 h-10 w-10 text-bronze-500/30 sm:left-12"
+                  aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 32 32"
                 >
@@ -57,7 +58,7 @@ export default function Testimonials() {
 
                 {/* Highlight bar */}
                 <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-bronze-400/20 bg-bronze-400/5 px-4 py-2">
-                  <svg className="h-4 w-4 text-bronze-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <svg className="h-4 w-4 text-bronze-400" aria-hidden="true" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                   </svg>
                   <span className="text-sm font-medium text-bronze-300">
@@ -88,6 +89,7 @@ export default function Testimonials() {
               <button
                 key={t.name}
                 onClick={() => setActive(i)}
+                aria-label={`Read testimonial from ${t.name}`}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   i === active
                     ? 'bg-bronze-600 text-white shadow-lg shadow-bronze-600/20'
