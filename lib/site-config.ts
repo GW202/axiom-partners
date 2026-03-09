@@ -13,7 +13,29 @@ export interface SiteConfig {
   country: string;
 }
 
-const CONFIG_PATH = path.join(process.cwd(), 'data', 'site-config.json');
+// Use /tmp on serverless (Vercel), fall back to project dir for local dev
+function getDataDir(): string {
+  const tmpPath = path.join('/tmp', 'axiom-data');
+  const localPath = path.join(process.cwd(), 'data');
+
+  // Try local first (dev), fall back to /tmp (production/serverless)
+  try {
+    if (!fs.existsSync(localPath)) {
+      fs.mkdirSync(localPath, { recursive: true });
+    }
+    // Test write access
+    const testFile = path.join(localPath, '.write-test');
+    fs.writeFileSync(testFile, '');
+    fs.unlinkSync(testFile);
+    return localPath;
+  } catch {
+    // Read-only filesystem — use /tmp
+    if (!fs.existsSync(tmpPath)) {
+      fs.mkdirSync(tmpPath, { recursive: true });
+    }
+    return tmpPath;
+  }
+}
 
 const defaults: SiteConfig = {
   companyName: 'Axiom Facility Partners',
@@ -29,8 +51,9 @@ const defaults: SiteConfig = {
 
 export function getSiteConfig(): SiteConfig {
   try {
-    if (fs.existsSync(CONFIG_PATH)) {
-      const raw = fs.readFileSync(CONFIG_PATH, 'utf-8');
+    const configPath = path.join(getDataDir(), 'site-config.json');
+    if (fs.existsSync(configPath)) {
+      const raw = fs.readFileSync(configPath, 'utf-8');
       return { ...defaults, ...JSON.parse(raw) };
     }
   } catch {
@@ -40,12 +63,10 @@ export function getSiteConfig(): SiteConfig {
 }
 
 export function saveSiteConfig(config: Partial<SiteConfig>): SiteConfig {
-  const dir = path.dirname(CONFIG_PATH);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
+  const dataDir = getDataDir();
+  const configPath = path.join(dataDir, 'site-config.json');
   const merged = { ...getSiteConfig(), ...config };
-  fs.writeFileSync(CONFIG_PATH, JSON.stringify(merged, null, 2));
+  fs.writeFileSync(configPath, JSON.stringify(merged, null, 2));
   return merged;
 }
 

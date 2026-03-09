@@ -17,6 +17,7 @@ export const locations: Location[] = [
     services: [
       'office-building-cleaning',
       'warehouse-facility-cleaning',
+      'facilities-management',
       'day-porter-services',
       'floor-care-maintenance',
       'disinfection-protocols',
@@ -91,6 +92,7 @@ export const locations: Location[] = [
     services: [
       'office-building-cleaning',
       'warehouse-facility-cleaning',
+      'facilities-management',
       'day-porter-services',
       'floor-care-maintenance',
       'disinfection-protocols',
@@ -221,6 +223,7 @@ export const locations: Location[] = [
     services: [
       'office-building-cleaning',
       'warehouse-facility-cleaning',
+      'facilities-management',
       'day-porter-services',
       'floor-care-maintenance',
       'disinfection-protocols',
@@ -261,6 +264,7 @@ export const locations: Location[] = [
     services: [
       'office-building-cleaning',
       'warehouse-facility-cleaning',
+      'facilities-management',
       'day-porter-services',
       'floor-care-maintenance',
       'disinfection-protocols',

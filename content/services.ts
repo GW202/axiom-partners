@@ -107,6 +107,52 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: 'facilities-management',
+    title: 'Facilities Management',
+    description:
+      'End-to-end facilities management programs that coordinate maintenance operations, vendor oversight, and capital planning — so you can focus on your core business.',
+    longDescription: [
+      'Facilities management goes beyond cleaning — it encompasses the full spectrum of building operations, from preventative maintenance scheduling and vendor coordination to capital improvement planning and regulatory compliance. Axiom Facility Partners provides integrated facilities management services that give property owners and operators a single accountable partner for building performance.',
+      'Our facilities management approach is built on operational transparency. We implement documented maintenance calendars, digital work order systems, and monthly performance reporting that gives stakeholders visibility into every aspect of building operations. No black boxes, no guesswork — just measurable outcomes tied to clear service standards.',
+      'Whether you need full-scope facilities management for a single property or a standardized program across a multi-building portfolio from Ocala to Melbourne, our management team has the operational depth and Central Florida market knowledge to deliver results that protect your asset value and satisfy your tenants.',
+    ],
+    protocols: [
+      'Preventative maintenance scheduling and execution tracking',
+      'Vendor procurement, coordination, and performance management',
+      'Work order management with documented response times',
+      'Building systems inspection and lifecycle reporting',
+      'Regulatory compliance tracking (fire, safety, ADA, environmental)',
+      'Capital improvement planning and project oversight',
+      'Emergency response coordination and after-hours coverage',
+      'Monthly operational reporting with KPI dashboards',
+    ],
+    benefits: [
+      'Single point of accountability for all building operations',
+      'Reduce operating costs through preventative maintenance discipline',
+      'Extend equipment and building system lifespan with proactive care',
+      'Improve tenant satisfaction through responsive service delivery',
+      'Documented compliance for audits, insurance, and ownership reporting',
+      'Scalable programs for single properties or multi-building portfolios',
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between facilities management and janitorial service?',
+        answer:
+          'Janitorial service covers cleaning and sanitation. Facilities management encompasses the full scope of building operations — maintenance planning, vendor management, regulatory compliance, capital planning, work order systems, and operational reporting. Think of facilities management as the operating system for your building, with cleaning as one component within it.',
+      },
+      {
+        question: 'Can you manage facilities across multiple properties?',
+        answer:
+          'Yes. Our facilities management programs are designed to scale across multi-property portfolios. We implement standardized operating procedures, centralized reporting, and consistent service standards across all locations — giving portfolio managers a single dashboard view of building performance from Ocala to Tampa.',
+      },
+      {
+        question: 'How do you handle emergency maintenance situations?',
+        answer:
+          'Our facilities management programs include 24/7 emergency response coordination. We maintain a network of vetted specialty contractors across Central Florida and provide after-hours coverage through a dedicated response line. All emergency events are documented with response times and resolution details for ownership reporting.',
+      },
+    ],
+  },
+  {
     slug: 'day-porter-services',
     title: 'Day Porter Services',
     description:
