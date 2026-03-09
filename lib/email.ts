@@ -1,8 +1,4 @@
-import sgMail from '@sendgrid/mail';
-
-if (process.env.SENDGRID_API_KEY) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-}
+import { Resend } from 'resend';
 
 interface ConsultationData {
   name: string;
@@ -16,19 +12,20 @@ interface ConsultationData {
 }
 
 export async function sendConsultationNotification(data: ConsultationData) {
-  if (!process.env.SENDGRID_API_KEY) {
-    console.warn('[Email] SENDGRID_API_KEY not set — skipping notification');
+  if (!process.env.RESEND_API_KEY) {
+    console.warn('[Email] RESEND_API_KEY not set — skipping notification');
     return;
   }
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const toEmail = process.env.NOTIFICATION_EMAIL || 'info@axiomfacilitypartners.com';
-  const fromEmail = process.env.SENDGRID_FROM_EMAIL || 'noreply@axiomfacilitypartners.com';
+  const fromEmail = process.env.RESEND_FROM_EMAIL || 'Axiom Partners <noreply@axiomfacilitypartners.com>';
 
   const servicesText = data.services.length
     ? data.services.join(', ')
     : 'None selected';
 
-  await sgMail.send({
+  await resend.emails.send({
     to: toEmail,
     from: fromEmail,
     subject: `New Consultation Request — ${data.company}`,
