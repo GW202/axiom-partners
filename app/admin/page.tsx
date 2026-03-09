@@ -32,9 +32,114 @@ interface AdminArticle {
 
 type Tab = 'config' | 'articles' | 'new-article';
 
+/* ─── Login Gate ─── */
+function LoginForm({ onLogin }: { onLogin: () => void }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        sessionStorage.setItem('admin_token', data.token);
+        onLogin();
+      } else {
+        setError('Invalid username or password.');
+      }
+    } catch {
+      setError('Network error. Please try again.');
+    }
+    setLoading(false);
+  }
+
+  return (
+    <div className="flex min-h-screen items-center justify-center px-6">
+      <div className="w-full max-w-sm">
+        <div className="mb-8 text-center">
+          <h1 className="text-2xl font-bold text-navy-950">Admin Login</h1>
+          <p className="mt-1 text-sm text-navy-500">
+            Enter your credentials to access the admin panel.
+          </p>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-4 rounded-xl border border-navy-100 bg-white p-6 shadow-sm">
+          <div>
+            <label htmlFor="admin-username" className="block text-sm font-medium text-navy-700">
+              Username
+            </label>
+            <input
+              id="admin-username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              autoComplete="username"
+              className="mt-1.5 block w-full rounded-lg border border-navy-200 bg-white px-4 py-2.5 text-sm text-navy-950 shadow-sm transition-colors focus:border-bronze-400 focus:outline-none focus:ring-1 focus:ring-bronze-400"
+            />
+          </div>
+          <div>
+            <label htmlFor="admin-password" className="block text-sm font-medium text-navy-700">
+              Password
+            </label>
+            <input
+              id="admin-password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete="current-password"
+              className="mt-1.5 block w-full rounded-lg border border-navy-200 bg-white px-4 py-2.5 text-sm text-navy-950 shadow-sm transition-colors focus:border-bronze-400 focus:outline-none focus:ring-1 focus:ring-bronze-400"
+            />
+          </div>
+          {error && (
+            <p className="text-sm text-red-600" role="alert">{error}</p>
+          )}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-md bg-gradient-to-r from-bronze-600 to-bronze-500 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-bronze-600/20 transition-all hover:shadow-xl disabled:opacity-60"
+          >
+            {loading ? 'Signing in...' : 'Sign In'}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Page ─── */
 export default function AdminPage() {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [checked, setChecked] = useState(false);
   const [tab, setTab] = useState<Tab>('config');
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('admin_token');
+    setAuthenticated(!!token);
+    setChecked(true);
+  }, []);
+
+  function handleLogout() {
+    sessionStorage.removeItem('admin_token');
+    setAuthenticated(false);
+  }
+
+  if (!checked) return null;
+
+  if (!authenticated) {
+    return <LoginForm onLogin={() => setAuthenticated(true)} />;
+  }
 
   const tabs: { id: Tab; label: string }[] = [
     { id: 'config', label: 'Site Settings' },
@@ -44,11 +149,20 @@ export default function AdminPage() {
 
   return (
     <div className="mx-auto min-h-screen max-w-5xl px-6 py-12">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-navy-950">Admin Panel</h1>
-        <p className="mt-1 text-sm text-navy-500">
-          Manage site settings, contact information, and blog articles.
-        </p>
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-navy-950">Admin Panel</h1>
+          <p className="mt-1 text-sm text-navy-500">
+            Manage site settings, contact information, and blog articles.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="rounded-md border border-navy-200 px-4 py-2 text-sm font-medium text-navy-600 transition-colors hover:bg-navy-50"
+        >
+          Sign Out
+        </button>
       </div>
 
       {/* Tab Navigation */}
