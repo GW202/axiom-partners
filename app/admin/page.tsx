@@ -43,7 +43,22 @@ interface ConsultationSubmission {
   createdAt: string;
 }
 
-type Tab = 'config' | 'submissions' | 'articles' | 'new-article';
+interface GBPPost {
+  type: string;
+  label: string;
+  body: string;
+  ctaType: string;
+  ctaUrl: string;
+}
+
+interface ArticleSummary {
+  slug: string;
+  title: string;
+  category: string;
+  publishedAt: string;
+}
+
+type Tab = 'config' | 'submissions' | 'articles' | 'new-article' | 'gbp-posts';
 
 /* ─── Login Gate ─── */
 function LoginForm({ onLogin }: { onLogin: () => void }) {
@@ -159,6 +174,7 @@ export default function AdminPage() {
     { id: 'submissions', label: 'Submissions' },
     { id: 'articles', label: 'Articles' },
     { id: 'new-article', label: 'New Article' },
+    { id: 'gbp-posts', label: 'GBP Posts' },
   ];
 
   return (
@@ -201,6 +217,7 @@ export default function AdminPage() {
       {tab === 'submissions' && <SubmissionsPanel />}
       {tab === 'articles' && <ArticlesPanel onEdit={() => setTab('new-article')} />}
       {tab === 'new-article' && <ArticleEditor onSaved={() => setTab('articles')} />}
+      {tab === 'gbp-posts' && <GBPPostsPanel />}
     </div>
   );
 }
@@ -795,6 +812,160 @@ function ArticleEditor({ onSaved }: { onSaved: () => void }) {
         )}
       </div>
     </form>
+  );
+}
+
+/* ─── GBP Posts Panel ─── */
+function GBPPostsPanel() {
+  const [articles, setArticles] = useState<ArticleSummary[]>([]);
+  const [selectedSlug, setSelectedSlug] = useState('');
+  const [posts, setPosts] = useState<GBPPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [generating, setGenerating] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/api/admin/gbp-posts')
+      .then((r) => r.json())
+      .then((data: ArticleSummary[]) => {
+        setArticles(data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
+  async function handleGenerate(slug: string) {
+    setSelectedSlug(slug);
+    setPosts([]);
+    if (!slug) return;
+    setGenerating(true);
+    try {
+      const res = await fetch(`/api/admin/gbp-posts?slug=${encodeURIComponent(slug)}`);
+      const data = await res.json();
+      setPosts(data.posts || []);
+    } catch {
+      // silent
+    }
+    setGenerating(false);
+  }
+
+  async function handleCopy(body: string, type: string) {
+    try {
+      await navigator.clipboard.writeText(body);
+      setCopied(type);
+      setTimeout(() => setCopied(null), 2000);
+    } catch {
+      // Fallback for older browsers
+      const textarea = document.createElement('textarea');
+      textarea.value = body;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      setCopied(type);
+      setTimeout(() => setCopied(null), 2000);
+    }
+  }
+
+  if (loading) {
+    return <p className="text-sm text-navy-500">Loading articles...</p>;
+  }
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <p className="text-sm text-navy-500">
+          Generate Google Business Profile posts from your blog articles. Select an article below to create 3 ready-to-copy GBP post variants.
+        </p>
+      </div>
+
+      {/* Article Selector */}
+      <div className="rounded-xl border border-navy-100 bg-white p-6 shadow-sm">
+        <label className="block text-sm font-medium text-navy-700">
+          Select an Article
+        </label>
+        <select
+          value={selectedSlug}
+          onChange={(e) => handleGenerate(e.target.value)}
+          className="mt-1.5 block w-full rounded-lg border border-navy-200 bg-white px-4 py-2.5 text-sm text-navy-950 shadow-sm focus:border-bronze-400 focus:outline-none focus:ring-1 focus:ring-bronze-400"
+        >
+          <option value="">Choose an article...</option>
+          {articles.map((a) => (
+            <option key={a.slug} value={a.slug}>
+              {a.title} ({a.publishedAt})
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Loading */}
+      {generating && (
+        <div className="flex items-center justify-center py-8">
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-navy-200 border-t-bronze-600" />
+          <span className="ml-3 text-sm text-navy-500">Generating posts...</span>
+        </div>
+      )}
+
+      {/* Generated Posts */}
+      {posts.length > 0 && (
+        <div className="space-y-4">
+          {posts.map((post) => (
+            <div
+              key={post.type}
+              className="rounded-xl border border-navy-100 bg-white shadow-sm"
+            >
+              <div className="flex items-center justify-between border-b border-navy-100 px-6 py-4">
+                <div className="flex items-center gap-3">
+                  <span className="rounded-full bg-bronze-50 px-2.5 py-0.5 text-xs font-medium text-bronze-700">
+                    {post.label}
+                  </span>
+                  <span className="text-xs text-navy-400">
+                    {post.body.length} / 1,500 chars
+                  </span>
+                  <span className="text-xs text-navy-400">
+                    CTA: {post.ctaType}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleCopy(post.body, post.type)}
+                  className={`rounded-md px-4 py-1.5 text-xs font-medium transition-all ${
+                    copied === post.type
+                      ? 'bg-green-50 text-green-700 border border-green-200'
+                      : 'bg-navy-950 text-white hover:bg-navy-800'
+                  }`}
+                >
+                  {copied === post.type ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
+              <div className="px-6 py-4">
+                <pre className="whitespace-pre-wrap text-sm leading-relaxed text-navy-800 font-sans">
+                  {post.body}
+                </pre>
+              </div>
+            </div>
+          ))}
+
+          <div className="rounded-lg border border-navy-100 bg-navy-50/50 p-4">
+            <p className="text-xs font-medium text-navy-600">How to use these posts:</p>
+            <ol className="mt-2 space-y-1 text-xs text-navy-500">
+              <li>1. Copy a post variant using the Copy button above</li>
+              <li>2. Go to your Google Business Profile dashboard</li>
+              <li>3. Click &quot;Add update&quot; and paste the content</li>
+              <li>4. Select the matching CTA button type shown on each post</li>
+              <li>5. Publish — GBP posts expire after 6 months, so post regularly</li>
+            </ol>
+          </div>
+        </div>
+      )}
+
+      {/* Empty state after selection */}
+      {selectedSlug && !generating && posts.length === 0 && (
+        <div className="rounded-xl border border-navy-100 bg-navy-50/50 py-16 text-center">
+          <p className="text-sm text-navy-500">No posts generated. Try selecting a different article.</p>
+        </div>
+      )}
+    </div>
   );
 }
 
