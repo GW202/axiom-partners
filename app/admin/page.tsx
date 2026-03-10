@@ -461,8 +461,8 @@ function ConfigPanel() {
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Company Name" value={config.companyName} onChange={(v) => update('companyName', v)} />
           <Field label="Email" type="email" value={config.email} onChange={(v) => update('email', v)} />
-          <Field label="Phone (Display)" value={config.phone} onChange={(v) => update('phone', v)} placeholder="(407) 294-6601" />
-          <Field label="Phone (Raw / tel:)" value={config.phoneRaw} onChange={(v) => update('phoneRaw', v)} placeholder="+14072946601" />
+          <Field label="Phone (Display)" value={config.phone} onChange={(v) => update('phone', v)} placeholder="(407) 342-3195" />
+          <Field label="Phone (Raw / tel:)" value={config.phoneRaw} onChange={(v) => update('phoneRaw', v)} placeholder="+14073423195" />
         </div>
       </fieldset>
 

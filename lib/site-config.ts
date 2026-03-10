@@ -39,8 +39,8 @@ function getDataDir(): string {
 
 const defaults: SiteConfig = {
   companyName: 'Axiom Facility Partners',
-  phone: '(407) 294-6601',
-  phoneRaw: '+14072946601',
+  phone: '(407) 342-3195',
+  phoneRaw: '+14073423195',
   email: 'info@axiomfacilitypartners.com',
   streetAddress: '100 E Pine St',
   city: 'Orlando',
