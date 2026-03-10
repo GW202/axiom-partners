@@ -5,6 +5,7 @@ import SectionWrapper from '@/components/sections/SectionWrapper';
 import CTASection from '@/components/sections/CTASection';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { services } from '@/content/services';
+import { serviciosES } from '@/content/services-es';
 import { generateBreadcrumbSchema, generateSpeakableSchema } from '@/lib/structured-data';
 
 const SITE_URL = 'https://axiomfacilitypartners.com';
@@ -110,19 +111,17 @@ export default function SpanishHomepage() {
         subtitle="Programas completos de mantenimiento de instalaciones para operaciones comerciales que exigen confiabilidad y precisión."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => {
-            const traducido = serviciosTraducidos[service.slug];
-            return (
-              <AnimatedSection key={service.slug} delay={i * 0.08}>
+          {serviciosES.map((servicio, i) => (
+              <AnimatedSection key={servicio.slug} delay={i * 0.08}>
                 <Link
-                  href={`/services/${service.slug}`}
+                  href={`/es/servicios/${servicio.slug}`}
                   className="group flex flex-col rounded-xl border border-navy-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-bronze-200 hover:shadow-md"
                 >
                   <h3 className="text-base font-semibold text-navy-950 transition-colors group-hover:text-bronze-700">
-                    {traducido?.nombre || service.title}
+                    {servicio.titulo}
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-500">
-                    {traducido?.descripcion || service.description}
+                    {servicio.descripcion}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-bronze-600">
                     Ver detalles
@@ -139,8 +138,7 @@ export default function SpanishHomepage() {
                   </span>
                 </Link>
               </AnimatedSection>
-            );
-          })}
+          ))}
         </div>
       </SectionWrapper>
 
