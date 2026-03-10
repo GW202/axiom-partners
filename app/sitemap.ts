@@ -4,6 +4,7 @@ import { industries } from '@/content/industries';
 import { locations } from '@/content/locations';
 import { cityServicePages } from '@/content/city-services';
 import { getAllBlogPosts } from '@/lib/admin-articles';
+import { serviciosES } from '@/content/services-es';
 
 const SITE_URL = 'https://axiomfacilitypartners.com';
 
@@ -110,5 +111,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticPages, ...servicePages, ...industryPages, ...locationPages, ...cityServiceLandingPages, ...resourcesPages];
+  const spanishPages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/es`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/es/servicios`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    ...serviciosES.map((s) => ({
+      url: `${SITE_URL}/es/servicios/${s.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ];
+
+  return [...staticPages, ...servicePages, ...industryPages, ...locationPages, ...cityServiceLandingPages, ...resourcesPages, ...spanishPages];
 }

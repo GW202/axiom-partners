@@ -15,6 +15,7 @@ import {
   generateBreadcrumbSchema,
   generateSpeakableSchema,
   generateHowToSchema,
+  generateCleaningProcessHowToSchemas,
 } from '@/lib/structured-data';
 
 interface ServicePageProps {
@@ -91,6 +92,15 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           __html: JSON.stringify(generateHowToSchema(service)),
         }}
       />
+      {generateCleaningProcessHowToSchemas(service.slug).map((schema, i) => (
+        <script
+          key={`howto-process-${i}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
+      ))}
 
       <Hero
         title={service.title}

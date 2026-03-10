@@ -486,6 +486,192 @@ export function generateHowToSchema(service: {
   };
 }
 
+/* ------------------------------------------------------------------ */
+/*  Process-specific HowTo schemas for cleaning procedures             */
+/* ------------------------------------------------------------------ */
+
+export interface CleaningHowTo {
+  name: string;
+  description: string;
+  totalTime: string;
+  supplies: string[];
+  tools: string[];
+  steps: { name: string; text: string }[];
+  serviceSlug: string;
+}
+
+const cleaningHowTos: CleaningHowTo[] = [
+  {
+    name: 'How to Strip and Wax VCT Commercial Floors',
+    description:
+      'Step-by-step professional process for stripping old wax, cleaning, and applying new finish to vinyl composition tile (VCT) floors in commercial buildings.',
+    totalTime: 'PT4H',
+    supplies: [
+      'Chemical floor stripper (alkaline-based)',
+      'Floor finish / wax (multi-coat commercial grade)',
+      'Neutral pH floor cleaner',
+      'Clean water for rinse passes',
+    ],
+    tools: [
+      'Low-speed floor machine with stripping pad',
+      'Wet vacuum or auto scrubber',
+      'Mop and wringer bucket',
+      'Floor finish applicator / flat mop',
+      'Caution / wet floor signs',
+    ],
+    steps: [
+      { name: 'Clear and prepare the area', text: 'Remove all furniture, mats, and obstructions from the floor area. Post wet floor signage and block access to the work zone.' },
+      { name: 'Apply stripping solution', text: 'Dilute alkaline floor stripper per manufacturer instructions and apply generously to the floor using a mop, allowing 5-10 minutes of dwell time without letting it dry.' },
+      { name: 'Agitate with floor machine', text: 'Use a low-speed floor machine (175 RPM) fitted with a black stripping pad to agitate the solution and break down the old finish. Work in overlapping passes.' },
+      { name: 'Extract slurry', text: 'Use a wet vacuum or auto scrubber to pick up the dissolved finish slurry. Make multiple passes to ensure complete removal of all residue.' },
+      { name: 'Rinse the floor', text: 'Mop or auto-scrub the floor with clean, pH-neutral water to remove any remaining stripper residue. Allow the floor to dry completely.' },
+      { name: 'Apply first coat of finish', text: 'Apply a thin, even coat of commercial floor finish using a clean flat mop or finish applicator. Work from the farthest point toward the exit. Allow 30-45 minutes to dry.' },
+      { name: 'Apply additional coats', text: 'Apply 3-5 additional coats of floor finish, allowing full drying between each coat. Apply in alternating directions for even coverage and build.' },
+      { name: 'Inspect and restore access', text: 'Inspect the finished floor for evenness and coverage. Remove signage and restore furniture only after the final coat has fully cured (typically 1-2 hours).' },
+    ],
+    serviceSlug: 'floor-care-maintenance',
+  },
+  {
+    name: 'How to Deep Clean a Commercial Warehouse Floor',
+    description:
+      'Professional process for deep cleaning industrial warehouse concrete floors using ride-on scrubbing equipment to remove embedded grime, tire marks, and contaminants.',
+    totalTime: 'PT3H',
+    supplies: [
+      'Industrial degreaser / concrete cleaner',
+      'Clean water supply',
+      'Concrete densifier / sealer (optional)',
+    ],
+    tools: [
+      'Ride-on floor scrubber with aggressive pad or brush',
+      'Industrial floor sweeper',
+      'Pressure washer (for dock areas)',
+      'Wet vacuum for detail areas',
+      'PPE: non-slip boots, safety glasses',
+    ],
+    steps: [
+      { name: 'Pre-sweep the warehouse floor', text: 'Use an industrial ride-on sweeper to remove loose debris, dust, pallet fragments, and shrink wrap from the entire floor surface before wet cleaning.' },
+      { name: 'Pre-treat heavy stains', text: 'Apply industrial degreaser directly to oil stains, tire marks, and heavily soiled areas. Allow 10-15 minutes of dwell time for the chemical to break down contaminants.' },
+      { name: 'Scrub with ride-on equipment', text: 'Fill the ride-on scrubber with cleaning solution at the recommended dilution. Scrub the floor in systematic passes with 20% overlap, using aggressive pads for heavy soiling or standard pads for maintenance cleans.' },
+      { name: 'Address dock and transition areas', text: 'Use a pressure washer or detail scrubber for loading dock areas, floor drains, and transitions between zones that the ride-on equipment cannot reach.' },
+      { name: 'Final rinse pass', text: 'Run the scrubber with clean water only for a final rinse pass across the entire floor to remove any remaining cleaning solution residue.' },
+      { name: 'Inspect and document', text: 'Walk the floor to inspect for missed areas or persistent stains. Document the completed service with photos for the facility manager\'s maintenance records.' },
+    ],
+    serviceSlug: 'warehouse-facility-cleaning',
+  },
+  {
+    name: 'How to Perform Electrostatic Disinfection in an Office Building',
+    description:
+      'Step-by-step procedure for performing electrostatic spray disinfection of commercial office spaces using EPA-registered hospital-grade disinfectants with ATP verification.',
+    totalTime: 'PT2H',
+    supplies: [
+      'EPA-registered hospital-grade disinfectant',
+      'ATP testing swabs and luminometer',
+      'Microfiber cloths for detail wiping',
+    ],
+    tools: [
+      'Electrostatic sprayer (backpack or handheld)',
+      'ATP luminometer for verification testing',
+      'PPE: N95 respirator, nitrile gloves, safety glasses',
+      'Documentation tablet / checklist',
+    ],
+    steps: [
+      { name: 'Pre-clean surfaces', text: 'Wipe down visibly soiled high-touch surfaces (door handles, light switches, elevator buttons, desks) with microfiber cloths to remove dirt and organic matter that can reduce disinfectant efficacy.' },
+      { name: 'Conduct baseline ATP testing', text: 'Swab 5-10 high-touch surfaces and record baseline ATP readings on the luminometer. Document surface locations, readings, and timestamps for the compliance report.' },
+      { name: 'Prepare electrostatic sprayer', text: 'Fill the electrostatic sprayer tank with EPA-registered disinfectant at the manufacturer\'s recommended dilution ratio. Verify the sprayer\'s charge indicator is functioning properly.' },
+      { name: 'Apply disinfectant systematically', text: 'Spray disinfectant in a systematic pattern starting from the back of each room and working toward the exit. The electrostatic charge wraps the solution around surfaces for 360-degree coverage. Maintain 4-6 feet of distance from surfaces.' },
+      { name: 'Observe required dwell time', text: 'Allow the disinfectant to remain wet on surfaces for the full contact time specified on the product label (typically 2-10 minutes). Do not wipe surfaces during this period.' },
+      { name: 'Post-treatment ATP testing', text: 'After dwell time, swab the same surfaces tested at baseline and record post-treatment ATP readings. Document the percentage reduction in contamination levels.' },
+      { name: 'Generate compliance documentation', text: 'Complete the service report including product lot number, dilution ratio, dwell time observed, areas treated, and before/after ATP readings. Provide the report to the facility manager.' },
+    ],
+    serviceSlug: 'disinfection-protocols',
+  },
+  {
+    name: 'How to Maintain Polished Concrete Floors in Commercial Buildings',
+    description:
+      'Ongoing maintenance protocol for preserving the reflective finish, durability, and appearance of polished concrete floors in office buildings and modern commercial spaces.',
+    totalTime: 'PT1H30M',
+    supplies: [
+      'pH-neutral concrete floor cleaner',
+      'Concrete densifier (lithium silicate)',
+      'Polishing guard / surface protectant',
+      'Clean water',
+    ],
+    tools: [
+      'Microfiber dust mop (36-48 inch)',
+      'Auto scrubber with non-abrasive pad',
+      'High-speed burnisher (2000+ RPM)',
+      'Diamond polishing pads (3000 grit)',
+    ],
+    steps: [
+      { name: 'Daily dust mopping', text: 'Use a treated microfiber dust mop to remove fine dust, grit, and debris from the polished concrete surface. Grit left on the surface acts as an abrasive under foot traffic and accelerates finish degradation.' },
+      { name: 'Wet clean with pH-neutral solution', text: 'Auto-scrub the floor with a pH-neutral cleaner specifically formulated for polished concrete. Avoid acidic or alkaline cleaners that can etch the surface and dull the finish.' },
+      { name: 'Spot treat stains promptly', text: 'Address spills and stains immediately. For oil-based stains, apply a poultice or concrete-safe degreaser. For organic stains, use an enzymatic cleaner. Extended contact with contaminants can permanently stain polished concrete.' },
+      { name: 'Apply densifier periodically', text: 'Every 6-12 months, apply a lithium silicate densifier to re-harden the concrete surface. This fills microscopic pores, increases stain resistance, and restores surface hardness lost through daily wear.' },
+      { name: 'Burnish to restore reflectivity', text: 'Use a high-speed burnisher (2000+ RPM) with diamond-impregnated polishing pads (3000 grit) to restore the floor\'s reflective finish. Burnishing closes the surface and brings back the high-gloss appearance.' },
+      { name: 'Apply guard product', text: 'Apply a polished concrete guard / surface protectant to provide a sacrificial wear layer that protects the polished surface from staining and traffic wear between maintenance cycles.' },
+    ],
+    serviceSlug: 'floor-care-maintenance',
+  },
+  {
+    name: 'How to Set Up a Day Porter Program for a Commercial Building',
+    description:
+      'Process for establishing a professional day porter program including needs assessment, task scheduling, communication protocols, and quality assurance for multi-tenant office buildings.',
+    totalTime: 'PT3H',
+    supplies: [
+      'Restroom consumables inventory (paper, soap, liners)',
+      'Cleaning supplies (microfiber cloths, spray bottles, mop)',
+      'Spill response kit',
+    ],
+    tools: [
+      'Task checklist / digital task management system',
+      'Two-way radio or messaging system',
+      'Cleaning cart with organized supplies',
+      'Quality inspection forms',
+    ],
+    steps: [
+      { name: 'Conduct building walkthrough and needs assessment', text: 'Walk every floor with the property manager to identify high-traffic areas, restroom usage patterns, tenant density, common area requirements, and any special concerns. Document specific problem areas and priority zones.' },
+      { name: 'Design the task schedule', text: 'Build an hourly task rotation based on the walkthrough findings. Assign restroom checks, lobby sweeps, elevator cab cleaning, breakroom resets, and common area maintenance at intervals matching traffic patterns. Front-load morning hours for high-visibility areas.' },
+      { name: 'Establish communication protocols', text: 'Set up a direct communication channel between the day porter, property management, and tenants. Define how tenant requests are received, prioritized, and documented. Provide the porter with a two-way radio or mobile device for real-time coordination.' },
+      { name: 'Stock and position supplies', text: 'Set up a centralized supply closet with inventory for the porter\'s shift: restroom consumables, cleaning chemicals, microfiber cloths, spill kits, and replacement supplies. Ensure the cleaning cart is organized for efficient room-to-room transitions.' },
+      { name: 'Train on building-specific procedures', text: 'Train the assigned day porter on building-specific systems: alarm codes, elevator service mode, tenant-specific rules, restricted areas, emergency procedures, and communication with security staff.' },
+      { name: 'Implement quality assurance inspections', text: 'Schedule weekly supervisor inspections using standardized quality forms. Inspect restrooms, lobbies, elevators, and common areas against documented standards. Review findings with the porter and property manager, adjusting the task schedule as needed.' },
+    ],
+    serviceSlug: 'day-porter-services',
+  },
+];
+
+export function generateCleaningProcessHowToSchemas(serviceSlug: string) {
+  return cleaningHowTos
+    .filter((h) => h.serviceSlug === serviceSlug)
+    .map((howTo) => ({
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: howTo.name,
+      description: howTo.description,
+      totalTime: howTo.totalTime,
+      supply: howTo.supplies.map((s) => ({
+        '@type': 'HowToSupply',
+        name: s,
+      })),
+      tool: howTo.tools.map((t) => ({
+        '@type': 'HowToTool',
+        name: t,
+      })),
+      step: howTo.steps.map((step, i) => ({
+        '@type': 'HowToStep',
+        position: i + 1,
+        name: step.name,
+        text: step.text,
+        url: `${SITE_URL}/services/${serviceSlug}#process-${i + 1}`,
+      })),
+      performedBy: {
+        '@type': 'Organization',
+        name: ORG_NAME,
+        url: SITE_URL,
+      },
+    }));
+}
+
 export function generateCityServiceSchema(page: CityServicePage) {
   const config = getSiteConfig();
   return {
