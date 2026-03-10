@@ -21,13 +21,53 @@ const companyLinks = [
   { href: '/consultation', label: 'Request Consultation' },
 ];
 
-const locations = [
-  'Orlando', 'Winter Park', 'Maitland', 'Altamonte Springs',
-  'Lake Mary', 'Sanford', 'Oviedo', 'Kissimmee',
-  'Doctor Phillips', 'Lake Nona', 'Longwood', 'Casselberry',
-  'Tampa', 'Winter Garden', 'Windermere', 'Ocoee',
-  'Clermont', 'Apopka', 'Melbourne', 'Ocala',
-  'Lakeland', 'Daytona Beach',
+/* Geographic clusters for footer service area links */
+const geoClusters: { region: string; links: { href: string; label: string }[] }[] = [
+  {
+    region: 'Orlando Metro',
+    links: [
+      { href: '/orlando-commercial-cleaning', label: 'Orlando Commercial Cleaning' },
+      { href: '/orlando-office-cleaning', label: 'Orlando Office Cleaning' },
+      { href: '/orlando-warehouse-cleaning', label: 'Orlando Warehouse Cleaning' },
+      { href: '/orlando-day-porter-services', label: 'Orlando Day Porter' },
+      { href: '/orlando-floor-care-maintenance', label: 'Orlando Floor Care' },
+      { href: '/orlando-disinfection-protocols', label: 'Orlando Disinfection' },
+      { href: '/orlando-facilities-management', label: 'Orlando Facilities Mgmt' },
+    ],
+  },
+  {
+    region: 'North I-4 Corridor',
+    links: [
+      { href: '/winter-park-commercial-cleaning', label: 'Winter Park Cleaning' },
+      { href: '/winter-park-office-cleaning', label: 'Winter Park Office Cleaning' },
+      { href: '/maitland-commercial-cleaning', label: 'Maitland Cleaning' },
+      { href: '/altamonte-springs-commercial-cleaning', label: 'Altamonte Springs' },
+      { href: '/longwood-commercial-cleaning', label: 'Longwood Cleaning' },
+      { href: '/casselberry-commercial-cleaning', label: 'Casselberry Cleaning' },
+    ],
+  },
+  {
+    region: 'Seminole County',
+    links: [
+      { href: '/lake-mary-commercial-cleaning', label: 'Lake Mary Commercial' },
+      { href: '/lake-mary-office-cleaning', label: 'Lake Mary Office Cleaning' },
+      { href: '/sanford-commercial-cleaning', label: 'Sanford Cleaning' },
+      { href: '/sanford-warehouse-cleaning', label: 'Sanford Warehouse' },
+      { href: '/oviedo-commercial-cleaning', label: 'Oviedo Cleaning' },
+    ],
+  },
+  {
+    region: 'South Orlando & I-4 West',
+    links: [
+      { href: '/doctor-phillips-commercial-cleaning', label: 'Doctor Phillips' },
+      { href: '/lake-nona-commercial-cleaning', label: 'Lake Nona Cleaning' },
+      { href: '/kissimmee-commercial-cleaning', label: 'Kissimmee Cleaning' },
+      { href: '/kissimmee-warehouse-cleaning', label: 'Kissimmee Warehouse' },
+      { href: '/tampa-commercial-cleaning', label: 'Tampa Cleaning' },
+      { href: '/tampa-warehouse-cleaning', label: 'Tampa Warehouse' },
+      { href: '/lakeland-warehouse-cleaning', label: 'Lakeland Warehouse' },
+    ],
+  },
 ];
 
 export default function Footer() {
@@ -118,16 +158,29 @@ export default function Footer() {
               <span className="h-px w-4 bg-bronze-400/40" />
               Service Areas
             </p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {locations.map((loc) => (
-                <Link
-                  key={loc}
-                  href={`/locations/${loc.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="rounded-md border border-navy-800 bg-navy-900/50 px-2.5 py-1 text-xs text-navy-400 transition-colors duration-300 hover:border-bronze-400/30 hover:text-white"
-                >
-                  {loc}
-                </Link>
+            <div className="mt-5 space-y-5">
+              {geoClusters.map((cluster) => (
+                <div key={cluster.region}>
+                  <p className="mb-2 text-xs font-medium text-navy-300">{cluster.region}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {cluster.links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="rounded-md border border-navy-800 bg-navy-900/50 px-2 py-0.5 text-[11px] text-navy-400 transition-colors duration-300 hover:border-bronze-400/30 hover:text-white"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               ))}
+              <Link
+                href="/locations"
+                className="mt-2 inline-block text-xs font-medium text-bronze-400/80 transition-colors hover:text-bronze-300"
+              >
+                All locations &rarr;
+              </Link>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ import {
 } from '@/lib/structured-data';
 
 const stats = [
-  { value: '10+', label: 'Cities Served', detail: 'Across Central Florida' },
+  { value: '22', label: 'Cities Served', detail: 'Across Central Florida' },
   { value: '6', label: 'Core Services', detail: 'Facility maintenance solutions' },
   { value: '80%+', label: 'Coverage Target', detail: 'Quality assurance standard' },
   { value: '24/7', label: 'Availability', detail: 'Flexible scheduling' },
@@ -231,6 +231,74 @@ export default function Home() {
               </Link>
             </AnimatedSection>
           ))}
+        </div>
+      </SectionWrapper>
+
+      {/* Top Service Areas — City+Service Landing Pages */}
+      <SectionWrapper
+        heading="Top Service Areas"
+        subtitle="Professional commercial cleaning and facility maintenance across Central Florida's key markets."
+        dark
+      >
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { href: '/orlando-commercial-cleaning', label: 'Orlando Commercial Cleaning' },
+            { href: '/orlando-office-cleaning', label: 'Orlando Office Cleaning' },
+            { href: '/orlando-warehouse-cleaning', label: 'Orlando Warehouse Cleaning' },
+            { href: '/orlando-day-porter-services', label: 'Orlando Day Porter Services' },
+            { href: '/winter-park-commercial-cleaning', label: 'Winter Park Commercial Cleaning' },
+            { href: '/winter-park-office-cleaning', label: 'Winter Park Office Cleaning' },
+            { href: '/maitland-commercial-cleaning', label: 'Maitland Commercial Cleaning' },
+            { href: '/lake-mary-commercial-cleaning', label: 'Lake Mary Commercial Cleaning' },
+            { href: '/lake-mary-office-cleaning', label: 'Lake Mary Office Cleaning' },
+            { href: '/altamonte-springs-commercial-cleaning', label: 'Altamonte Springs Cleaning' },
+            { href: '/sanford-warehouse-cleaning', label: 'Sanford Warehouse Cleaning' },
+            { href: '/tampa-commercial-cleaning', label: 'Tampa Commercial Cleaning' },
+            { href: '/tampa-warehouse-cleaning', label: 'Tampa Warehouse Cleaning' },
+            { href: '/lakeland-warehouse-cleaning', label: 'Lakeland Warehouse Cleaning' },
+            { href: '/lake-nona-commercial-cleaning', label: 'Lake Nona Commercial Cleaning' },
+            { href: '/doctor-phillips-commercial-cleaning', label: 'Doctor Phillips Cleaning' },
+            { href: '/kissimmee-commercial-cleaning', label: 'Kissimmee Commercial Cleaning' },
+            { href: '/melbourne-commercial-cleaning', label: 'Melbourne Commercial Cleaning' },
+          ].map((area, i) => (
+            <AnimatedSection key={area.href} delay={i * 0.03}>
+              <Link
+                href={area.href}
+                className="group flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.03] px-4 py-3 text-sm text-navy-200 transition-all duration-300 hover:border-bronze-400/20 hover:bg-white/[0.06] hover:text-white"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="h-4 w-4 flex-shrink-0 text-bronze-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+                {area.label}
+                <svg
+                  aria-hidden="true"
+                  className="ml-auto h-3.5 w-3.5 text-navy-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-bronze-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </AnimatedSection>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="/locations"
+            className="text-sm font-medium text-bronze-400 transition-colors hover:text-bronze-300"
+          >
+            View all service locations &rarr;
+          </Link>
         </div>
       </SectionWrapper>
 
