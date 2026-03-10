@@ -68,6 +68,10 @@ export function generatePageMetadata({
     },
     alternates: {
       canonical: url,
+      languages: {
+        'en-US': url,
+        'x-default': url,
+      },
     },
   };
 }

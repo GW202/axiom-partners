@@ -112,11 +112,13 @@ body {
   );
 }
 
-/* Glass morphism card */
+/* Glass morphism card — GPU-promoted for smooth compositing */
 .glass-card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  transform: translateZ(0);
+  will-change: backdrop-filter;
 }
 
 /* Premium text gradient */
@@ -125,4 +127,31 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ── Performance: Reduce motion for users who prefer it ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn-shimmer {
+    animation: none;
+  }
+
+  .pulse-glow {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* ── Performance: Content-visibility for off-screen sections ── */
+section:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
