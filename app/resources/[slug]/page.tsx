@@ -183,7 +183,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           dark
         >
           <div className="mx-auto max-w-3xl">
-            <FAQAccordion faqs={post.faqs} />
+            <FAQAccordion faqs={post.faqs} dark />
           </div>
         </SectionWrapper>
       )}
