@@ -23,8 +23,11 @@ export function generatePageMetadata({
 }): Metadata {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
   const url = `${SITE_URL}${path}`;
-  const image = ogImage || DEFAULT_OG_IMAGE;
-  const imageAlt = ogImageAlt || 'Axiom Facility Partners — Premium Commercial Facility Maintenance';
+  const dynamicOgUrl = title
+    ? `${SITE_URL}/api/og?title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(description || '')}`
+    : undefined;
+  const image = ogImage || dynamicOgUrl || DEFAULT_OG_IMAGE;
+  const imageAlt = ogImageAlt || `${title || SITE_NAME} — Commercial Cleaning & Facility Maintenance`;
 
   return {
     title: fullTitle,
