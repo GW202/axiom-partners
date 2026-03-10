@@ -79,8 +79,8 @@ export default function Home() {
 
       <Hero
         title="Your Facility. Our Standard."
-        subtitle="Axiom Facility Partners delivers premium commercial maintenance designed to protect your building assets, ensure operational continuity, and elevate your facility standards across Central Florida."
-        badge="Central Florida's Premier Facility Partner"
+        subtitle="Axiom Facility Partners is a commercial cleaning service and janitorial company in Orlando, Florida. We deliver premium facility maintenance designed to protect your building assets, ensure operational continuity, and elevate your facility standards across Central Florida."
+        badge="Commercial Cleaning & Janitorial Service — Orlando, FL"
       />
 
       {/* Stats Bar */}

@@ -16,15 +16,15 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="divide-y divide-navy-100/80">
+    <div className="divide-y divide-navy-100/80" itemScope itemType="https://schema.org/FAQPage">
       {faqs.map((faq, index) => (
-        <div key={index} className="group">
+        <div key={index} className="group" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             aria-expanded={openIndex === index}
             className="flex w-full items-center justify-between py-6 text-left transition-colors"
           >
-            <span className="pr-6 text-base font-semibold text-navy-950 transition-colors duration-300 group-hover:text-bronze-600">
+            <span itemProp="name" className="pr-6 text-base font-semibold text-navy-950 transition-colors duration-300 group-hover:text-bronze-600">
               {faq.question}
             </span>
             <span
@@ -57,9 +57,9 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="overflow-hidden"
               >
-                <div className="pb-6 pl-0 pr-12">
+                <div className="pb-6 pl-0 pr-12" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
                   <div className="rounded-lg border border-navy-50 bg-navy-50/30 p-4">
-                    <p className="text-sm leading-relaxed text-navy-600">
+                    <p itemProp="text" data-answer="" className="text-sm leading-relaxed text-navy-600">
                       {faq.answer}
                     </p>
                   </div>

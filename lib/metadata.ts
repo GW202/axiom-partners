@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 const SITE_NAME = 'Axiom Facility Partners';
 const SITE_URL = 'https://axiomfacilitypartners.com';
 const DEFAULT_DESCRIPTION =
-  'Premium commercial facility maintenance for office buildings, warehouses, and commercial properties in Central Florida. Protecting your facility assets with operational excellence.';
+  'Axiom Facility Partners is a commercial cleaning service and janitorial company in Orlando, FL. Office building cleaning, warehouse cleaning, facilities management, day porter services, floor care, and disinfection for commercial properties across Central Florida.';
 const DEFAULT_OG_IMAGE = '/og-image.jpg';
 
 export function generatePageMetadata({
@@ -30,11 +30,15 @@ export function generatePageMetadata({
     title: fullTitle,
     description,
     keywords: keywords ?? [
-      'commercial facility maintenance',
+      'commercial cleaning service',
+      'janitorial service',
       'office building cleaning',
+      'commercial facility maintenance',
       'Central Florida',
+      'Orlando FL',
       'facility management',
-      'janitorial services',
+      'janitorial company',
+      'building maintenance',
       'Axiom Facility Partners',
     ],
     openGraph: {
