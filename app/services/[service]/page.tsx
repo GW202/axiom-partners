@@ -6,6 +6,7 @@ import FAQAccordion from '@/components/ui/FAQAccordion';
 import CTASection from '@/components/sections/CTASection';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { services } from '@/content/services';
+import { industries } from '@/content/industries';
 import { cityServicePages } from '@/content/city-services';
 import { generatePageMetadata } from '@/lib/metadata';
 import {
@@ -13,6 +14,7 @@ import {
   generateFAQSchema,
   generateBreadcrumbSchema,
   generateSpeakableSchema,
+  generateHowToSchema,
 } from '@/lib/structured-data';
 
 interface ServicePageProps {
@@ -81,6 +83,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           __html: JSON.stringify(
             generateSpeakableSchema(`/services/${service.slug}`)
           ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateHowToSchema(service)),
         }}
       />
 
@@ -162,6 +170,68 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </SectionWrapper>
 
+      {/* Industries That Use This Service */}
+      {(() => {
+        const relatedIndustries = industries.filter((ind) =>
+          ind.services.includes(service.slug)
+        );
+        if (relatedIndustries.length === 0) return null;
+        return (
+          <SectionWrapper
+            heading="Industries We Serve"
+            subtitle={`See how ${service.title.toLowerCase()} applies to specific industries.`}
+            dark
+          >
+            <div className="grid gap-4 md:grid-cols-2">
+              {relatedIndustries.map((ind, i) => (
+                <AnimatedSection key={ind.slug} delay={i * 0.08}>
+                  <Link
+                    href={`/industries/${ind.slug}`}
+                    className="glass-card group flex flex-col rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.04]"
+                  >
+                    <h3 className="text-lg font-semibold text-white transition-colors group-hover:text-bronze-400">
+                      {ind.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-navy-300">
+                      {ind.description}
+                    </p>
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
+          </SectionWrapper>
+        );
+      })()}
+
+      {/* Related Services */}
+      {(() => {
+        const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+        return (
+          <SectionWrapper
+            heading="Other Services"
+            subtitle="Explore our full range of commercial facility maintenance programs."
+          >
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {otherServices.map((s, i) => (
+                <AnimatedSection key={s.slug} delay={i * 0.08}>
+                  <Link
+                    href={`/services/${s.slug}`}
+                    className="group flex flex-col rounded-xl border border-navy-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-bronze-200 hover:shadow-md"
+                  >
+                    <h3 className="text-base font-semibold text-navy-950 transition-colors group-hover:text-bronze-700">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-navy-500">
+                      {s.description}
+                    </p>
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
+          </SectionWrapper>
+        );
+      })()}
+
       {/* City-Specific Service Pages */}
       {(() => {
         const cityPages = cityServicePages.filter(
@@ -172,13 +242,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <SectionWrapper
             heading={`${service.title} by City`}
             subtitle={`Find ${service.title.toLowerCase()} services in your area.`}
+            dark
           >
             <div className="flex flex-wrap gap-3">
               {cityPages.map((page) => (
                 <Link
                   key={page.slug}
                   href={`/${page.slug}`}
-                  className="rounded-lg border border-navy-200 bg-white px-4 py-2.5 text-sm font-medium text-navy-700 shadow-sm transition-all duration-200 hover:border-bronze-300 hover:text-bronze-700 hover:shadow-md"
+                  className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-navy-200 backdrop-blur-sm transition-all duration-200 hover:border-bronze-400/30 hover:text-white"
                 >
                   {page.service} in {page.city}
                 </Link>

@@ -4,8 +4,10 @@ import SectionWrapper from '@/components/sections/SectionWrapper';
 import ServiceCard from '@/components/ui/ServiceCard';
 import CTASection from '@/components/sections/CTASection';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import Link from 'next/link';
 import { industries } from '@/content/industries';
 import { services } from '@/content/services';
+import { locations } from '@/content/locations';
 import { generatePageMetadata } from '@/lib/metadata';
 import {
   generateBreadcrumbSchema,
@@ -144,6 +146,33 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
           ))}
         </div>
       </SectionWrapper>
+
+      {/* Service Areas for This Industry */}
+      {(() => {
+        const industryLocations = locations.filter((loc) =>
+          loc.industries.includes(industry.slug)
+        ).slice(0, 8);
+        if (industryLocations.length === 0) return null;
+        return (
+          <SectionWrapper
+            heading="Service Areas"
+            subtitle={`We provide ${industry.title.toLowerCase()} maintenance in these Central Florida locations.`}
+            dark
+          >
+            <div className="flex flex-wrap gap-3">
+              {industryLocations.map((loc) => (
+                <Link
+                  key={loc.slug}
+                  href={`/locations/${loc.slug}`}
+                  className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-navy-200 backdrop-blur-sm transition-all duration-200 hover:border-bronze-400/30 hover:text-white"
+                >
+                  {loc.name}, {loc.state === 'Florida' ? 'FL' : loc.state}
+                </Link>
+              ))}
+            </div>
+          </SectionWrapper>
+        );
+      })()}
 
       <CTASection />
     </>

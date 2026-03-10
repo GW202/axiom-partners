@@ -9,6 +9,9 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://axiomfacilitypartners.com/sitemap.xml',
+    sitemap: [
+      'https://axiomfacilitypartners.com/sitemap.xml',
+      'https://axiomfacilitypartners.com/image-sitemap.xml',
+    ],
   };
 }

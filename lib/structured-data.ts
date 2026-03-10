@@ -451,6 +451,41 @@ export function generateReviewSchema() {
   };
 }
 
+export function generateHowToSchema(service: {
+  title: string;
+  slug: string;
+  protocols: string[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How Axiom Performs ${service.title}`,
+    description: `Step-by-step maintenance protocols for ${service.title.toLowerCase()} at commercial facilities, performed by Axiom Facility Partners.`,
+    url: `${SITE_URL}/services/${service.slug}`,
+    totalTime: 'PT2H',
+    supply: [
+      { '@type': 'HowToSupply', name: 'Commercial-grade cleaning equipment' },
+      { '@type': 'HowToSupply', name: 'EPA-registered cleaning solutions' },
+    ],
+    tool: [
+      { '@type': 'HowToTool', name: 'Quality inspection checklist' },
+      { '@type': 'HowToTool', name: 'Digital reporting system' },
+    ],
+    step: service.protocols.map((protocol, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: `Step ${i + 1}`,
+      text: protocol,
+      url: `${SITE_URL}/services/${service.slug}#step-${i + 1}`,
+    })),
+    performedBy: {
+      '@type': 'Organization',
+      name: ORG_NAME,
+      url: SITE_URL,
+    },
+  };
+}
+
 export function generateCityServiceSchema(page: CityServicePage) {
   const config = getSiteConfig();
   return {
