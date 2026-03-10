@@ -96,7 +96,7 @@ export default function ConsultationPage() {
             <div className="overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/worker-cleaning.jpg"
-                alt="Axiom Facility Partners professional cleaning a commercial office desk surface with professional-grade disinfectant"
+                alt="Axiom Facility Partners professional cleaning a Central Florida commercial office desk surface with professional-grade disinfectant"
                 width={800}
                 height={1200}
                 className="h-full w-full object-cover"

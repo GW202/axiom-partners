@@ -107,7 +107,7 @@ export default function Home() {
         <AnimatedSection>
           <Image
             src="/hero-lobby.jpg"
-            alt="Axiom Facility Partners — premium commercial facility maintenance in a luxury building lobby"
+            alt="Axiom Facility Partners — premium commercial facility maintenance in a Central Florida luxury building lobby"
             width={1536}
             height={1024}
             className="h-[28rem] w-full object-cover object-center lg:h-[36rem]"

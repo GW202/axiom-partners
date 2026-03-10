@@ -66,7 +66,7 @@ export default function AboutPage() {
           <div className="overflow-hidden rounded-2xl shadow-xl">
             <Image
               src="/team-photo.jpg"
-              alt="The Axiom Facility Partners team — professional commercial cleaning crew in branded navy uniforms with equipment, standing in a luxury building lobby"
+              alt="The Axiom Facility Partners team — professional commercial cleaning crew in branded navy uniforms with equipment at our Orlando, Florida facility"
               width={1400}
               height={933}
               className="w-full object-cover"

@@ -75,7 +75,7 @@ export default function ServicesPage() {
           <div className="overflow-hidden rounded-2xl shadow-2xl">
             <Image
               src="/team-action.jpg"
-              alt="Axiom Facility Partners team in action — commercial cleaning professionals performing surface disinfection, floor vacuuming, and conference table sanitization in a premium office environment"
+              alt="Axiom Facility Partners team in action — Orlando commercial cleaning professionals performing surface disinfection, floor vacuuming, and conference table sanitization in a Central Florida office"
               width={1400}
               height={933}
               className="w-full object-cover"
