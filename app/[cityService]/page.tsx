@@ -202,7 +202,7 @@ export default async function CityServiceLandingPage({
       >
         <div className="mx-auto max-w-3xl">
           <div className="rounded-xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm lg:p-10">
-            <FAQAccordion faqs={page.faqs} />
+            <FAQAccordion faqs={page.faqs} dark />
           </div>
         </div>
       </SectionWrapper>

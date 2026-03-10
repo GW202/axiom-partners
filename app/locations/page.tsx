@@ -8,17 +8,20 @@ import { generateBreadcrumbSchema } from '@/lib/structured-data';
 import Link from 'next/link';
 
 export const metadata = generatePageMetadata({
-  title: 'Service Areas',
+  title: 'Service Areas | Commercial Cleaning Locations in Central Florida',
   description:
-    'Axiom Facility Partners provides commercial facility maintenance across Central Florida including Orlando, Lake Mary, Sanford, Winter Park, and Tampa.',
+    'Axiom Facility Partners provides commercial cleaning and janitorial services across Central Florida — Orlando, Tampa, Lake Mary, Sanford, Winter Park, Kissimmee, Melbourne, and 15+ cities. Find commercial cleaning near you.',
   path: '/locations',
   keywords: [
-    'Central Florida commercial cleaning',
-    'Orlando facility maintenance',
-    'Tampa facility maintenance',
+    'commercial cleaning service near me',
+    'janitorial service Central Florida',
+    'Orlando commercial cleaning',
+    'Tampa commercial cleaning',
     'Winter Park cleaning services',
     'Lake Mary janitorial services',
-    'Sanford warehouse cleaning',
+    'Central Florida janitorial company',
+    'commercial cleaning company near me',
+    'Axiom Facility Partners locations',
   ],
 });
 
@@ -38,9 +41,9 @@ export default function LocationsPage() {
       />
 
       <Hero
-        title="Service Areas"
-        subtitle="Premium commercial facility maintenance across Central Florida. We serve Orlando and the surrounding metro area with the same standard of excellence at every location."
-        badge="Where We Operate"
+        title="Commercial Cleaning Service Areas"
+        subtitle="Axiom Facility Partners provides commercial cleaning and janitorial services across 20+ cities in Central Florida — from Orlando and Tampa to Melbourne and Ocala. Find our commercial cleaning services in your area."
+        badge="Commercial Cleaning — Central Florida"
       />
 
       <SectionWrapper

@@ -9,19 +9,21 @@ import { generatePageMetadata } from '@/lib/metadata';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata = generatePageMetadata({
-  title: 'Our Services',
+  title: 'Commercial Cleaning Services | Janitorial & Facility Maintenance',
   description:
-    'Comprehensive commercial facility maintenance services including office cleaning, warehouse cleaning, day porter services, floor care, and disinfection protocols.',
+    'Axiom Facility Partners provides commercial cleaning services in Orlando & Central Florida: office building cleaning, warehouse cleaning, janitorial services, day porter, floor care maintenance, and disinfection protocols. Call (407) 342-3195.',
   path: '/services',
   keywords: [
-    'commercial cleaning services',
+    'commercial cleaning services Orlando',
+    'janitorial services Central Florida',
+    'office building cleaning',
+    'warehouse cleaning service',
+    'day porter services',
+    'floor care maintenance',
+    'disinfection protocols',
     'facility maintenance services',
-    'office cleaning',
-    'warehouse cleaning',
-    'day porter',
-    'floor care',
-    'disinfection',
-    'Central Florida',
+    'commercial cleaning company Orlando FL',
+    'Axiom Facility Partners',
   ],
   ogImage: '/team-action.jpg',
   ogImageAlt: 'Axiom Facility Partners team performing commercial cleaning services — surface disinfection, vacuuming, and sanitization',
@@ -43,9 +45,9 @@ export default function ServicesPage() {
       />
 
       <Hero
-        title="Our Services"
-        subtitle="Comprehensive facility maintenance programs built for commercial operations that demand reliability, precision, and asset protection."
-        badge="What We Do"
+        title="Commercial Cleaning & Janitorial Services"
+        subtitle="Axiom Facility Partners provides comprehensive commercial cleaning and janitorial services for office buildings, warehouses, and commercial properties across Orlando and Central Florida. Every program is tailored to your facility's specific requirements."
+        badge="Commercial Cleaning Services — Orlando, FL"
       />
 
       <SectionWrapper

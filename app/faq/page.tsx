@@ -10,12 +10,20 @@ import {
 } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
-  title: 'FAQ — Frequently Asked Questions',
+  title: 'FAQ | Commercial Cleaning & Janitorial Service Questions',
   description:
-    'Get answers to common questions about Axiom Facility Partners — pricing models, staff vetting, quality assurance, emergency response, sustainability, and technology-driven commercial facility maintenance in Central Florida.',
+    'Frequently asked questions about Axiom Facility Partners — commercial cleaning service pricing, janitorial staff vetting, quality assurance, emergency response, sustainability, and facility maintenance in Orlando & Central Florida.',
   alternates: {
     canonical: 'https://axiomfacilitypartners.com/faq',
   },
+  keywords: [
+    'commercial cleaning FAQ',
+    'janitorial service questions',
+    'facility maintenance pricing',
+    'commercial cleaning cost',
+    'janitorial company Orlando',
+    'Axiom Facility Partners FAQ',
+  ],
 };
 
 export default function FAQPage() {

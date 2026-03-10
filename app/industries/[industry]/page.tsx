@@ -25,12 +25,15 @@ export async function generateMetadata({ params }: IndustryPageProps) {
   const industry = industries.find((i) => i.slug === slug);
   if (!industry) return {};
   return generatePageMetadata({
-    title: industry.title,
-    description: industry.description,
+    title: `${industry.title} Cleaning & Facility Maintenance | Orlando, FL`,
+    description: `Commercial cleaning and facility maintenance for ${industry.title.toLowerCase()} in Orlando & Central Florida. ${industry.description} Axiom Facility Partners — call (407) 342-3195.`,
     path: `/industries/${industry.slug}`,
     keywords: [
+      `${industry.title.toLowerCase()} cleaning service`,
       `${industry.title.toLowerCase()} facility maintenance`,
-      `${industry.title.toLowerCase()} cleaning`,
+      `${industry.title.toLowerCase()} janitorial service`,
+      `${industry.title.toLowerCase()} cleaning Orlando`,
+      'commercial cleaning service',
       'commercial facility maintenance',
       'Central Florida',
       'Axiom Facility Partners',
@@ -71,14 +74,14 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
       />
 
       <Hero
-        title={industry.title}
+        title={`${industry.title} Cleaning & Maintenance`}
         subtitle={industry.description}
-        badge="Industry Expertise"
+        badge={`${industry.title} — Commercial Cleaning`}
       />
 
       {/* Overview */}
       <SectionWrapper heading="Industry Overview">
-        <div className="max-w-3xl space-y-5">
+        <div className="max-w-3xl space-y-5" data-speakable>
           {industry.longDescription.map((paragraph, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
               <p className="text-base leading-relaxed text-navy-600">
