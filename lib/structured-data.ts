@@ -1,4 +1,5 @@
 import type { FAQ } from '@/content/services';
+import type { CityServicePage } from '@/content/city-services';
 import { getSiteConfig } from '@/lib/site-config';
 
 const SITE_URL = 'https://axiomfacilitypartners.com';
@@ -48,6 +49,7 @@ export function generateLocalBusinessSchema() {
     image: `${SITE_URL}/team-photo.jpg`,
     logo: `${SITE_URL}/logo.png`,
     telephone: config.phoneRaw,
+    email: config.email,
     priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
@@ -57,18 +59,41 @@ export function generateLocalBusinessSchema() {
       postalCode: config.postalCode,
       addressCountry: config.country,
     },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: config.phoneRaw,
+      email: config.email,
+      contactType: 'customer service',
+      areaServed: 'US',
+      availableLanguage: ['English', 'Spanish'],
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '07:00',
+        closes: '18:00',
+      },
+    ],
     areaServed: [
       { '@type': 'City', name: 'Orlando' },
+      { '@type': 'City', name: 'Winter Park' },
+      { '@type': 'City', name: 'Maitland' },
+      { '@type': 'City', name: 'Altamonte Springs' },
       { '@type': 'City', name: 'Lake Mary' },
       { '@type': 'City', name: 'Sanford' },
-      { '@type': 'City', name: 'Winter Park' },
+      { '@type': 'City', name: 'Oviedo' },
+      { '@type': 'City', name: 'Kissimmee' },
+      { '@type': 'City', name: 'Doctor Phillips' },
+      { '@type': 'City', name: 'Lake Nona' },
+      { '@type': 'City', name: 'Longwood' },
+      { '@type': 'City', name: 'Casselberry' },
       { '@type': 'City', name: 'Tampa' },
       { '@type': 'City', name: 'Winter Garden' },
       { '@type': 'City', name: 'Windermere' },
       { '@type': 'City', name: 'Ocoee' },
       { '@type': 'City', name: 'Clermont' },
       { '@type': 'City', name: 'Apopka' },
-      { '@type': 'City', name: 'Kissimmee' },
       { '@type': 'City', name: 'Melbourne' },
       { '@type': 'City', name: 'Ocala' },
       { '@type': 'City', name: 'Lakeland' },
@@ -260,5 +285,41 @@ export function generateReviewSchema() {
           'In healthcare, clean is a regulation. Axiom treats disinfection like it matters. Their team flagged a cross-contamination risk we had been living with for months.',
       },
     ],
+  };
+}
+
+export function generateCityServiceSchema(page: CityServicePage) {
+  const config = getSiteConfig();
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `${page.service} in ${page.city}, ${page.state}`,
+    description: page.metaDescription,
+    url: `${SITE_URL}/${page.slug}`,
+    image: `${SITE_URL}/team-action.jpg`,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: config.companyName,
+      telephone: config.phoneRaw,
+      email: config.email,
+      url: SITE_URL,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: config.streetAddress,
+        addressLocality: config.city,
+        addressRegion: config.state,
+        postalCode: config.postalCode,
+        addressCountry: config.country,
+      },
+    },
+    areaServed: {
+      '@type': 'City',
+      name: page.city,
+      containedInPlace: {
+        '@type': 'State',
+        name: 'Florida',
+      },
+    },
+    serviceType: page.service,
   };
 }

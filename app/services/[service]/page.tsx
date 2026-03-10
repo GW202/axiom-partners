@@ -1,10 +1,12 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import CTASection from '@/components/sections/CTASection';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { services } from '@/content/services';
+import { cityServicePages } from '@/content/city-services';
 import { generatePageMetadata } from '@/lib/metadata';
 import {
   generateServiceSchema,
@@ -156,6 +158,32 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <FAQAccordion faqs={service.faqs} />
         </div>
       </SectionWrapper>
+
+      {/* City-Specific Service Pages */}
+      {(() => {
+        const cityPages = cityServicePages.filter(
+          (p) => p.serviceSlug === service.slug
+        );
+        if (cityPages.length === 0) return null;
+        return (
+          <SectionWrapper
+            heading={`${service.title} by City`}
+            subtitle={`Find ${service.title.toLowerCase()} services in your area.`}
+          >
+            <div className="flex flex-wrap gap-3">
+              {cityPages.map((page) => (
+                <Link
+                  key={page.slug}
+                  href={`/${page.slug}`}
+                  className="rounded-lg border border-navy-200 bg-white px-4 py-2.5 text-sm font-medium text-navy-700 shadow-sm transition-all duration-200 hover:border-bronze-300 hover:text-bronze-700 hover:shadow-md"
+                >
+                  {page.service} in {page.city}
+                </Link>
+              ))}
+            </div>
+          </SectionWrapper>
+        );
+      })()}
 
       <CTASection />
     </>

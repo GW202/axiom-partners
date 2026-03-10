@@ -195,6 +195,133 @@ export const locations: Location[] = [
     ],
   },
   {
+    slug: 'maitland',
+    name: 'Maitland',
+    state: 'Florida',
+    description:
+      'Maitland\'s Maitland Center business park and surrounding corridors house some of Central Florida\'s most prominent corporate offices, financial firms, and professional services companies. Axiom Facility Partners delivers premium facility maintenance tailored to Maitland\'s Class A office environments and executive suites.',
+    services: [
+      'office-building-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'corporate-offices',
+      'commercial-property-management',
+      'medical-offices',
+    ],
+  },
+  {
+    slug: 'altamonte-springs',
+    name: 'Altamonte Springs',
+    state: 'Florida',
+    description:
+      'Altamonte Springs is a thriving commercial hub along the I-4 corridor with a strong mix of corporate offices, medical facilities, and retail centers concentrated around Altamonte Mall and the Cranes Roost district. Axiom Facility Partners provides comprehensive facility maintenance for Altamonte Springs\' diverse commercial properties.',
+    services: [
+      'office-building-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'corporate-offices',
+      'commercial-property-management',
+      'medical-offices',
+    ],
+  },
+  {
+    slug: 'oviedo',
+    name: 'Oviedo',
+    state: 'Florida',
+    description:
+      'Oviedo\'s rapidly expanding commercial landscape includes modern office developments, medical centers, and retail properties serving the growing east Seminole County corridor. Axiom Facility Partners brings professional facility maintenance to Oviedo\'s new-build commercial spaces and established business parks.',
+    services: [
+      'office-building-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'corporate-offices',
+      'commercial-property-management',
+      'medical-offices',
+    ],
+  },
+  {
+    slug: 'doctor-phillips',
+    name: 'Doctor Phillips',
+    state: 'Florida',
+    description:
+      'Doctor Phillips is one of Orlando\'s most affluent commercial and professional districts, home to premium office buildings, medical practices, and high-end retail spaces along Sand Lake Road and the Restaurant Row corridor. Axiom Facility Partners delivers the elevated maintenance standards that Doctor Phillips businesses demand.',
+    services: [
+      'office-building-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'corporate-offices',
+      'medical-offices',
+      'commercial-property-management',
+    ],
+  },
+  {
+    slug: 'lake-nona',
+    name: 'Lake Nona',
+    state: 'Florida',
+    description:
+      'Lake Nona is Central Florida\'s fastest-growing planned community and innovation hub, anchored by Medical City and the USTA National Campus. The area\'s cutting-edge office buildings, medical facilities, and technology campuses require the advanced facility maintenance programs Axiom Facility Partners delivers.',
+    services: [
+      'office-building-cleaning',
+      'facilities-management',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'corporate-offices',
+      'medical-offices',
+      'commercial-property-management',
+    ],
+  },
+  {
+    slug: 'longwood',
+    name: 'Longwood',
+    state: 'Florida',
+    description:
+      'Longwood\'s commercial corridor along State Road 434 and the I-4 interchange supports a healthy mix of professional offices, medical facilities, and industrial properties. Axiom Facility Partners provides reliable facility maintenance programs for Longwood\'s established business community.',
+    services: [
+      'office-building-cleaning',
+      'warehouse-facility-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+    ],
+    industries: [
+      'corporate-offices',
+      'logistics-warehouses',
+      'commercial-property-management',
+    ],
+  },
+  {
+    slug: 'casselberry',
+    name: 'Casselberry',
+    state: 'Florida',
+    description:
+      'Casselberry\'s central Seminole County location makes it a convenient commercial hub with office parks, medical offices, and light industrial properties along the US-17/92 corridor. Axiom Facility Partners serves Casselberry\'s commercial facilities with consistent, professional maintenance programs.',
+    services: [
+      'office-building-cleaning',
+      'day-porter-services',
+      'floor-care-maintenance',
+      'disinfection-protocols',
+    ],
+    industries: [
+      'corporate-offices',
+      'commercial-property-management',
+      'medical-offices',
+    ],
+  },
+  {
     slug: 'kissimmee',
     name: 'Kissimmee',
     state: 'Florida',

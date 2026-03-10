@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
 import SectionWrapper from '@/components/sections/SectionWrapper';
 import ServiceCard from '@/components/ui/ServiceCard';
@@ -7,6 +8,7 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 import { locations } from '@/content/locations';
 import { services } from '@/content/services';
 import { industries } from '@/content/industries';
+import { cityServicePages } from '@/content/city-services';
 import { generatePageMetadata } from '@/lib/metadata';
 import {
   generateLocalBusinessSchemaForCity,
@@ -131,6 +133,58 @@ export default async function CityDetailPage({ params }: CityPageProps) {
           ))}
         </div>
       </SectionWrapper>
+
+      {/* City+Service Landing Pages */}
+      {(() => {
+        const cityLandingPages = cityServicePages.filter(
+          (p) => p.citySlug === location.slug
+        );
+        if (cityLandingPages.length === 0) return null;
+        return (
+          <SectionWrapper
+            heading={`${location.name} Service Pages`}
+            subtitle={`Explore detailed information about each service we provide in ${location.name}.`}
+          >
+            <div className="flex flex-wrap gap-3">
+              {cityLandingPages.map((page) => (
+                <Link
+                  key={page.slug}
+                  href={`/${page.slug}`}
+                  className="rounded-lg border border-navy-200 bg-white px-4 py-2.5 text-sm font-medium text-navy-700 shadow-sm transition-all duration-200 hover:border-bronze-300 hover:text-bronze-700 hover:shadow-md"
+                >
+                  {page.service} in {page.city}
+                </Link>
+              ))}
+            </div>
+          </SectionWrapper>
+        );
+      })()}
+
+      {/* Nearby Cities */}
+      {(() => {
+        const nearbyLocations = locations
+          .filter((l) => l.slug !== location.slug)
+          .slice(0, 6);
+        return (
+          <SectionWrapper
+            heading="Nearby Service Areas"
+            subtitle="Axiom Facility Partners serves the entire Central Florida metro."
+            dark
+          >
+            <div className="flex flex-wrap gap-3">
+              {nearbyLocations.map((loc) => (
+                <Link
+                  key={loc.slug}
+                  href={`/locations/${loc.slug}`}
+                  className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-navy-200 backdrop-blur-sm transition-all duration-200 hover:border-bronze-400/30 hover:text-white"
+                >
+                  {loc.name}, {loc.state === 'Florida' ? 'FL' : loc.state}
+                </Link>
+              ))}
+            </div>
+          </SectionWrapper>
+        );
+      })()}
 
       <CTASection />
     </>

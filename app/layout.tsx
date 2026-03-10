@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         url: '/hero-lobby.jpg',
         width: 1536,
         height: 1024,
-        alt: 'Axiom Facility Partners — premium commercial facility maintenance in a luxury building lobby',
+        alt: 'Axiom Facility Partners — premium commercial facility maintenance in a Central Florida luxury building lobby',
       },
     ],
   },
@@ -106,6 +106,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <meta name="theme-color" content="#0a1628" />
+        <meta name="geo.region" content="US-FL" />
+        <meta name="geo.placename" content="Orlando" />
+        <meta name="geo.position" content="28.5233;-81.3786" />
+        <meta name="ICBM" content="28.5233, -81.3786" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <script
           type="application/ld+json"
