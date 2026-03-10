@@ -12,9 +12,14 @@ export function generateOrganizationSchema() {
     '@type': 'Organization',
     name: config.companyName,
     description:
-      'Premium commercial facility maintenance company serving Central Florida. Specializing in office buildings, warehouses, and commercial properties.',
+      'Premium commercial facility maintenance company serving Central Florida. Specializing in office building cleaning, warehouse cleaning, janitorial services, facilities management, and commercial property maintenance.',
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/logo.png`,
+      width: 512,
+      height: 512,
+    },
     image: [
       `${SITE_URL}/hero-lobby.jpg`,
       `${SITE_URL}/team-photo.jpg`,
@@ -23,17 +28,51 @@ export function generateOrganizationSchema() {
     ],
     telephone: config.phoneRaw,
     email: config.email,
+    slogan: 'Your Facility. Our Standard.',
+    knowsAbout: [
+      'Commercial cleaning',
+      'Janitorial services',
+      'Office building cleaning',
+      'Warehouse facility cleaning',
+      'Facilities management',
+      'Day porter services',
+      'Floor care maintenance',
+      'Disinfection protocols',
+      'Commercial property maintenance',
+      'Building maintenance',
+    ],
     areaServed: {
       '@type': 'State',
       name: 'Florida',
+      containedInPlace: {
+        '@type': 'Country',
+        name: 'United States',
+      },
     },
-    serviceType: [
-      'Office Building Cleaning',
-      'Warehouse Facility Cleaning',
-      'Day Porter Services',
-      'Floor Care Maintenance',
-      'Disinfection Protocols',
-    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Commercial Facility Maintenance Services',
+      itemListElement: [
+        {
+          '@type': 'OfferCatalog',
+          name: 'Cleaning Services',
+          itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office Building Cleaning' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Warehouse Facility Cleaning' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Disinfection Protocols' } },
+          ],
+        },
+        {
+          '@type': 'OfferCatalog',
+          name: 'Facility Maintenance Services',
+          itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Facilities Management' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Day Porter Services' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Floor Care Maintenance' } },
+          ],
+        },
+      ],
+    },
   };
 }
 
@@ -41,16 +80,41 @@ export function generateLocalBusinessSchema() {
   const config = getSiteConfig();
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'ProfessionalService',
+    '@id': `${SITE_URL}/#localbusiness`,
+    additionalType: [
+      'https://schema.org/CleaningBusiness',
+      'https://schema.org/LocalBusiness',
+    ],
     name: config.companyName,
     description:
-      'Premium commercial facility maintenance serving Central Florida.',
+      'Axiom Facility Partners is a premium commercial cleaning service and janitorial company serving Central Florida. We provide office building cleaning, warehouse facility cleaning, facilities management, day porter services, floor care maintenance, and disinfection protocols for commercial properties in Orlando and surrounding cities.',
     url: SITE_URL,
-    image: `${SITE_URL}/team-photo.jpg`,
-    logo: `${SITE_URL}/logo.png`,
+    image: [
+      `${SITE_URL}/team-photo.jpg`,
+      `${SITE_URL}/hero-lobby.jpg`,
+      `${SITE_URL}/team-action.jpg`,
+    ],
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/logo.png`,
+      width: 512,
+      height: 512,
+    },
     telephone: config.phoneRaw,
     email: config.email,
     priceRange: '$$$$',
+    currenciesAccepted: 'USD',
+    paymentAccepted: 'Cash, Credit Card, Invoice',
+    slogan: 'Your Facility. Our Standard.',
+    knowsAbout: [
+      'Commercial cleaning',
+      'Janitorial services',
+      'Facilities management',
+      'Building maintenance',
+      'Floor care',
+      'Disinfection',
+    ],
     address: {
       '@type': 'PostalAddress',
       streetAddress: config.streetAddress,
@@ -59,14 +123,31 @@ export function generateLocalBusinessSchema() {
       postalCode: config.postalCode,
       addressCountry: config.country,
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: config.phoneRaw,
-      email: config.email,
-      contactType: 'customer service',
-      areaServed: 'US',
-      availableLanguage: ['English', 'Spanish'],
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 28.5233,
+      longitude: -81.3786,
     },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: config.phoneRaw,
+        email: config.email,
+        contactType: 'customer service',
+        areaServed: 'US',
+        availableLanguage: ['English', 'Spanish'],
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: config.phoneRaw,
+        contactType: 'sales',
+        areaServed: {
+          '@type': 'State',
+          name: 'Florida',
+        },
+        availableLanguage: ['English', 'Spanish'],
+      },
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -76,7 +157,7 @@ export function generateLocalBusinessSchema() {
       },
     ],
     areaServed: [
-      { '@type': 'City', name: 'Orlando' },
+      { '@type': 'City', name: 'Orlando', containedInPlace: { '@type': 'State', name: 'Florida' } },
       { '@type': 'City', name: 'Winter Park' },
       { '@type': 'City', name: 'Maitland' },
       { '@type': 'City', name: 'Altamonte Springs' },
@@ -99,6 +180,12 @@ export function generateLocalBusinessSchema() {
       { '@type': 'City', name: 'Lakeland' },
       { '@type': 'City', name: 'Daytona Beach' },
     ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '47',
+      bestRating: '5',
+    },
   };
 }
 
@@ -107,23 +194,35 @@ export function generateLocalBusinessSchemaForCity(
   state: string
 ) {
   const config = getSiteConfig();
+  const stateAbbr = state === 'Florida' ? 'FL' : state;
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: config.companyName,
-    description: `Premium commercial facility maintenance in ${city}, ${state}.`,
+    '@type': 'ProfessionalService',
+    additionalType: 'https://schema.org/CleaningBusiness',
+    name: `${config.companyName} — ${city}`,
+    description: `Commercial cleaning service and janitorial company in ${city}, ${stateAbbr}. Axiom Facility Partners provides office building cleaning, warehouse cleaning, facilities management, day porter services, and floor care maintenance in ${city} and surrounding areas.`,
     url: `${SITE_URL}/locations/${city.toLowerCase().replace(/\s+/g, '-')}`,
     telephone: config.phoneRaw,
+    email: config.email,
     priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
       addressLocality: city,
-      addressRegion: state === 'Florida' ? 'FL' : state,
+      addressRegion: stateAbbr,
       addressCountry: 'US',
     },
     areaServed: {
       '@type': 'City',
       name: city,
+      containedInPlace: {
+        '@type': 'State',
+        name: 'Florida',
+      },
+    },
+    parentOrganization: {
+      '@type': 'Organization',
+      name: config.companyName,
+      url: SITE_URL,
     },
   };
 }
@@ -140,15 +239,35 @@ export function generateServiceSchema(service: {
     description: service.description,
     image: `${SITE_URL}/team-action.jpg`,
     provider: {
-      '@type': 'Organization',
+      '@type': 'ProfessionalService',
+      '@id': `${SITE_URL}/#localbusiness`,
       name: ORG_NAME,
-      logo: `${SITE_URL}/logo.png`,
+      url: SITE_URL,
     },
     url: `${SITE_URL}/services/${service.slug}`,
+    serviceType: service.title,
+    category: 'Commercial Facility Maintenance',
     areaServed: {
       '@type': 'State',
       name: 'Florida',
+      containedInPlace: {
+        '@type': 'Country',
+        name: 'United States',
+      },
     },
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      areaServed: {
+        '@type': 'State',
+        name: 'Florida',
+      },
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        priceCurrency: 'USD',
+      },
+    },
+    termsOfService: `${SITE_URL}/terms`,
   };
 }
 
@@ -189,17 +308,27 @@ export function generateWebSiteSchema() {
     name: ORG_NAME,
     url: SITE_URL,
     description:
-      'Premium commercial facility maintenance for office buildings, warehouses, and commercial properties in Central Florida.',
+      'Premium commercial cleaning service and facility maintenance for office buildings, warehouses, and commercial properties in Central Florida. Janitorial services, day porter, floor care, and disinfection protocols.',
     publisher: {
       '@type': 'Organization',
       name: ORG_NAME,
+      '@id': `${SITE_URL}/#localbusiness`,
     },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/resources?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+    inLanguage: 'en-US',
   };
 }
 
 export function generateSpeakableSchema(
   url: string,
-  cssSelectors: string[] = ['h1', '[data-speakable]']
+  cssSelectors: string[] = ['h1', '[data-speakable]', '[data-answer]']
 ) {
   return {
     '@context': 'https://schema.org',
@@ -209,6 +338,11 @@ export function generateSpeakableSchema(
     speakable: {
       '@type': 'SpeakableSpecification',
       cssSelector: cssSelectors,
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      name: ORG_NAME,
+      url: SITE_URL,
     },
   };
 }
@@ -253,7 +387,8 @@ export function generateArticleSchema(post: {
 export function generateReviewSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'ProfessionalService',
+    '@id': `${SITE_URL}/#localbusiness`,
     name: ORG_NAME,
     url: SITE_URL,
     aggregateRating: {
@@ -261,26 +396,30 @@ export function generateReviewSchema() {
       ratingValue: '4.9',
       reviewCount: '47',
       bestRating: '5',
+      worstRating: '1',
     },
     review: [
       {
         '@type': 'Review',
         author: { '@type': 'Person', name: 'David Hartman' },
-        reviewRating: { '@type': 'Rating', ratingValue: '5' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        datePublished: '2025-01-15',
         reviewBody:
           'We went through three janitorial companies in two years before we found Axiom. The difference was immediate — our tenants stopped complaining and maintenance calls dropped by half.',
       },
       {
         '@type': 'Review',
         author: { '@type': 'Person', name: 'Jennifer Walsh' },
-        reviewRating: { '@type': 'Rating', ratingValue: '5' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        datePublished: '2025-02-08',
         reviewBody:
           'Our vacancy rate on managed properties dropped from 12% to under 4% in the same year we brought Axiom on. The building presentation transformed completely.',
       },
       {
         '@type': 'Review',
         author: { '@type': 'Person', name: 'Rachel Simmons' },
-        reviewRating: { '@type': 'Rating', ratingValue: '5' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        datePublished: '2025-03-22',
         reviewBody:
           'In healthcare, clean is a regulation. Axiom treats disinfection like it matters. Their team flagged a cross-contamination risk we had been living with for months.',
       },
@@ -297,8 +436,11 @@ export function generateCityServiceSchema(page: CityServicePage) {
     description: page.metaDescription,
     url: `${SITE_URL}/${page.slug}`,
     image: `${SITE_URL}/team-action.jpg`,
+    serviceType: page.service,
+    category: 'Commercial Facility Maintenance',
     provider: {
-      '@type': 'LocalBusiness',
+      '@type': 'ProfessionalService',
+      '@id': `${SITE_URL}/#localbusiness`,
       name: config.companyName,
       telephone: config.phoneRaw,
       email: config.email,
@@ -320,6 +462,17 @@ export function generateCityServiceSchema(page: CityServicePage) {
         name: 'Florida',
       },
     },
-    serviceType: page.service,
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      areaServed: {
+        '@type': 'City',
+        name: page.city,
+      },
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        priceCurrency: 'USD',
+      },
+    },
   };
 }
