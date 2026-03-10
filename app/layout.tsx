@@ -83,6 +83,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://axiomfacilitypartners.com',
+    languages: {
+      'en-US': 'https://axiomfacilitypartners.com',
+      'es-US': 'https://axiomfacilitypartners.com/es',
+      'x-default': 'https://axiomfacilitypartners.com',
+    },
   },
 };
 
@@ -110,6 +115,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <meta name="theme-color" content="#0a1628" />
         <meta name="geo.region" content="US-FL" />
         <meta name="geo.placename" content="Orlando" />
