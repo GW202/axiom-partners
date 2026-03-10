@@ -188,7 +188,7 @@ export default function ConsultationForm() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="mt-1.5 block w-full rounded-lg border border-navy-200 bg-white px-4 py-2.5 text-sm text-navy-950 shadow-sm transition-colors focus:border-bronze-400 focus:outline-none focus:ring-1 focus:ring-bronze-400"
-                    placeholder="(407) 294-6601"
+                    placeholder="(407) 342-3195"
                   />
                 </div>
               </div>
