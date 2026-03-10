@@ -28,15 +28,19 @@ export async function generateMetadata({ params }: CityPageProps) {
   const { city: slug } = await params;
   const location = locations.find((l) => l.slug === slug);
   if (!location) return {};
+  const stateAbbr = location.state === 'Florida' ? 'FL' : location.state;
   return generatePageMetadata({
-    title: `Commercial Facility Maintenance ${location.name}`,
-    description: `Premium commercial facility maintenance in ${location.name}, ${location.state}. Office cleaning, warehouse cleaning, day porter services, and more.`,
+    title: `Commercial Cleaning Service ${location.name}, ${stateAbbr} | Janitorial Company`,
+    description: `Axiom Facility Partners is a commercial cleaning service and janitorial company in ${location.name}, ${stateAbbr}. We provide office building cleaning, warehouse cleaning, facilities management, day porter services, and floor care maintenance. Call (407) 342-3195.`,
     path: `/locations/${location.slug}`,
     keywords: [
+      `commercial cleaning service ${location.name}`,
+      `janitorial service ${location.name}`,
       `${location.name} commercial cleaning`,
+      `${location.name} janitorial company`,
+      `${location.name} office cleaning`,
       `${location.name} facility maintenance`,
-      `${location.name} janitorial services`,
-      `${location.state} facility management`,
+      `cleaning company ${location.name} ${stateAbbr}`,
       'Axiom Facility Partners',
     ],
   });
@@ -89,9 +93,9 @@ export default async function CityDetailPage({ params }: CityPageProps) {
       />
 
       <Hero
-        title={`${location.name} Commercial Facility Maintenance`}
-        subtitle={location.description}
-        badge={`Serving ${location.name}, ${location.state}`}
+        title={`Commercial Cleaning Service in ${location.name}`}
+        subtitle={`Axiom Facility Partners provides commercial cleaning and janitorial services in ${location.name}, ${location.state === 'Florida' ? 'FL' : location.state}. ${location.description}`}
+        badge={`Commercial Cleaning & Janitorial — ${location.name}, ${location.state === 'Florida' ? 'FL' : location.state}`}
       />
 
       {/* Services Available */}

@@ -59,6 +59,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    {
+      url: `${SITE_URL}/faq`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ];
 
   const servicePages: MetadataRoute.Sitemap = services.map((service) => ({

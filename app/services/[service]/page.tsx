@@ -28,14 +28,17 @@ export async function generateMetadata({ params }: ServicePageProps) {
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return generatePageMetadata({
-    title: service.title,
-    description: service.description,
+    title: `${service.title} | Commercial Cleaning Service Orlando, FL`,
+    description: `${service.title} by Axiom Facility Partners in Orlando & Central Florida. ${service.description} Call (407) 342-3195 for a free consultation.`,
     path: `/services/${service.slug}`,
     keywords: [
       service.title.toLowerCase(),
-      'commercial facility maintenance',
-      'Central Florida',
+      `${service.title.toLowerCase()} Orlando`,
+      `${service.title.toLowerCase()} Central Florida`,
       `${service.title.toLowerCase()} services`,
+      'commercial cleaning service',
+      'janitorial service',
+      'commercial facility maintenance',
       'Axiom Facility Partners',
     ],
   });
@@ -84,12 +87,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <Hero
         title={service.title}
         subtitle={service.description}
-        badge="Premium Service"
+        badge={`Commercial ${service.title} — Central Florida`}
       />
 
       {/* Overview */}
       <SectionWrapper heading="Overview">
-        <div className="max-w-3xl space-y-5">
+        <div className="max-w-3xl space-y-5" data-speakable>
           {service.longDescription.map((paragraph, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
               <p className="text-base leading-relaxed text-navy-600">
@@ -106,7 +109,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         subtitle="Our structured approach ensures consistent, documented results."
         dark
       >
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2" data-speakable>
           {service.protocols.map((protocol, i) => (
             <AnimatedSection key={i} delay={i * 0.06}>
               <div className="glass-card flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-white/[0.04]">

@@ -374,13 +374,37 @@ export function generateArticleSchema(post: {
       logo: {
         '@type': 'ImageObject',
         url: `${SITE_URL}/logo.png`,
+        width: 512,
+        height: 512,
       },
     },
     keywords: post.tags.join(', '),
+    about: {
+      '@type': 'Thing',
+      name: 'Commercial Facility Maintenance',
+      description: 'Best practices and insights for commercial cleaning, janitorial services, and facility management.',
+    },
+    mentions: [
+      {
+        '@type': 'Organization',
+        name: ORG_NAME,
+        url: SITE_URL,
+      },
+    ],
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '[data-speakable]', 'article'],
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      name: ORG_NAME,
+      url: SITE_URL,
+    },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/resources/${post.slug}`,
     },
+    inLanguage: 'en-US',
   };
 }
 
