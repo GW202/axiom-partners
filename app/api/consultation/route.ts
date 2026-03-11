@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { sendConsultationNotification } from '@/lib/email';
+import { sendSlackNotification } from '@/lib/slack';
 import { addSubmission } from '@/lib/submissions';
 
 interface ConsultationRequest {
@@ -117,9 +118,17 @@ export async function POST(request: Request) {
       }
     }
 
-    // Send email notification (non-blocking — don't fail the request if email fails)
-    sendConsultationNotification(sanitized).catch((err) => {
-      console.error('[Email Error]', err);
+    // Send notifications in parallel (non-blocking — don't fail the request)
+    Promise.allSettled([
+      sendConsultationNotification(sanitized),
+      sendSlackNotification(sanitized),
+    ]).then((results) => {
+      results.forEach((r, i) => {
+        if (r.status === 'rejected') {
+          const channel = ['Email', 'Slack'][i];
+          console.error(`[${channel} Error]`, r.reason);
+        }
+      });
     });
 
     return NextResponse.json(

@@ -1708,6 +1708,886 @@ export const cityServicePages: CityServicePage[] = [
     ],
     relatedServices: [],
   },
+
+  /* ------------------------------------------------------------------ */
+  /*  TIER 2 — 15 expansion city+service pages                          */
+  /* ------------------------------------------------------------------ */
+
+  // ── WINTER GARDEN ──────────────────────────────────────────────────
+  {
+    slug: 'winter-garden-commercial-cleaning',
+    city: 'Winter Garden',
+    state: 'FL',
+    service: 'Commercial Cleaning',
+    serviceSlug: 'office-building-cleaning',
+    citySlug: 'winter-garden',
+    title: 'Commercial Cleaning in Winter Garden, FL',
+    metaDescription:
+      'Professional commercial cleaning services in Winter Garden, FL. Axiom Facility Partners serves offices and commercial properties along Plant Street and Horizon West.',
+    h1: 'Commercial Cleaning Services in Winter Garden, Florida',
+    intro:
+      'Winter Garden sits at the western edge of Orange County where historic Plant Street charm meets explosive Horizon West growth. From the boutique offices along downtown Plant Street to the expanding commercial centers near Garden Commerce Center and the Fowler Groves corridor, Axiom Facility Partners delivers commercial cleaning programs designed for this fast-growing West Orange County market.',
+    serviceContext: [
+      'Our Winter Garden commercial cleaning programs account for the unique mix of renovated historic storefronts, modern Class A office space, and new-construction commercial developments that define this market. Each facility receives a tailored cleaning scope that matches its tenant mix and traffic patterns.',
+      'We serve property managers and business owners across the Winter Garden area with nightly cleaning, periodic deep-cleans, and documented quality inspections. Our crews understand the West Orange County corridor and can respond quickly from our Central Florida operations base.',
+    ],
+    neighborhoods: [
+      'Plant Street downtown',
+      'Horizon West',
+      'Garden Commerce Center',
+      'Fowler Groves corridor',
+      'Stoneybrook West area',
+      'Johns Lake area',
+    ],
+    facilityTypes: [
+      'Mixed-use commercial buildings',
+      'Professional office suites',
+      'Retail strip centers',
+      'Medical offices',
+      'New-construction commercial space',
+    ],
+    faqs: [
+      {
+        question: 'Do you serve the Horizon West area of Winter Garden?',
+        answer:
+          'Yes. Our Winter Garden commercial cleaning coverage extends throughout Horizon West, including the new commercial developments along New Independence Parkway and Hamlin Town Center area.',
+      },
+      {
+        question: 'How do you handle cleaning for Winter Garden historic downtown buildings?',
+        answer:
+          'Our teams are trained to work with the unique surfaces and layouts found in Plant Street historic buildings, using appropriate products that protect original materials while maintaining modern cleanliness standards.',
+      },
+      {
+        question: 'What is your response time for Winter Garden commercial properties?',
+        answer:
+          'We maintain rapid response capability for our Winter Garden clients thanks to our Central Florida operations hub. Emergency and after-hours requests are typically addressed within two hours.',
+      },
+    ],
+    nearbyCities: [
+      'ocoee-commercial-cleaning',
+      'clermont-commercial-cleaning',
+      'windermere-commercial-cleaning',
+      'orlando-commercial-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── CLERMONT ───────────────────────────────────────────────────────
+  {
+    slug: 'clermont-commercial-cleaning',
+    city: 'Clermont',
+    state: 'FL',
+    service: 'Commercial Cleaning',
+    serviceSlug: 'office-building-cleaning',
+    citySlug: 'clermont',
+    title: 'Commercial Cleaning in Clermont, FL',
+    metaDescription:
+      'Professional commercial cleaning services in Clermont, FL. Axiom Facility Partners provides expert facility maintenance for offices along US-27 and South Lake County.',
+    h1: 'Commercial Cleaning Services in Clermont, Florida',
+    intro:
+      'Clermont anchors South Lake County\'s booming commercial corridor along US-27, where rapid residential growth is driving demand for professional office space, medical facilities, and retail centers. From Clermont Landing and the National Training Center area to the expanding developments near Lake Louisa, Axiom Facility Partners delivers commercial cleaning that matches the high standards of this growing market.',
+    serviceContext: [
+      'Our Clermont commercial cleaning programs address the needs of a market in transition — from established professional offices along SR-50 to brand-new commercial developments south along US-27. We tailor cleaning scopes to each facility\'s age, construction type, and tenant expectations.',
+      'Clermont businesses benefit from our regional operations network, which ensures reliable nightly service, responsive account management, and documented quality controls that property managers can share with tenants and ownership.',
+    ],
+    neighborhoods: [
+      'US-27 commercial corridor',
+      'Clermont Landing',
+      'Lake Louisa area',
+      'National Training Center area',
+      'Hartwood Marsh Road corridor',
+      'Cagan Crossings',
+    ],
+    facilityTypes: [
+      'Professional office buildings',
+      'Medical office complexes',
+      'Retail plazas',
+      'Mixed-use developments',
+      'Fitness and training facilities',
+    ],
+    faqs: [
+      {
+        question: 'Do you provide commercial cleaning throughout South Lake County?',
+        answer:
+          'Yes. Our Clermont commercial cleaning coverage extends throughout South Lake County, including Minneola, Groveland, and the US-27 corridor from Four Corners north to SR-50.',
+      },
+      {
+        question: 'How do you handle the rapid growth in the Clermont market?',
+        answer:
+          'We scale cleaning programs alongside new construction timelines, offering post-construction cleanup and phased service launches for newly opened commercial spaces along the US-27 growth corridor.',
+      },
+      {
+        question: 'What types of cleaning do you offer for Clermont office buildings?',
+        answer:
+          'Our Clermont programs include nightly janitorial service, restroom sanitation, break room care, lobby maintenance, and periodic deep-cleaning cycles tailored to each building\'s tenant mix and traffic volume.',
+      },
+    ],
+    nearbyCities: [
+      'winter-garden-commercial-cleaning',
+      'orlando-commercial-cleaning',
+      'lakeland-commercial-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── OCOEE ──────────────────────────────────────────────────────────
+  {
+    slug: 'ocoee-commercial-cleaning',
+    city: 'Ocoee',
+    state: 'FL',
+    service: 'Commercial Cleaning',
+    serviceSlug: 'office-building-cleaning',
+    citySlug: 'ocoee',
+    title: 'Commercial Cleaning in Ocoee, FL',
+    metaDescription:
+      'Professional commercial cleaning services in Ocoee, FL. Axiom Facility Partners serves offices and commercial properties near the Florida Turnpike and West Colonial Drive.',
+    h1: 'Commercial Cleaning Services in Ocoee, Florida',
+    intro:
+      'Ocoee occupies a strategic position in West Orange County at the intersection of the Florida Turnpike and SR-50 (West Colonial Drive), making it a logistics-friendly hub for commercial development. From the Ocoee Commerce Center and the West Colonial business corridor to the professional offices along Silver Star Road, Axiom Facility Partners provides commercial cleaning programs calibrated for this accessible, growing market.',
+    serviceContext: [
+      'Our Ocoee commercial cleaning programs serve the diverse mix of office parks, retail centers, and light-industrial properties that cluster around the Turnpike interchange and West Colonial corridor. Every program is scoped to the specific facility — from small professional suites to multi-building commercial centers.',
+      'Ocoee property managers benefit from our proven Central Florida operations model: dedicated crews, documented service logs, quality inspections, and a responsive account management team that understands West Orange County.',
+    ],
+    neighborhoods: [
+      'Ocoee Commerce Center',
+      'West Colonial Drive corridor',
+      'Silver Star Road area',
+      'Florida Turnpike interchange',
+      'Maguire Road corridor',
+      'Wekiva area',
+    ],
+    facilityTypes: [
+      'Commercial office parks',
+      'Retail strip centers',
+      'Light-industrial flex spaces',
+      'Professional service offices',
+      'Multi-tenant commercial buildings',
+    ],
+    faqs: [
+      {
+        question: 'Do you clean commercial properties near the Florida Turnpike in Ocoee?',
+        answer:
+          'Yes. We serve commercial properties throughout the Ocoee Turnpike corridor, including Ocoee Commerce Center, West Colonial Drive businesses, and professional offices along Silver Star Road and Maguire Road.',
+      },
+      {
+        question: 'Can you handle both office and light-industrial spaces in Ocoee?',
+        answer:
+          'Absolutely. Our Ocoee teams are equipped for both traditional office cleaning and light-industrial environments, adjusting protocols for floor types, dust levels, and facility layouts specific to each property.',
+      },
+      {
+        question: 'What hours do you provide cleaning services in Ocoee?',
+        answer:
+          'We offer flexible scheduling for Ocoee commercial clients, including evening, overnight, and weekend service windows. Most office clients prefer post-business-hours cleaning to avoid tenant disruption.',
+      },
+    ],
+    nearbyCities: [
+      'winter-garden-commercial-cleaning',
+      'apopka-warehouse-cleaning',
+      'orlando-commercial-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── WINDERMERE ─────────────────────────────────────────────────────
+  {
+    slug: 'windermere-commercial-cleaning',
+    city: 'Windermere',
+    state: 'FL',
+    service: 'Commercial Cleaning',
+    serviceSlug: 'office-building-cleaning',
+    citySlug: 'windermere',
+    title: 'Commercial Cleaning in Windermere, FL',
+    metaDescription:
+      'Premium commercial cleaning services in Windermere, FL. Axiom Facility Partners delivers meticulous facility care for offices near the Butler Chain of Lakes.',
+    h1: 'Commercial Cleaning Services in Windermere, Florida',
+    intro:
+      'Windermere is one of Central Florida\'s most affluent communities, nestled along the Butler Chain of Lakes and adjacent to the Dr. Phillips corridor. The commercial properties here — boutique professional offices, high-end retail, and luxury service businesses along Windermere Avenue — demand a level of cleaning quality that matches the community\'s expectations. Axiom Facility Partners delivers that standard.',
+    serviceContext: [
+      'Our Windermere commercial cleaning programs reflect the elevated presentation standards that this market requires. White-glove lobby care, meticulous restroom maintenance, and detail-oriented cleaning protocols ensure that every surface in your facility conveys the professionalism your clients expect.',
+      'We serve Windermere\'s unique mix of boutique office buildings, luxury retail, and professional service spaces with dedicated crews trained for high-standard environments. Every visit includes documented quality checks and responsive follow-up.',
+    ],
+    neighborhoods: [
+      'Windermere Avenue',
+      'Butler Chain of Lakes area',
+      'Windermere Crossings',
+      'Summerport',
+      'Keene\'s Pointe area',
+      'Isleworth area',
+    ],
+    facilityTypes: [
+      'Boutique professional offices',
+      'Luxury retail spaces',
+      'Private practice offices',
+      'High-end service businesses',
+      'Country club commercial facilities',
+    ],
+    faqs: [
+      {
+        question: 'What makes your Windermere cleaning different from standard commercial cleaning?',
+        answer:
+          'Our Windermere programs use premium cleaning products, white-glove protocols, and detail-focused inspections designed for the elevated standards that Windermere\'s affluent commercial community expects.',
+      },
+      {
+        question: 'Do you serve both Windermere and the Dr. Phillips area?',
+        answer:
+          'Yes. Our coverage spans both Windermere proper and the adjacent Dr. Phillips corridor along Sand Lake Road, allowing us to efficiently serve the entire West Orange/South Orange luxury market.',
+      },
+      {
+        question: 'How do you protect sensitive surfaces in high-end Windermere properties?',
+        answer:
+          'Our crews are trained on specialty surface care — including natural stone, hardwood, and designer finishes — and use appropriate pH-neutral products that clean effectively without damaging premium materials.',
+      },
+    ],
+    nearbyCities: [
+      'doctor-phillips-commercial-cleaning',
+      'winter-garden-commercial-cleaning',
+      'orlando-commercial-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── MAITLAND (Office Cleaning) ─────────────────────────────────────
+  {
+    slug: 'maitland-office-cleaning',
+    city: 'Maitland',
+    state: 'FL',
+    service: 'Office Cleaning',
+    serviceSlug: 'office-building-cleaning',
+    citySlug: 'maitland',
+    title: 'Office Cleaning in Maitland, FL',
+    metaDescription:
+      'Professional office cleaning services in Maitland, FL. Axiom Facility Partners maintains Maitland Center offices, I-4 corridor properties, and professional suites.',
+    h1: 'Office Cleaning Services in Maitland, Florida',
+    intro:
+      'Maitland is home to one of Central Florida\'s premier office concentrations — Maitland Center — a sprawling campus of Class A office buildings along the I-4 corridor. Combined with the professional offices along Maitland Boulevard, Lake Lily area, and the SR-414 corridor, Maitland demands office cleaning programs that meet corporate-grade standards. Axiom Facility Partners delivers exactly that.',
+    serviceContext: [
+      'Our Maitland office cleaning programs are engineered for the multi-tenant, high-traffic environment that defines Maitland Center and the surrounding I-4 office corridor. Lobby care, elevator maintenance, restroom sanitation, and suite-level cleaning are coordinated to minimize tenant disruption while maintaining impeccable standards.',
+      'We work directly with Maitland property managers and building engineers to align our cleaning schedules with building operations, security protocols, and tenant access requirements. Documented service logs and regular quality inspections keep all stakeholders informed.',
+    ],
+    neighborhoods: [
+      'Maitland Center',
+      'Maitland Boulevard corridor',
+      'Lake Lily area',
+      'I-4 / Maitland interchange',
+      'SR-414 (Maitland Boulevard) corridor',
+      'Dommerich area',
+    ],
+    facilityTypes: [
+      'Class A office buildings',
+      'Multi-tenant office parks',
+      'Corporate headquarters',
+      'Professional service suites',
+      'Financial services offices',
+    ],
+    faqs: [
+      {
+        question: 'Do you clean offices throughout Maitland Center?',
+        answer:
+          'Yes. We currently serve multiple buildings within the Maitland Center campus, providing nightly office cleaning, lobby maintenance, and common area care for this premier Central Florida office park.',
+      },
+      {
+        question: 'How do you coordinate with building management at Maitland office properties?',
+        answer:
+          'We integrate with each building\'s management team on scheduling, security access, and tenant communication. Our account managers attend property meetings and maintain direct lines of communication with on-site staff.',
+      },
+      {
+        question: 'What office cleaning frequency do you recommend for Maitland businesses?',
+        answer:
+          'Most Maitland Center offices benefit from five-night-per-week cleaning with periodic deep-clean cycles. We adjust frequency based on tenant density, foot traffic, and property manager requirements.',
+      },
+    ],
+    nearbyCities: [
+      'maitland-commercial-cleaning',
+      'altamonte-springs-office-cleaning',
+      'winter-park-office-cleaning',
+      'orlando-office-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── ALTAMONTE SPRINGS (Office Cleaning) ────────────────────────────
+  {
+    slug: 'altamonte-springs-office-cleaning',
+    city: 'Altamonte Springs',
+    state: 'FL',
+    service: 'Office Cleaning',
+    serviceSlug: 'office-building-cleaning',
+    citySlug: 'altamonte-springs',
+    title: 'Office Cleaning in Altamonte Springs, FL',
+    metaDescription:
+      'Professional office cleaning services in Altamonte Springs, FL. Axiom Facility Partners serves Cranes Roost, SR-436, and I-4 corridor office properties.',
+    h1: 'Office Cleaning Services in Altamonte Springs, Florida',
+    intro:
+      'Altamonte Springs serves as a major office hub along the I-4 and SR-436 corridors in Seminole County. From the Cranes Roost area and Altamonte Mall business district to the professional offices lining Palm Springs Drive and Douglas Avenue, this city hosts a dense concentration of office space that requires dependable, professional cleaning. Axiom Facility Partners provides the office cleaning programs that keep Altamonte Springs workplaces sharp.',
+    serviceContext: [
+      'Our Altamonte Springs office cleaning programs serve the full spectrum of office environments found along the SR-436 and I-4 corridors — from single-tenant professional suites to large multi-floor office buildings. Each program is scoped based on square footage, tenant mix, and traffic patterns.',
+      'We provide nightly janitorial service, restroom care, break room cleaning, and lobby maintenance with documented quality controls. Our Altamonte Springs clients receive a dedicated account manager and regular performance reviews.',
+    ],
+    neighborhoods: [
+      'Cranes Roost area',
+      'Altamonte Mall business district',
+      'SR-436 corridor',
+      'I-4 / Altamonte interchange',
+      'Palm Springs Drive',
+      'Douglas Avenue corridor',
+    ],
+    facilityTypes: [
+      'Multi-story office buildings',
+      'Professional office suites',
+      'Medical and dental offices',
+      'Financial services offices',
+      'Corporate branch offices',
+    ],
+    faqs: [
+      {
+        question: 'Do you provide office cleaning near Cranes Roost in Altamonte Springs?',
+        answer:
+          'Yes. We serve offices throughout the Cranes Roost and Uptown Altamonte area, including the office buildings along SR-436, Palm Springs Drive, and the I-4 interchange corridor.',
+      },
+      {
+        question: 'Can you clean medical offices in Altamonte Springs?',
+        answer:
+          'Absolutely. We have specialized protocols for medical and dental offices in Altamonte Springs, including proper disinfection procedures, biohazard awareness, and HIPAA-compliant cleaning practices.',
+      },
+      {
+        question: 'What makes Axiom different from other Altamonte Springs office cleaning companies?',
+        answer:
+          'We combine dedicated crews, documented service logs, regular quality inspections, and responsive account management. Our clients never wonder whether the cleaning was done — they can verify it through our reporting system.',
+      },
+    ],
+    nearbyCities: [
+      'altamonte-springs-commercial-cleaning',
+      'maitland-office-cleaning',
+      'longwood-commercial-cleaning',
+      'casselberry-commercial-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── LAKE NONA (Facilities Management) ──────────────────────────────
+  {
+    slug: 'lake-nona-facilities-management',
+    city: 'Lake Nona',
+    state: 'FL',
+    service: 'Facilities Management',
+    serviceSlug: 'facilities-management',
+    citySlug: 'lake-nona',
+    title: 'Facilities Management in Lake Nona, FL',
+    metaDescription:
+      'Expert facilities management in Lake Nona, FL. Axiom Facility Partners supports Medical City, VA Medical Center, USTA, and innovation hub properties.',
+    h1: 'Facilities Management Services in Lake Nona, Florida',
+    intro:
+      'Lake Nona is Central Florida\'s premier innovation hub, anchored by Medical City — home to the VA Medical Center, Nemours Children\'s Hospital, UCF College of Medicine, and a growing cluster of healthcare and life-science facilities. Add the USTA National Campus, Tavistock\'s mixed-use developments, and a wave of corporate relocations, and Lake Nona demands facilities management programs that can keep pace with a world-class community.',
+    serviceContext: [
+      'Our Lake Nona facilities management programs integrate janitorial services, maintenance coordination, vendor oversight, and operational reporting into a single point of accountability. For Medical City properties, we implement healthcare-grade protocols that meet regulatory requirements and support clinical environments.',
+      'Lake Nona\'s innovation-driven tenants expect smart, responsive facility operations. We leverage documented workflows, digital reporting, and proactive maintenance scheduling to keep buildings operating at peak performance while controlling costs for property managers and ownership groups.',
+    ],
+    neighborhoods: [
+      'Medical City',
+      'Lake Nona Town Center',
+      'USTA National Campus area',
+      'Laureate Park',
+      'Lake Nona Estates area',
+      'Tavistock development area',
+    ],
+    facilityTypes: [
+      'Medical office buildings',
+      'Healthcare and life-science facilities',
+      'Corporate campus buildings',
+      'Mixed-use developments',
+      'Sports and training facilities',
+    ],
+    faqs: [
+      {
+        question: 'Do you provide facilities management for Medical City properties in Lake Nona?',
+        answer:
+          'Yes. We serve medical office buildings and healthcare-adjacent facilities within Lake Nona Medical City, implementing the specialized protocols required for clinical environments, including enhanced disinfection, regulatory compliance support, and 24/7 response capability.',
+      },
+      {
+        question: 'What does facilities management include for Lake Nona properties?',
+        answer:
+          'Our Lake Nona facilities management encompasses janitorial services, maintenance coordination, vendor management, operational reporting, emergency response, and capital project support — all managed through a dedicated facility manager.',
+      },
+      {
+        question: 'Can you support the unique requirements of Lake Nona innovation hub tenants?',
+        answer:
+          'Absolutely. We work with tech companies, biotech firms, and research-oriented tenants in Lake Nona to provide flexible, responsive facility operations that adapt to non-traditional work schedules, specialized equipment needs, and elevated security requirements.',
+      },
+    ],
+    nearbyCities: [
+      'lake-nona-commercial-cleaning',
+      'orlando-facilities-management',
+      'orlando-commercial-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── DOCTOR PHILLIPS (Day Porter Services) ──────────────────────────
+  {
+    slug: 'doctor-phillips-day-porter-services',
+    city: 'Doctor Phillips',
+    state: 'FL',
+    service: 'Day Porter Services',
+    serviceSlug: 'day-porter-services',
+    citySlug: 'doctor-phillips',
+    title: 'Day Porter Services in Doctor Phillips, FL',
+    metaDescription:
+      'Professional day porter services in Doctor Phillips, FL. Axiom Facility Partners provides daytime facility attendants for Sand Lake Road and Restaurant Row properties.',
+    h1: 'Day Porter Services in Doctor Phillips, Florida',
+    intro:
+      'Doctor Phillips is one of Central Florida\'s most upscale commercial corridors, centered on Sand Lake Road — also known as Restaurant Row — and the surrounding Turkey Lake area. The high-traffic retail, dining, and professional office properties here require visible, daytime facility care that keeps lobbies, restrooms, and common areas immaculate during peak business hours. Axiom Facility Partners\' day porter programs deliver that continuous standard.',
+    serviceContext: [
+      'Our Doctor Phillips day porter services place trained facility attendants on-site during business hours to handle real-time cleaning needs: lobby touch-ups, restroom replenishment, spill response, break room maintenance, and exterior walkway care. This visible presence reassures tenants and visitors that your property is actively managed.',
+      'For the high-end properties along Sand Lake Road and the Restaurant Row corridor, our day porters maintain the polished presentation standards that distinguish Doctor Phillips from other Central Florida markets. Every attendant follows documented protocols and communicates with our management team throughout each shift.',
+    ],
+    neighborhoods: [
+      'Sand Lake Road / Restaurant Row',
+      'Turkey Lake area',
+      'Dr. Phillips Boulevard',
+      'Della Drive corridor',
+      'Phillips Landing',
+      'Bay Hill area',
+    ],
+    facilityTypes: [
+      'Upscale retail plazas',
+      'Restaurant and dining complexes',
+      'Professional office buildings',
+      'Medical office suites',
+      'Mixed-use lifestyle centers',
+    ],
+    faqs: [
+      {
+        question: 'What does a day porter do at my Doctor Phillips property?',
+        answer:
+          'Our Doctor Phillips day porters maintain restrooms, clean lobbies, respond to spills, replenish supplies, manage break rooms, and address any cleaning needs that arise during business hours — keeping your property in top condition while tenants and customers are present.',
+      },
+      {
+        question: 'How many hours do your Doctor Phillips day porters work?',
+        answer:
+          'Day porter shifts are customized to your property\'s needs. Most Doctor Phillips clients schedule 8- to 10-hour shifts covering peak business hours, though we offer flexible scheduling including early morning and evening coverage.',
+      },
+      {
+        question: 'Can day porters handle the high foot traffic at Restaurant Row properties?',
+        answer:
+          'Yes. Our day porters are experienced with high-traffic environments and are trained to maintain presentation standards even during peak dining and shopping hours along Sand Lake Road.',
+      },
+    ],
+    nearbyCities: [
+      'doctor-phillips-commercial-cleaning',
+      'windermere-commercial-cleaning',
+      'orlando-day-porter-services',
+    ],
+    relatedServices: [],
+  },
+
+  // ── KISSIMMEE (Day Porter Services) ────────────────────────────────
+  {
+    slug: 'kissimmee-day-porter-services',
+    city: 'Kissimmee',
+    state: 'FL',
+    service: 'Day Porter Services',
+    serviceSlug: 'day-porter-services',
+    citySlug: 'kissimmee',
+    title: 'Day Porter Services in Kissimmee, FL',
+    metaDescription:
+      'Professional day porter services in Kissimmee, FL. Axiom Facility Partners provides daytime facility attendants for US-192 tourism corridor and Osceola County properties.',
+    h1: 'Day Porter Services in Kissimmee, Florida',
+    intro:
+      'Kissimmee is the seat of Osceola County and the gateway to Central Florida\'s tourism corridor along US-192. The high-traffic commercial properties, hotels, retail plazas, and mixed-use developments throughout Kissimmee require daytime facility attendants who can maintain clean, welcoming environments during peak hours. Axiom Facility Partners\' day porter programs are built for this demanding market.',
+    serviceContext: [
+      'Our Kissimmee day porter services provide on-site attendants during business hours to manage restroom care, lobby maintenance, spill response, common area cleaning, and exterior walkway upkeep. In the tourism-heavy US-192 corridor, this visible cleaning presence helps properties maintain the welcoming standards that guests and tenants expect.',
+      'We tailor day porter programs for Kissimmee\'s diverse commercial mix — from the Osceola County courthouse area and downtown business district to the retail centers along Pleasant Hill Road and the hospitality-adjacent properties near the theme park corridor.',
+    ],
+    neighborhoods: [
+      'US-192 / Irlo Bronson Memorial Highway',
+      'Downtown Kissimmee',
+      'Osceola County courthouse area',
+      'Pleasant Hill Road corridor',
+      'John Young Parkway area',
+      'St. Cloud area',
+    ],
+    facilityTypes: [
+      'Tourism-related commercial properties',
+      'Retail shopping centers',
+      'Government and municipal buildings',
+      'Hospitality-adjacent offices',
+      'Mixed-use developments',
+    ],
+    faqs: [
+      {
+        question: 'Do you provide day porters for tourism corridor properties in Kissimmee?',
+        answer:
+          'Yes. We serve commercial properties throughout the US-192 tourism corridor with day porter attendants trained to handle the high foot traffic, quick turnaround expectations, and presentation standards that this market demands.',
+      },
+      {
+        question: 'Can your Kissimmee day porters handle bilingual environments?',
+        answer:
+          'Yes. Given Kissimmee\'s diverse community, we staff bilingual day porters who can communicate effectively with tenants, visitors, and property management in both English and Spanish.',
+      },
+      {
+        question: 'What is the difference between day porter and nightly cleaning in Kissimmee?',
+        answer:
+          'Day porters provide real-time, during-hours facility care — restroom upkeep, spill response, lobby maintenance — while nightly cleaning handles deep janitorial tasks after business hours. Many Kissimmee clients use both for comprehensive coverage.',
+      },
+    ],
+    nearbyCities: [
+      'kissimmee-commercial-cleaning',
+      'kissimmee-warehouse-cleaning',
+      'orlando-day-porter-services',
+      'doctor-phillips-day-porter-services',
+    ],
+    relatedServices: [],
+  },
+
+  // ── MELBOURNE (Warehouse Cleaning) ─────────────────────────────────
+  {
+    slug: 'melbourne-warehouse-cleaning',
+    city: 'Melbourne',
+    state: 'FL',
+    service: 'Warehouse Cleaning',
+    serviceSlug: 'warehouse-facility-cleaning',
+    citySlug: 'melbourne',
+    title: 'Warehouse Cleaning in Melbourne, FL',
+    metaDescription:
+      'Professional warehouse cleaning in Melbourne, FL. Axiom Facility Partners serves aerospace, defense, and logistics facilities along the Space Coast.',
+    h1: 'Warehouse Cleaning Services in Melbourne, Florida',
+    intro:
+      'Melbourne is the heart of Florida\'s Space Coast — home to Northrop Grumman, L3Harris Technologies, and a dense cluster of aerospace, defense, and logistics operations that depend on clean, organized warehouse and industrial environments. From the distribution centers along Babcock Street and US-1 to the specialized manufacturing facilities near Melbourne International Airport, Axiom Facility Partners delivers warehouse cleaning programs calibrated for this demanding market.',
+    serviceContext: [
+      'Our Melbourne warehouse cleaning programs address the specific challenges of aerospace and defense environments: controlled-access areas, ESD-sensitive zones, high-bay structures, and regulatory cleanliness requirements. We work with facility managers to develop cleaning scopes that meet both operational needs and compliance standards.',
+      'For distribution and logistics warehouses along the I-95 corridor, we provide floor scrubbing, dock area cleaning, restroom and break room maintenance, and dust control programs that keep facilities running efficiently and safely.',
+    ],
+    neighborhoods: [
+      'Babcock Street industrial corridor',
+      'US-1 commercial area',
+      'Melbourne International Airport area',
+      'West Melbourne logistics district',
+      'I-95 interchange area',
+      'Wickham Road corridor',
+    ],
+    facilityTypes: [
+      'Aerospace manufacturing facilities',
+      'Defense contractor warehouses',
+      'Distribution and logistics centers',
+      'Light-industrial flex spaces',
+      'Airport-adjacent cargo facilities',
+    ],
+    faqs: [
+      {
+        question: 'Do you clean aerospace and defense warehouses in Melbourne?',
+        answer:
+          'Yes. We serve several aerospace and defense contractors on the Space Coast, with cleaning protocols that respect security requirements, ESD-sensitive areas, and the cleanliness standards mandated for controlled manufacturing environments.',
+      },
+      {
+        question: 'Can you handle large-scale warehouse facilities in Melbourne?',
+        answer:
+          'Absolutely. Our teams use industrial-grade equipment — ride-on scrubbers, wide-area vacuums, and high-reach dust control tools — to efficiently clean Melbourne warehouse facilities of 50,000 square feet and above.',
+      },
+      {
+        question: 'What warehouse cleaning frequency do you recommend for Melbourne logistics operations?',
+        answer:
+          'Most Melbourne logistics warehouses benefit from weekly or bi-weekly deep cleaning supplemented by daily restroom and break room maintenance. We customize schedules based on operational tempo and shift patterns.',
+      },
+    ],
+    nearbyCities: [
+      'melbourne-commercial-cleaning',
+      'orlando-warehouse-cleaning',
+      'daytona-beach-warehouse-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── LAKELAND (Commercial Cleaning) ─────────────────────────────────
+  {
+    slug: 'lakeland-commercial-cleaning',
+    city: 'Lakeland',
+    state: 'FL',
+    service: 'Commercial Cleaning',
+    serviceSlug: 'office-building-cleaning',
+    citySlug: 'lakeland',
+    title: 'Commercial Cleaning in Lakeland, FL',
+    metaDescription:
+      'Professional commercial cleaning in Lakeland, FL. Axiom Facility Partners serves offices and commercial properties along the I-4 corridor between Orlando and Tampa.',
+    h1: 'Commercial Cleaning Services in Lakeland, Florida',
+    intro:
+      'Lakeland sits at the midpoint of the I-4 corridor between Orlando and Tampa, serving as a major hub for corporate headquarters, logistics operations, and a growing professional services sector. With Publix Super Markets headquartered here and major Amazon and logistics facilities driving economic growth, Lakeland\'s commercial properties demand professional cleaning programs that match the city\'s rising standards.',
+    serviceContext: [
+      'Our Lakeland commercial cleaning programs serve the full range of office and commercial environments along the I-4 corridor — from the downtown Lakeland historic business district to the modern office parks near Lakeland Linder International Airport and the commercial developments along US-98.',
+      'Lakeland property managers benefit from our dual-market coverage between Orlando and Tampa, which gives us operational depth and crew flexibility that single-market providers cannot match. Every program includes documented service logs and quality inspections.',
+    ],
+    neighborhoods: [
+      'Downtown Lakeland',
+      'I-4 corridor',
+      'Lakeland Linder International Airport area',
+      'US-98 commercial corridor',
+      'South Florida Avenue',
+      'North Lakeland / I-4 interchange',
+    ],
+    facilityTypes: [
+      'Corporate headquarters',
+      'Professional office buildings',
+      'Medical office complexes',
+      'Retail and mixed-use centers',
+      'Government and civic buildings',
+    ],
+    faqs: [
+      {
+        question: 'Do you serve both Orlando and Lakeland markets?',
+        answer:
+          'Yes. Our Central Florida operations span the I-4 corridor from Orlando through Lakeland, giving us the regional footprint to serve Lakeland clients with the same reliability and quality standards we deliver in the Orlando metro.',
+      },
+      {
+        question: 'What types of commercial properties do you clean in Lakeland?',
+        answer:
+          'We clean office buildings, corporate campuses, medical offices, retail centers, and professional service suites throughout Lakeland — from downtown historic buildings to modern developments near the airport and along US-98.',
+      },
+      {
+        question: 'How does Lakeland\'s growth affect your cleaning services?',
+        answer:
+          'We proactively scale our Lakeland operations as the market grows, adding crews and resources to ensure reliable service for both existing and new clients. Our I-4 corridor infrastructure makes rapid scaling straightforward.',
+      },
+    ],
+    nearbyCities: [
+      'lakeland-warehouse-cleaning',
+      'tampa-commercial-cleaning',
+      'orlando-commercial-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── DAYTONA BEACH (Warehouse Cleaning) ─────────────────────────────
+  {
+    slug: 'daytona-beach-warehouse-cleaning',
+    city: 'Daytona Beach',
+    state: 'FL',
+    service: 'Warehouse Cleaning',
+    serviceSlug: 'warehouse-facility-cleaning',
+    citySlug: 'daytona-beach',
+    title: 'Warehouse Cleaning in Daytona Beach, FL',
+    metaDescription:
+      'Professional warehouse cleaning in Daytona Beach, FL. Axiom Facility Partners serves distribution centers and industrial facilities along I-95 and LPGA Blvd.',
+    h1: 'Warehouse Cleaning Services in Daytona Beach, Florida',
+    intro:
+      'Daytona Beach\'s strategic position along I-95 and its growing network of distribution and industrial facilities make it an important logistics hub for Northeast Central Florida. From the warehouse clusters near the International Speedway Boulevard interchange and LPGA Boulevard corridor to the industrial parks along US-92, Axiom Facility Partners delivers warehouse cleaning programs that keep Daytona Beach facilities operating at peak efficiency.',
+    serviceContext: [
+      'Our Daytona Beach warehouse cleaning programs address the specific challenges of coastal industrial environments: humidity management, mold prevention, salt-air effects on equipment and surfaces, and sand infiltration control. We combine deep-floor scrubbing, dock area maintenance, and restroom care into comprehensive programs.',
+      'Daytona Beach distribution centers benefit from our flexible scheduling — we work around shipping schedules, shift changes, and seasonal volume fluctuations to deliver consistent cleanliness without disrupting operations.',
+    ],
+    neighborhoods: [
+      'I-95 / International Speedway interchange',
+      'LPGA Boulevard corridor',
+      'US-92 industrial area',
+      'Daytona Beach International Airport area',
+      'Beville Road corridor',
+      'Embry-Riddle area',
+    ],
+    facilityTypes: [
+      'Distribution and fulfillment centers',
+      'Light-industrial warehouses',
+      'Automotive and motorsport facilities',
+      'Airport-adjacent cargo buildings',
+      'Manufacturing facilities',
+    ],
+    faqs: [
+      {
+        question: 'Do you handle the coastal humidity challenges in Daytona Beach warehouses?',
+        answer:
+          'Yes. Our Daytona Beach warehouse programs include humidity-aware cleaning protocols, enhanced mold prevention, dehumidifier-friendly floor care, and salt-air corrosion mitigation that protect your facility from the unique challenges of coastal Florida.',
+      },
+      {
+        question: 'Can you work around shipping schedules at Daytona Beach distribution centers?',
+        answer:
+          'Absolutely. We coordinate cleaning schedules with your receiving and shipping operations, working during off-peak windows to avoid disrupting dock operations, forklift traffic, and order fulfillment cycles.',
+      },
+      {
+        question: 'What size warehouses do you clean in the Daytona Beach area?',
+        answer:
+          'We clean warehouses from 10,000 square feet to over 200,000 square feet in the Daytona Beach market. Our industrial equipment fleet scales to match facility size, ensuring efficient coverage regardless of footprint.',
+      },
+    ],
+    nearbyCities: [
+      'daytona-beach-commercial-cleaning',
+      'melbourne-warehouse-cleaning',
+      'orlando-warehouse-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── TAMPA (Facilities Management) ──────────────────────────────────
+  {
+    slug: 'tampa-facilities-management',
+    city: 'Tampa',
+    state: 'FL',
+    service: 'Facilities Management',
+    serviceSlug: 'facilities-management',
+    citySlug: 'tampa',
+    title: 'Facilities Management in Tampa, FL',
+    metaDescription:
+      'Comprehensive facilities management in Tampa, FL. Axiom Facility Partners manages Westshore, Downtown, Channelside, and Hillsborough corridor properties.',
+    h1: 'Facilities Management Services in Tampa, Florida',
+    intro:
+      'Tampa is one of Florida\'s most dynamic commercial markets, with major office concentrations in Westshore Business District, Downtown Tampa, Channelside, and the expanding corridors along Dale Mabry Highway and Hillsborough Avenue. Managing these facilities requires more than cleaning — it requires integrated operations that coordinate janitorial services, maintenance, vendor oversight, and operational reporting. Axiom Facility Partners delivers that comprehensive approach.',
+    serviceContext: [
+      'Our Tampa facilities management programs serve as a single point of accountability for all facility operations — from nightly janitorial service and day porter support to maintenance coordination, vendor management, and capital project oversight. Property managers and ownership groups receive consolidated reporting that tracks performance, costs, and service quality.',
+      'Tampa\'s competitive Class A market demands institutional-quality facility operations. We bring the processes, technology, and talent depth that major properties in Westshore, Downtown, and Ybor City require to attract and retain premier tenants.',
+    ],
+    neighborhoods: [
+      'Westshore Business District',
+      'Downtown Tampa',
+      'Channelside',
+      'Ybor City',
+      'Dale Mabry Highway corridor',
+      'Hillsborough Avenue corridor',
+    ],
+    facilityTypes: [
+      'Class A office towers',
+      'Multi-tenant commercial buildings',
+      'Mixed-use developments',
+      'Corporate campus properties',
+      'Government and institutional buildings',
+    ],
+    faqs: [
+      {
+        question: 'What is included in your Tampa facilities management program?',
+        answer:
+          'Our Tampa facilities management encompasses janitorial services, maintenance coordination, vendor oversight, operational and financial reporting, emergency response, tenant relations support, and capital improvement project management — all coordinated through a dedicated facility manager.',
+      },
+      {
+        question: 'Do you manage facilities in the Westshore Business District?',
+        answer:
+          'Yes. Westshore is one of our core Tampa service areas. We understand the competitive dynamics of this premier office market and deliver the operational excellence that Class A properties require to attract top-tier tenants.',
+      },
+      {
+        question: 'How does your Tampa facilities management differ from standard cleaning?',
+        answer:
+          'Facilities management is a comprehensive operational role — we coordinate all building services, manage vendor relationships, oversee maintenance, and provide strategic reporting. Cleaning is one component of a much broader scope of accountability.',
+      },
+    ],
+    nearbyCities: [
+      'tampa-commercial-cleaning',
+      'tampa-warehouse-cleaning',
+      'tampa-day-porter-services',
+      'lakeland-commercial-cleaning',
+    ],
+    relatedServices: [],
+  },
+
+  // ── TAMPA (Day Porter Services) ────────────────────────────────────
+  {
+    slug: 'tampa-day-porter-services',
+    city: 'Tampa',
+    state: 'FL',
+    service: 'Day Porter Services',
+    serviceSlug: 'day-porter-services',
+    citySlug: 'tampa',
+    title: 'Day Porter Services in Tampa, FL',
+    metaDescription:
+      'Professional day porter services in Tampa, FL. Axiom Facility Partners provides daytime facility attendants for Westshore, Downtown, and Hillsborough corridor properties.',
+    h1: 'Day Porter Services in Tampa, Florida',
+    intro:
+      'Tampa\'s high-traffic commercial properties — from the glass towers of Westshore Business District and Downtown Tampa to the bustling retail and mixed-use centers along Dale Mabry and Hillsborough Avenue — require continuous daytime facility attention. Axiom Facility Partners\' day porter programs place trained attendants on-site during business hours to maintain the clean, professional environments that Tampa tenants and visitors expect.',
+    serviceContext: [
+      'Our Tampa day porter services provide real-time facility care during peak hours: lobby and entrance maintenance, restroom monitoring and replenishment, spill response, break room cleaning, and elevator cab upkeep. This visible presence demonstrates active property management and keeps common areas spotless.',
+      'For Tampa\'s premier office properties, our day porters serve as an extension of your building management team — uniformed, trained, and equipped to handle everything from routine touch-ups to unexpected cleaning emergencies throughout the business day.',
+    ],
+    neighborhoods: [
+      'Westshore Business District',
+      'Downtown Tampa',
+      'Channelside',
+      'Ybor City',
+      'Dale Mabry Highway corridor',
+      'Kennedy Boulevard corridor',
+    ],
+    facilityTypes: [
+      'Class A office towers',
+      'Mixed-use developments',
+      'Retail lifestyle centers',
+      'Corporate campus buildings',
+      'Convention and event facilities',
+    ],
+    faqs: [
+      {
+        question: 'What does a day porter do at a Tampa office building?',
+        answer:
+          'Our Tampa day porters maintain lobbies, monitor and restock restrooms, respond to spills, clean break rooms, manage trash in common areas, and address any cleaning needs that arise during business hours — providing visible, real-time facility care.',
+      },
+      {
+        question: 'How many day porters do you assign to a Tampa property?',
+        answer:
+          'Staffing depends on building size, tenant count, and foot traffic. A typical Tampa Class A building of 100,000–200,000 square feet may have one to two day porters; larger properties or multi-building campuses may require additional staff.',
+      },
+      {
+        question: 'Can day porter services reduce tenant complaints at my Tampa property?',
+        answer:
+          'Absolutely. Properties with day porter programs see a significant reduction in cleaning-related tenant complaints because issues are addressed in real time rather than waiting for nightly cleaning crews. This proactive approach improves tenant satisfaction and retention.',
+      },
+    ],
+    nearbyCities: [
+      'tampa-commercial-cleaning',
+      'tampa-facilities-management',
+      'kissimmee-day-porter-services',
+      'orlando-day-porter-services',
+    ],
+    relatedServices: [],
+  },
+
+  // ── OCALA ──────────────────────────────────────────────────────────
+  {
+    slug: 'ocala-commercial-cleaning',
+    city: 'Ocala',
+    state: 'FL',
+    service: 'Commercial Cleaning',
+    serviceSlug: 'office-building-cleaning',
+    citySlug: 'ocala',
+    title: 'Commercial Cleaning in Ocala, FL',
+    metaDescription:
+      'Professional commercial cleaning in Ocala, FL. Axiom Facility Partners serves offices and commercial properties along I-75, SR-200, and the growing Marion County market.',
+    h1: 'Commercial Cleaning Services in Ocala, Florida',
+    intro:
+      'Ocala is the commercial center of Marion County, anchored by the I-75 interchange system and a rapidly growing professional services, healthcare, and distribution economy. From the SR-200 corridor\'s medical and retail developments to downtown Ocala\'s professional offices and the emerging commercial parks near the I-75/SR-40 interchange, Axiom Facility Partners brings Orlando-grade commercial cleaning standards to the Ocala market.',
+    serviceContext: [
+      'Our Ocala commercial cleaning programs deliver the same documented processes, quality inspections, and account management that our Orlando and Tampa clients receive — extended to Marion County through our regional operations model. Ocala businesses no longer need to compromise on cleaning quality due to market size.',
+      'We serve Ocala\'s growing mix of professional offices, medical facilities, retail centers, and equestrian-industry commercial properties with customized cleaning scopes that account for each facility\'s unique needs and tenant expectations.',
+    ],
+    neighborhoods: [
+      'SR-200 corridor',
+      'Downtown Ocala',
+      'I-75 / SR-40 interchange area',
+      'SW 17th Street corridor',
+      'Heathbrook area',
+      'Silver Springs Boulevard corridor',
+    ],
+    facilityTypes: [
+      'Professional office buildings',
+      'Medical office complexes',
+      'Retail plazas and strip centers',
+      'Equestrian industry offices',
+      'Distribution and logistics offices',
+    ],
+    faqs: [
+      {
+        question: 'Does Axiom serve the Ocala market from Central Florida?',
+        answer:
+          'Yes. We extend our Central Florida operations to the Ocala/Marion County market, bringing the same professional cleaning standards, documented processes, and account management that our Orlando and Tampa clients receive.',
+      },
+      {
+        question: 'Do you clean medical offices in Ocala?',
+        answer:
+          'Yes. We serve medical and dental offices along the SR-200 corridor and throughout Ocala with specialized healthcare cleaning protocols, including enhanced disinfection, biohazard awareness, and HIPAA-compliant practices.',
+      },
+      {
+        question: 'What commercial cleaning frequency is available in Ocala?',
+        answer:
+          'We offer flexible scheduling for Ocala commercial clients — from five-night-per-week service for high-traffic offices to two- or three-night programs for smaller professional suites. We also provide periodic deep-cleaning and project work.',
+      },
+    ],
+    nearbyCities: [
+      'orlando-commercial-cleaning',
+      'lakeland-commercial-cleaning',
+      'daytona-beach-commercial-cleaning',
+    ],
+    relatedServices: [],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
