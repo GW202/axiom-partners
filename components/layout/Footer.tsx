@@ -84,7 +84,7 @@ export default function Footer() {
               alt={config.companyName}
               width={689}
               height={577}
-              className="h-16 w-auto brightness-0 invert"
+              className="h-16 w-auto"
             />
             <p className="mt-5 text-sm leading-relaxed text-navy-400">
               Premium commercial facility maintenance protecting your building
