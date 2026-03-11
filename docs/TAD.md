@@ -1,657 +1,518 @@
-TAD  
-  
-Below is the Final Technical Architecture Document (TAD v2) for Axiom Facility Partners.  
-This version is clean, production-ready, and excludes Railway, using:  
-* Next.js    
-* Vercel    
-* Cloudflare    
-* Headless CMS    
-* enterprise-grade SEO/AEO architecture    
-This document is designed so a senior development team can implement the platform directly.  
-  
-  
-  
-**AXIOM FACILITY PARTNERS**  
-**AXIOM FACILITY PARTNERS**  
-**Technical Architecture Document (TAD v2)**  
-Version: 2.0  
-Architecture Model: Headless, Edge-Accelerated Web Platform  
-Primary Objective: Build a high-performance, premium digital platform optimized for commercial search visibility, enterprise trust, and consultation-driven lead generation.  
-  
-  
-  
-**1. System Overview**  
-**1. System Overview**  
-**Platform Purpose**  
-**Platform Purpose**  
-The Axiom platform will function as:  
-1. Premium brand authority engine    
-2. Premium brand authority engine    
-3. Commercial lead generation platform    
-4. Commercial lead generation platform    
-5. Facility maintenance knowledge authority    
-6. Facility maintenance knowledge authority    
-7. Consultation conversion system    
-8. Consultation conversion system    
-9. Scalable regional service infrastructure    
-10. Scalable regional service infrastructure    
-Primary audience:  
-Property Managers  
-Property Managers  
-Facility Directors  
-Logistics Managers  
-Logistics Managers  
-Commercial Real Estate Operators  
-Commercial Real Estate Operators  
-The platform must deliver:  
-The platform must deliver:  
-Enterprise-level performance  
-Enterprise-level performance  
-Search authority  
-High trust UX  
-High trust UX  
-Scalable service expansion  
-  
-  
-  
-**2. Core Technology Stack**  
-**2. Core Technology Stack**  
-**Frontend Framework**  
-**Frontend Framework**  
-Next.js 16  
-Next.js 16  
-React 19  
-React 19  
-TypeScript  
-Capabilities:  
-Capabilities:  
-Hybrid rendering  
-Server components  
-Server components  
-Edge compatibility  
-Edge compatibility  
-SEO optimized HTML output  
-  
-  
-  
-**Styling Framework**  
-**Styling Framework**  
-Tailwind CSS 4  
-Benefits:  
-Atomic styling  
-Atomic styling  
-Small CSS footprint  
-Small CSS footprint  
-Design consistency  
-Design consistency  
-Fast rendering  
-  
-  
-  
-**Animation Library**  
-Framer Motion  
-Usage:  
-Usage:  
-scroll reveal  
-scroll reveal  
-section transitions  
-micro-interactions  
-Animations must remain subtle and performance-safe.  
-  
-  
-  
-**Content Management System**  
-**Content Management System**  
-Recommended CMS:  
-Recommended CMS:  
-• Sanity.io (preferred)  
-• Contentful (alternative)  
-CMS responsibilities:  
-CMS responsibilities:  
-service pages  
-service pages  
-location pages  
-location pages  
-case studies  
-knowledge articles  
-knowledge articles  
-industry insights  
-industry insights  
-Benefits:  
-structured content  
-structured content  
-API-first architecture  
-editor-friendly interface  
-editor-friendly interface  
-version control  
-  
-  
-  
-**3. Hosting & Infrastructure**  
-**3. Hosting & Infrastructure**  
-**Application Hosting**  
-Deployment platform:  
-Deployment platform:  
-Vercel  
-Responsibilities:  
-Responsibilities:  
-Next.js deployment  
-Next.js deployment  
-edge rendering  
-image optimization  
-image optimization  
-preview environments  
-CI/CD pipeline  
-  
-  
-  
-**Network, Security & CDN**  
-Infrastructure layer:  
-Cloudflare  
-Responsibilities:  
-Responsibilities:  
-DNS management  
-DNS management  
-CDN caching  
-WAF security  
-WAF security  
-bot protection  
-rate limiting  
-SSL termination  
-SSL termination  
-traffic analytics  
-traffic analytics  
-Cloudflare sits in front of Vercel.  
-Architecture:  
-Architecture:  
-User  
-↓  
-Cloudflare Edge  
-Cloudflare Edge  
-↓  
-Vercel Next.js App  
-Vercel Next.js App  
-↓  
-↓  
-Headless CMS + APIs  
-Headless CMS + APIs  
-  
-  
-  
-**4. Rendering Strategy**  
-Axiom will use Hybrid Rendering.  
-Axiom will use Hybrid Rendering.  
-**Static Site Generation (SSG)**  
-**Static Site Generation (SSG)**  
-Used for:  
-Used for:  
-homepage  
-homepage  
-services  
-services  
-location pages  
-location pages  
-industry pages  
-knowledge hub  
-knowledge hub  
-Benefits:  
-Benefits:  
-instant load times  
-excellent SEO indexing  
-excellent SEO indexing  
-edge caching  
-edge caching  
-  
-  
-  
-**Incremental Static Regeneration (ISR)**  
-Used for:  
-Used for:  
-case studies  
-case studies  
-knowledge articles  
-industry insights  
-Rebuild interval:  
-Rebuild interval:  
-1 hour  
-1 hour  
-  
-  
-  
-**Server Side Rendering (SSR)**  
-**Server Side Rendering (SSR)**  
-Used for:  
-Used for:  
-consultation requests  
-consultation requests  
-facility audit tools  
-facility audit tools  
-client portal authentication  
-client portal authentication  
-  
-  
-  
-**5. Information Architecture**  
-**5. Information Architecture**  
-**Primary Navigation**  
-Home  
-Home  
-Services  
-Services  
-Industries  
-Industries  
-Locations  
-Locations  
-Insights  
-Insights  
-Case Studies  
-Case Studies  
-About  
-Consultation  
-Consultation  
-  
-  
-  
-**6. Service Page Architecture**  
-**6. Service Page Architecture**  
-Each service receives a dedicated landing page.  
-Examples:  
-Examples:  
-/services/office-building-cleaning  
-/services/office-building-cleaning  
-/services/warehouse-facility-cleaning  
-/services/day-porter-services  
-/services/day-porter-services  
-/services/floor-care-maintenance  
-/services/sanitation-protocols  
-/services/sanitation-protocols  
-Each page includes:  
-service narrative  
-facility maintenance protocols  
-benefits to asset longevity  
-FAQ section  
-FAQ section  
-consultation CTA  
-consultation CTA  
-  
-  
-  
-**7. Industry Page Architecture**  
-**7. Industry Page Architecture**  
-Industry-focused landing pages increase authority.  
-Examples:  
-Examples:  
-/industries/corporate-offices  
-/industries/corporate-offices  
-/industries/logistics-warehouses  
-/industries/medical-offices  
-/industries/commercial-property-management  
-  
-  
-  
-**8. Location Architecture (Local SEO)**  
-**8. Location Architecture (Local SEO)**  
-Location pages capture regional search demand.  
-Examples:  
-/locations/orlando  
-/locations/orlando  
-/locations/lake-mary  
-/locations/lake-mary  
-/locations/sanford  
-/locations/sanford  
-/locations/winter-park  
-/locations/winter-park  
-/locations/tampa  
-/locations/tampa  
-Each page includes:  
-Each page includes:  
-local services  
-local services  
-map integration  
-regional expertise  
-regional expertise  
-industry examples  
-consultation CTA  
-consultation CTA  
-  
-  
-  
-**9. SEO Architecture**  
-**URL Structure**  
-Preferred format:  
-axiomfacilitypartners.com/service-location  
-axiomfacilitypartners.com/service-location  
-Example:  
-Example:  
-/orlando-office-cleaning  
-/orlando-warehouse-cleaning  
-/orlando-warehouse-cleaning  
-/lake-mary-commercial-cleaning  
-/lake-mary-commercial-cleaning  
-  
-  
-  
-**Metadata Management**  
-**Metadata Management**  
-Dynamic metadata generated through CMS.  
-Dynamic metadata generated through CMS.  
-Example:  
-Example:  
-Title:  
-Title:  
-Office Building Cleaning Orlando | Axiom Facility Partners  
-Office Building Cleaning Orlando | Axiom Facility Partners  
-Description:  
-Premium office building maintenance designed to protect facility assets and ensure operational continuity.  
-  
-  
-  
-**10. Structured Data (SEO + AEO)**  
-Structured data implemented via JSON-LD.  
-Structured data implemented via JSON-LD.  
-Schemas used:  
-Organization  
-Organization  
-LocalBusiness  
-LocalBusiness  
-Service  
-Service  
-OfferCatalog  
-OfferCatalog  
-FAQPage  
-FAQPage  
-Speakable  
-Speakable  
-Dataset  
-Dataset  
-Schema hierarchy:  
-Organization  
-↓  
-↓  
-Service  
-↓  
-↓  
-OfferCatalog  
-OfferCatalog  
-↓  
-FAQ  
-FAQ  
-  
-  
-  
-**11. Core Web Vitals Targets**  
-**11. Core Web Vitals Targets**  
-Performance targets:  
-Performance targets:  
-LCP < 1.0s  
-LCP < 1.0s  
-CLS = 0  
-CLS = 0  
-INP < 150ms  
-INP < 150ms  
-TTFB < 200ms  
-TTFB < 200ms  
-Achieved through:  
-SSG rendering  
-SSG rendering  
-Cloudflare CDN  
-Cloudflare CDN  
-Next.js optimization  
-Next.js optimization  
-AVIF images  
-AVIF images  
-minimal JavaScript  
-minimal JavaScript  
-  
-  
-  
-**12. Image Optimization**  
-**12. Image Optimization**  
-Image system:  
-Next.js Image Component  
-AVIF primary format  
-WebP fallback  
-WebP fallback  
-responsive sizing  
-lazy loading  
-All imagery must use:  
-professional architectural photography  
-professional architectural photography  
-clean facility imagery  
-high resolution  
-high resolution  
-optimized compression  
-  
-  
-  
-**13. Conversion Architecture**  
-Axiom does not operate as a quote-driven vendor site.  
-Conversion funnel:  
-Conversion funnel:  
-Visitor  
-Visitor  
-↓  
-↓  
-Authority & expertise  
-Authority & expertise  
-↓  
-↓  
-Educational insight  
-↓  
-↓  
-Facility audit tool  
-↓  
-↓  
-Consultation request  
-  
-  
-  
-**14. Facility Audit Tool**  
-**14. Facility Audit Tool**  
-Interactive React component.  
-Interactive React component.  
-Inputs:  
-Inputs:  
-facility type  
-square footage  
-square footage  
-cleaning frequency  
-current vendor performance  
-current vendor performance  
-Outputs:  
-Outputs:  
-facility health score  
-facility health score  
-asset risk indicators  
-recommended maintenance strategy  
-recommended maintenance strategy  
-  
-  
-  
-**15. Total Cost of Ownership (TCO) Calculator**  
-Purpose:  
-Demonstrate the financial cost of low-bid cleaning vendors.  
-Demonstrate the financial cost of low-bid cleaning vendors.  
-Variables:  
-Variables:  
-facility square footage  
-facility square footage  
-cleaning cost  
-cleaning cost  
-floor replacement costs  
-floor replacement costs  
-HVAC efficiency impact  
-HVAC efficiency impact  
-management oversight hours  
-management oversight hours  
-Outputs:  
-Outputs:  
-5-year asset protection savings  
-maintenance ROI  
-operational efficiency gains  
-operational efficiency gains  
-  
-  
-  
-**16. Client Transparency Portal (Future Module)**  
-**16. Client Transparency Portal (Future Module)**  
-Portal capabilities:  
-inspection reports  
-inspection reports  
-facility maintenance logs  
-SOP compliance reports  
-SOP compliance reports  
-document storage  
-document storage  
-service audit data  
-service audit data  
-Integration options:  
-Jobber  
-Swept  
-Custom CRM  
-  
-  
-  
-**17. Analytics & Monitoring**  
-**17. Analytics & Monitoring**  
-Analytics platforms:  
-Analytics platforms:  
-PostHog  
-PostHog  
-Cloudflare Analytics  
-Cloudflare Analytics  
-Google Tag Manager  
-Google Tag Manager  
-Tracked metrics:  
-Tracked metrics:  
-conversion funnel  
-page performance  
-page performance  
-user engagement  
-lead generation events  
-lead generation events  
-  
-  
-  
-**18. Security Architecture**  
-**18. Security Architecture**  
-Security layers:  
-Security layers:  
-Cloudflare WAF  
-Cloudflare WAF  
-Protection includes:  
-Protection includes:  
-bot filtering  
-rate limiting  
-API protection  
-DDoS mitigation  
-Data protection:  
-Data protection:  
-HTTPS encryption  
-HTTPS encryption  
-secure form processing  
-input validation  
-input validation  
-  
-  
-  
-**19. Accessibility**  
-**19. Accessibility**  
-Compliance target:  
-Compliance target:  
-WCAG 2.2 AA  
-Requirements:  
-semantic HTML  
-screen reader compatibility  
-keyboard navigation  
-alt text compliance  
-color contrast standards  
-color contrast standards  
-  
-  
-  
-**20. CI/CD Pipeline**  
-**20. CI/CD Pipeline**  
-Deployment workflow:  
-Deployment workflow:  
-GitHub Repository  
-↓  
-↓  
-Vercel Build Pipeline  
-↓  
-Preview Deployment  
-↓  
-↓  
-Production Deployment  
-Production Deployment  
-Cloudflare remains active as:  
-Cloudflare remains active as:  
-DNS layer  
-DNS layer  
-security gateway  
-security gateway  
-global CDN  
-global CDN  
-  
-  
-  
-**21. Performance Monitoring**  
-Tools used:  
-Tools used:  
-Vercel Speed Insights  
-Vercel Speed Insights  
-Lighthouse  
-Lighthouse  
-PageSpeed Insights  
-Cloudflare Analytics  
-Cloudflare Analytics  
-Continuous monitoring ensures performance targets remain stable.  
-Continuous monitoring ensures performance targets remain stable.  
-  
-  
-  
-**22. Scalability Strategy**  
-**22. Scalability Strategy**  
-The architecture must support expansion into:  
-additional Florida cities  
-additional Florida cities  
-new commercial services  
-facility management verticals  
-facility management verticals  
-enterprise contracts  
-CMS-driven architecture allows new pages without code changes.  
-CMS-driven architecture allows new pages without code changes.  
-  
-  
-  
-**Final Architecture Summary**  
-**Final Architecture Summary**  
-The Axiom platform is built as:  
-The Axiom platform is built as:  
-Next.js Enterprise Application  
-Next.js Enterprise Application  
-+  
-+  
-Vercel Deployment  
-Vercel Deployment  
-+  
-+  
-Cloudflare Edge Infrastructure  
-+  
-+  
-Headless CMS Content System  
-+  
-+  
-SEO + AEO Optimized Architecture  
-SEO + AEO Optimized Architecture  
-+  
-Consultation Conversion Funnel  
-Consultation Conversion Funnel  
-This system positions Axiom Facility Partners as a high-authority commercial facility partner capable of dominating the Central Florida commercial maintenance market.  
-  
-  
-  
-If you want, the next step would be generating the PRD and TRD documents, which together with this TAD form the complete developer blueprint package.  
-If you want, the next step would be generating the PRD and TRD documents, which together with this TAD form the complete developer blueprint package.  
-  
-  
+# Axiom Facility Partners — Technical Architecture Document (TAD)
+
+**Version:** 2.0
+**Last Updated:** March 2026
+**Architecture Model:** Next.js App Router, Hybrid-Rendered, Edge-Optimized
+**Primary Objective:** High-performance commercial facility platform optimized for local SEO dominance, enterprise trust, and consultation-driven lead generation.
+
+---
+
+## 1. System Overview
+
+### Platform Purpose
+
+The Axiom platform operates as:
+
+1. **Premium brand authority engine** — Establishing Axiom as Central Florida's top facility partner
+2. **Commercial lead generation platform** — Driving consultation requests from property managers and facility directors
+3. **Facility maintenance knowledge authority** — Blog content and educational resources for SEO/AEO
+4. **Hyper-local SEO infrastructure** — 155+ city-service landing pages for regional search dominance
+5. **Scalable regional service platform** — Data-driven architecture supporting expansion to new markets
+
+### Primary Audience
+
+- Property Managers
+- Facility Directors
+- Logistics Managers
+- Commercial Real Estate Operators
+
+---
+
+## 2. Architecture Diagram
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                      CLIENT LAYER                       │
+│                                                         │
+│   Browser ──→ Next.js App (React 19 + Server Components)│
+│                    │                                    │
+│   ┌────────────────┼────────────────┐                   │
+│   │ Static Pages   │ Client Components                  │
+│   │ (SSG at build) │ (Framer Motion, Forms, Carousel)   │
+│   └────────────────┴────────────────┘                   │
+└─────────────────────┬───────────────────────────────────┘
+                      │
+┌─────────────────────▼───────────────────────────────────┐
+│                    SERVER LAYER                          │
+│                                                         │
+│   Next.js API Routes (/api/*)                           │
+│   ┌──────────────┬──────────────┬─────────────────┐     │
+│   │ Consultation │ Admin CRUD   │ OG Image Gen    │     │
+│   │ Submissions  │ (Articles,   │ (Edge Runtime)  │     │
+│   │              │  Config,     │                 │     │
+│   │              │  Submissions)│                 │     │
+│   └──────┬───────┴──────┬───────┴─────────────────┘     │
+│          │              │                               │
+└──────────┼──────────────┼───────────────────────────────┘
+           │              │
+┌──────────▼──────────────▼───────────────────────────────┐
+│                    DATA LAYER                            │
+│                                                         │
+│   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│   │ PostgreSQL   │  │ File-Based   │  │ TypeScript   │  │
+│   │ (Railway)    │  │ Storage      │  │ Content      │  │
+│   │              │  │ (/tmp or     │  │ Files        │  │
+│   │ Submissions  │  │  /data)      │  │ (/content/)  │  │
+│   │ via Prisma   │  │              │  │              │  │
+│   │              │  │ Submissions  │  │ Services     │  │
+│   │              │  │ Articles     │  │ Industries   │  │
+│   │              │  │ Site Config  │  │ Locations    │  │
+│   │              │  │              │  │ City-Services│  │
+│   │              │  │              │  │ Blog Posts   │  │
+│   │              │  │              │  │ FAQs         │  │
+│   │              │  │              │  │ Testimonials │  │
+│   └──────────────┘  └──────────────┘  └──────────────┘  │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+           │              │
+┌──────────▼──────────────▼───────────────────────────────┐
+│                 EXTERNAL SERVICES                        │
+│                                                         │
+│   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌────────┐ │
+│   │ Resend   │  │ Slack    │  │ Google   │  │ Google │ │
+│   │ (Email)  │  │ Webhooks │  │ Tag Mgr  │  │ Analyt.│ │
+│   └──────────┘  └──────────┘  └──────────┘  └────────┘ │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 3. Core Technology Stack
+
+| Layer | Technology | Version | Purpose |
+|---|---|---|---|
+| Framework | Next.js | 15.5.x | App Router, SSG, SSR, API routes |
+| UI Library | React | 19.1.x | Component rendering |
+| Language | TypeScript | 5.x | Type safety |
+| Styling | Tailwind CSS | 4.x | Utility-first CSS |
+| Animation | Framer Motion | 12.x | Scroll animations, transitions |
+| ORM | Prisma | 6.19.x | PostgreSQL access |
+| Database | PostgreSQL | — | Consultation submissions (Railway) |
+| Email | Resend | 6.9.x | Transactional notifications |
+| Dev Server | Turbopack | — | Fast HMR in development |
+
+---
+
+## 4. Application Architecture
+
+### Directory Structure
+
+```
+axiom-partners/
+├── app/                          # Next.js App Router
+│   ├── layout.tsx                # Root layout (GTM, GA, fonts, schema)
+│   ├── page.tsx                  # Homepage
+│   ├── globals.css               # Theme + custom styles
+│   ├── robots.ts                 # Dynamic robots.txt
+│   ├── sitemap.ts                # Dynamic XML sitemap
+│   ├── not-found.tsx             # 404 page
+│   ├── error.tsx                 # Error boundary
+│   ├── loading.tsx               # Loading skeleton
+│   ├── [cityService]/            # Dynamic city+service pages (155+)
+│   ├── services/[service]/       # Service detail pages (6)
+│   ├── industries/[industry]/    # Industry detail pages (4)
+│   ├── locations/[city]/         # City detail pages (22)
+│   ├── resources/[slug]/         # Blog post pages
+│   ├── es/                       # Spanish language routes
+│   ├── admin/                    # Admin dashboard
+│   ├── api/                      # Server-side API routes
+│   │   ├── consultation/         # Form submission handler
+│   │   ├── admin/                # Admin CRUD endpoints
+│   │   └── og/                   # Dynamic OG image (Edge)
+│   └── (static pages)            # about, faq, consultation, privacy, terms
+│
+├── components/
+│   ├── layout/                   # Container, Header, Footer
+│   ├── sections/                 # Page sections (Hero, CTA, Testimonials, etc.)
+│   └── ui/                       # Reusable UI components
+│
+├── content/                      # Static content data (TypeScript)
+├── lib/                          # Utilities, config, integrations
+├── prisma/                       # Database schema
+├── public/                       # Static assets (images, manifest)
+└── docs/                         # Project documentation
+```
+
+### Component Architecture
+
+```
+Root Layout (Server Component)
+├── Header (Server Component)
+│   └── Mobile menu toggle (Client — uses useState)
+├── Page Content
+│   ├── Hero (Client — Framer Motion animations)
+│   ├── ServicesShowcase (Client — scroll animations)
+│   ├── WhyAxiom (Client — timeline animations)
+│   ├── IndustriesShowcase (Client — scroll animations)
+│   ├── Testimonials (Client — carousel state + AnimatePresence)
+│   ├── CTASection (Client — Framer Motion)
+│   └── SectionWrapper (Client — useInView wrapper)
+├── Footer (Server Component)
+└── CookieConsent (Client — localStorage state)
+```
+
+**Server/Client boundary strategy:**
+
+- Pages and layouts are Server Components by default
+- Components using Framer Motion, `useState`, `useRef`, or browser APIs are marked `'use client'`
+- Data fetching happens at the page level (Server Component) and is passed as props to Client Components
+
+---
+
+## 5. Data Architecture
+
+### Content Layer (Build-Time)
+
+All marketing content lives in TypeScript files under `/content/`. This enables:
+
+- **Type safety** — Content interfaces enforce data structure
+- **Static generation** — `generateStaticParams()` reads content arrays at build time
+- **No runtime dependencies** — No CMS API calls, no network latency
+- **Version control** — Content changes tracked in Git
+
+| Content File | Records | Generates |
+|---|---|---|
+| `services.ts` | 6 | `/services/[service]` pages |
+| `industries.ts` | 4 | `/industries/[industry]` pages |
+| `locations.ts` | 22 | `/locations/[city]` pages |
+| `city-services.ts` | 155+ | `/[cityService]` pages |
+| `blog.ts` | Variable | `/resources/[slug]` pages |
+| `services-es.ts` | 6 | `/es/servicios/[servicio]` pages |
+
+### Database Layer (Runtime)
+
+PostgreSQL via Prisma handles dynamic data:
+
+- **Consultation submissions** — Form data with indexed email and timestamp
+- **Connection:** Railway-hosted PostgreSQL, connection string via `DATABASE_URL`
+- **Fallback:** File-based JSON storage in `/data/` (local) or `/tmp/axiom-data/` (serverless) ensures submissions are never lost even if the database is unavailable
+
+### File-Based Storage (Runtime)
+
+Used for admin-created content and configuration:
+
+- **Site configuration** — JSON file with company contact info
+- **Admin articles** — Blog posts created via the admin panel
+- **Submission backups** — Redundant storage for consultation submissions
+
+---
+
+## 6. Rendering Strategy
+
+### Static Generation Flow
+
+```
+Build Time
+  ↓
+content/*.ts data files
+  ↓
+generateStaticParams() reads arrays
+  ↓
+generateMetadata() creates SEO metadata
+  ↓
+Page components render with content props
+  ↓
+HTML + JSON-LD structured data output
+  ↓
+Deployed as static files to Vercel edge
+```
+
+### Page-Level Rendering Matrix
+
+| Route Pattern | Rendering | Data Source |
+|---|---|---|
+| `/` (Homepage) | SSG | Inline data + content imports |
+| `/services/[service]` | SSG | `services.ts` |
+| `/industries/[industry]` | SSG | `industries.ts` |
+| `/locations/[city]` | SSG | `locations.ts` |
+| `/[cityService]` | SSG | `city-services.ts` |
+| `/resources/[slug]` | SSG | `blog.ts` |
+| `/es/servicios/[servicio]` | SSG | `services-es.ts` |
+| `/consultation` | SSR | Form component (client) |
+| `/admin` | SSR | API calls to admin endpoints |
+| `/api/*` | Serverless | Request handlers |
+| `/api/og` | Edge | Image generation |
+
+---
+
+## 7. SEO Architecture
+
+### Multi-Tier Landing Page Strategy
+
+The platform implements a three-tier SEO approach:
+
+```
+Tier 1: Service Pages (6)
+  /services/office-building-cleaning
+  → Targets: "office building cleaning"
+
+Tier 2: Location Pages (22)
+  /locations/orlando
+  → Targets: "commercial cleaning Orlando"
+
+Tier 3: City+Service Pages (155+)
+  /orlando-office-cleaning
+  → Targets: "office cleaning Orlando FL"
+```
+
+This creates a dense internal link network where:
+- Service pages link to relevant city-service pages
+- Location pages link to relevant city-service pages
+- City-service pages cross-link to related cities and services
+- Footer contains geo-clustered service area links
+
+### Structured Data Hierarchy
+
+```
+Organization (root)
+├── LocalBusiness (contact, hours, areas served)
+├── WebSite (search, name)
+├── Service (per service page)
+│   └── OfferCatalog (service listings)
+├── FAQPage (per page with FAQs)
+├── BreadcrumbList (navigation path)
+├── Speakable (AEO-optimized content)
+├── Review (testimonial data)
+└── HowTo (procedural content)
+```
+
+### Sitemap Generation
+
+Dynamic sitemap at `/sitemap.ts` includes:
+- All static pages
+- All service pages (from `services.ts`)
+- All industry pages (from `industries.ts`)
+- All location pages (from `locations.ts`)
+- All city-service pages (from `city-services.ts`)
+- All blog posts (from `blog.ts`)
+- Spanish language pages
+
+### Image Sitemap
+
+Dedicated image sitemap at `/image-sitemap.xml` for Google Images indexing.
+
+---
+
+## 8. Lead Capture Architecture
+
+### Submission Flow
+
+```
+User fills ConsultationForm (Client Component)
+  ↓
+POST /api/consultation
+  ↓
+┌─────────────────────────────────────┐
+│ 1. Validate & sanitize inputs       │
+│ 2. Save to file storage (always)    │
+│ 3. Save to PostgreSQL (if available)│
+│ 4. Send email via Resend            │
+│ 5. Send Slack notification           │
+│ 6. Return response                  │
+└─────────────────────────────────────┘
+```
+
+**Resilience design:** Each step (2–5) executes independently. A failure in any single step (e.g., database down, Slack webhook timeout) does not prevent the other steps from completing. File storage (step 2) is the guaranteed fallback.
+
+### Email Notification
+
+Resend sends an HTML-formatted email containing:
+- Submitter name, company, email, phone
+- Facility type and square footage
+- Requested services
+- Optional message
+- Submission timestamp
+
+### Slack Notification
+
+Formatted Slack block message with:
+- Company and contact information
+- Service requests
+- Direct links to respond
+
+---
+
+## 9. Admin Architecture
+
+### Admin Panel (`/admin`)
+
+Single-page admin dashboard with token-based authentication.
+
+```
+Admin Login
+  ↓ POST /api/admin/auth (credentials → base64 token)
+  ↓
+Dashboard
+  ├── Submissions Tab
+  │   ├── GET /api/admin/submissions?page=1&limit=20
+  │   └── DELETE /api/admin/submissions?id=<cuid>
+  ├── Articles Tab
+  │   ├── GET /api/admin/articles
+  │   ├── POST /api/admin/articles (create)
+  │   └── DELETE /api/admin/articles?slug=<slug>
+  ├── GBP Posts Tab
+  │   └── GET /api/admin/gbp-posts?slug=<blog-slug>
+  └── Settings Tab
+      ├── GET /api/admin/config
+      └── PUT /api/admin/config (update company info)
+```
+
+---
+
+## 10. Security Architecture
+
+### Application Security
+
+| Layer | Implementation |
+|---|---|
+| Transport | HTTPS enforced, HSTS header (63072000s) |
+| Headers | CSP, X-Content-Type-Options, X-Frame-Options |
+| Input validation | Server-side sanitization on all form inputs |
+| Admin auth | Token-based with credential verification |
+| Cookie consent | GDPR-compliant consent banner |
+
+### Content Security Policy
+
+Allowed sources:
+- **Scripts:** `self`, Google Tag Manager, Google Analytics, Vercel
+- **Styles:** `self`, `unsafe-inline`, Google Fonts
+- **Fonts:** Google Fonts CDN
+- **Images:** `self`, data URIs, blob URIs
+
+---
+
+## 11. Performance Architecture
+
+### Optimization Stack
+
+```
+Static HTML (SSG)
+  + Tailwind CSS (purged, minimal)
+  + Next.js Image (AVIF/WebP, responsive, lazy)
+  + next/font (preloaded Inter)
+  + content-visibility: auto (off-screen sections)
+  + 1-year immutable cache headers
+  + DNS prefetch (fonts, analytics)
+  + Turbopack (dev only)
+```
+
+### Image Pipeline
+
+```
+Source image (JPG/PNG)
+  ↓ Next.js Image component
+  ↓ Automatic format conversion (AVIF primary, WebP fallback)
+  ↓ Responsive sizing via sizes attribute
+  ↓ Lazy loading (default) or priority (hero images)
+  ↓ CDN-cached with immutable headers
+```
+
+---
+
+## 12. Internationalization Architecture
+
+### Current Implementation
+
+```
+/                    → English (default)
+/es                  → Spanish homepage
+/es/servicios        → Spanish services listing
+/es/servicios/[slug] → Spanish service detail
+```
+
+Content source: `services-es.ts` provides translated service data.
+
+### Expansion Pattern
+
+To add a new language:
+1. Create `content/services-{lang}.ts` with translated content
+2. Add `app/{lang}/` route directory
+3. Pages import from language-specific content file
+
+---
+
+## 13. Scalability Architecture
+
+### Adding a New City
+
+1. Add city object to `content/locations.ts`
+2. Add city-service combinations to `content/city-services.ts`
+3. Rebuild — `generateStaticParams()` automatically creates new pages
+
+### Adding a New Service
+
+1. Add service object to `content/services.ts`
+2. Add relevant city-service combinations to `content/city-services.ts`
+3. Rebuild — new service page and city-service pages generated automatically
+
+### Adding a New Industry
+
+1. Add industry object to `content/industries.ts`
+2. Rebuild — new industry page generated automatically
+
+No code changes required for content expansion. The data-driven architecture ensures new pages inherit all SEO infrastructure (metadata, structured data, sitemaps) automatically.
+
+---
+
+## 14. Deployment Architecture
+
+### Pipeline
+
+```
+Developer pushes to GitHub
+  ↓
+Vercel detects push
+  ↓
+prisma generate (Prisma client)
+  ↓
+next build (SSG for 200+ pages)
+  ↓
+Preview deployment (feature branches)
+  ↓
+Production deployment (main branch)
+  ↓
+Vercel Edge Network serves static assets
+```
+
+### Environment Configuration
+
+| Environment | Purpose | Database |
+|---|---|---|
+| Development | Local dev with Turbopack | Local or Railway PostgreSQL |
+| Preview | Per-branch Vercel deployments | Railway PostgreSQL |
+| Production | Main branch on Vercel | Railway PostgreSQL |
+
+---
+
+## 15. Monitoring & Analytics
+
+| Tool | Purpose |
+|---|---|
+| Google Analytics | Traffic, engagement, conversion tracking |
+| Google Tag Manager | Tag orchestration, event management |
+| Slack Webhooks | Real-time lead alerts |
+| Vercel Dashboard | Deployment logs, function invocations |
+
+---
+
+## 16. Future Architecture Considerations
+
+| Feature | Architecture Impact |
+|---|---|
+| Headless CMS (Sanity.io) | Replace `/content/` files with API calls; add ISR |
+| Facility Audit Tool | New client component with calculation engine |
+| TCO Calculator | New client component with dynamic inputs/outputs |
+| Client Portal | Authentication system (NextAuth.js), protected routes |
+| Case Studies | New content model, detail pages, schema markup |
+| Multi-region expansion | Content scaling, potential i18n framework adoption |
