@@ -265,7 +265,43 @@ The product is considered successful when it achieves:
 
 ---
 
-## 12. Future Product Roadmap
+## 12. Competitive Positioning (vs. Top 5 Orlando Competitors)
+
+Based on a March 2026 competitor analysis of the top 5 commercial cleaning companies in Orlando (ICS, JAN-PRO, Citi Cleaning, Stratus Building Solutions, Corvus Janitorial), the following competitive assessment applies:
+
+### Where Axiom Already Leads
+
+| Competitor Best Practice | Axiom Status |
+|---|---|
+| Professional, purpose-built website | **Exceeds all 5** — custom Next.js/Tailwind/Framer Motion vs. templates |
+| Deep service pages with protocols/FAQs | **On par with Stratus** (deepest among competitors) |
+| Location-specific pages | **Far exceeds all** — 22 cities + 155+ city-service pages vs. Stratus's "dozens" |
+| Industry-specific pages | **On par** with JAN-PRO/Stratus/Corvus (4 industry pages) |
+| Blog / content marketing | **Competitive** — Resources section with admin article creation |
+| Structured data / Schema.org | **Far exceeds all** — 10+ schema types; competitors have little to none |
+| Bilingual support | **Unique advantage** — no competitor offers Spanish |
+| Mobile responsive | **Yes** (all competitors also meet this baseline) |
+
+### Gaps to Address
+
+| # | Gap | Competitor Evidence | Priority | Action |
+|---|---|---|---|---|
+| 1 | **Phone number in header** | 4 of 5 competitors display phone in header; Axiom only shows it in footer | High | Add phone to Header component |
+| 2 | **Client logos on homepage** | All 5 competitors display recognizable client brand logos | High | Add client logo strip to homepage |
+| 3 | **Google Business Profile strategy** | ICS is #1 in Local Pack due to GBP optimization — Local Pack gets highest-intent clicks | High | See Addendum for GBP strategy |
+| 4 | **Review generation** | ICS dominates Local Pack partly through review volume | High | Target: 50 reviews Year 1, 120 Year 2 |
+| 5 | **Green/Eco positioning** | ICS (Green Clean Certified), Stratus (Green Clean program), Corvus (Green Cleaning) — 3 of 5 use this | Medium | Consider certification and dedicated messaging |
+| 6 | **Risk-reduction messaging** | ICS differentiates with "no contracts or long-term obligations" | Medium | Add flexibility/risk-reduction language to value proposition |
+| 7 | **Live chat** | None of top 5 have it — competitor analysis identifies this as a differentiation opportunity | Medium | Evaluate Intercom, Drift, or Crisp integration |
+| 8 | **Case studies with metrics** | Stratus and Corvus feature detailed case studies | Medium | Planned in roadmap; prioritize 2-3 initial case studies |
+
+### Competitive Summary
+
+Axiom's programmatic SEO infrastructure (155+ city-service pages, 10+ Schema.org types, Spanish support) represents a **structural advantage** that no current competitor can match without rebuilding their platform. The primary gaps are in off-site signals (GBP optimization, reviews, citations) and on-site trust signals (client logos, phone in header, eco positioning) — all of which are straightforward to address.
+
+---
+
+## 13. Future Product Roadmap
 
 Planned features not yet implemented:
 
