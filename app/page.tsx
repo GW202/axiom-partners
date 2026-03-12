@@ -115,9 +115,6 @@ export default function Home() {
         </AnimatedSection>
       </section>
 
-      {/* Trust Signals — Green certified, no contracts, insured, background-checked + client types */}
-      <TrustBar />
-
       {/* Services Overview — Bento grid with numbered badges & service-specific icons */}
       <ServicesShowcase services={services} />
 
@@ -196,6 +193,9 @@ export default function Home() {
       </SectionWrapper>
 
       <Testimonials />
+
+      {/* Trust Signals — reinforces credibility after reviews */}
+      <TrustBar />
 
       <CTASection />
     </>

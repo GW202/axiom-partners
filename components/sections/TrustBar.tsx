@@ -40,7 +40,7 @@ export default function TrustBar() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-cream-50 py-16 lg:py-20">
+    <section ref={ref} className="relative overflow-hidden bg-cream-50 py-10 lg:py-12">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, #0A1628 1px, transparent 0)',
@@ -81,7 +81,7 @@ export default function TrustBar() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12"
+          className="mt-8"
         >
           <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-navy-400">
             Trusted by facilities across Central Florida
