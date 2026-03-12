@@ -5,6 +5,7 @@ import SectionWrapper from '@/components/sections/SectionWrapper';
 import ServicesShowcase from '@/components/sections/ServicesShowcase';
 import WhyAxiom from '@/components/sections/WhyAxiom';
 import IndustriesShowcase from '@/components/sections/IndustriesShowcase';
+import TrustBar from '@/components/sections/TrustBar';
 import CTASection from '@/components/sections/CTASection';
 import Testimonials from '@/components/sections/Testimonials';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -113,6 +114,9 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cream-50 via-transparent to-transparent" />
         </AnimatedSection>
       </section>
+
+      {/* Trust Signals — Green certified, no contracts, insured, background-checked + client types */}
+      <TrustBar />
 
       {/* Services Overview — Bento grid with numbered badges & service-specific icons */}
       <ServicesShowcase services={services} />

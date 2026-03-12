@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieConsent from '@/components/ui/CookieConsent';
+import ChatBot from '@/components/ui/ChatBot';
 import {
   generateOrganizationSchema,
   generateLocalBusinessSchema,
@@ -166,6 +167,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <CookieConsent />
+        <ChatBot />
       </body>
     </html>
   );
