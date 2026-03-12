@@ -20,6 +20,37 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-navy-100/80 bg-white/80 backdrop-blur-xl">
+      {/* Top bar with phone number */}
+      <div className="border-b border-navy-100/60 bg-navy-950">
+        <Container>
+          <div className="flex items-center justify-between py-1.5 text-xs">
+            <span className="hidden text-navy-300 sm:inline">
+              Central Florida&apos;s Premier Facility Partner
+            </span>
+            <a
+              href="tel:+14073423195"
+              className="flex items-center gap-1.5 font-semibold text-white transition-colors hover:text-bronze-400"
+            >
+              <svg
+                aria-hidden="true"
+                className="h-3.5 w-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                />
+              </svg>
+              (407) 342-3195
+            </a>
+          </div>
+        </Container>
+      </div>
+
       <Container>
         <nav className="flex h-18 items-center justify-between">
           <Link href="/" className="group flex items-center">
@@ -125,6 +156,26 @@ export default function Header() {
                   >
                     Request Consultation
                   </Link>
+                  <a
+                    href="tel:+14073423195"
+                    className="mt-2 flex items-center justify-center gap-2 rounded-md border border-navy-200 px-5 py-3 text-sm font-semibold text-navy-800 transition-colors hover:bg-navy-50"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                      />
+                    </svg>
+                    (407) 342-3195
+                  </a>
                 </motion.div>
               </div>
             </motion.div>
