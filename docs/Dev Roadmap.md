@@ -1,495 +1,123 @@
-# Dev Roadmap  
-Below is the Developer Implementation Roadmap for Axiom Facility Partners.  
-This document converts the PRD + TRD + TAD into actual build phases and engineering sprints your development team can execute.  
-This document converts the PRD + TRD + TAD into actual build phases and engineering sprints your development team can execute.  
-Think of it as the execution plan from zero → launch.  
-Think of it as the execution plan from zero → launch.  
-  
-  
-  
-**AXIOM FACILITY PARTNERS**  
-**Developer Implementation Roadmap**  
-Version: 1.0  
-Version: 1.0  
-Project Type: Premium Commercial Service Platform  
-Project Type: Premium Commercial Service Platform  
-  
-  
-  
-**1. Project Overview**  
-**1. Project Overview**  
-The Axiom platform will be developed using a modern Jamstack architecture designed for:  
-* high performance    
-* strong SEO    
-* scalable content    
-* premium UX    
-Core infrastructure will include:  
-* Next.js    
-* Tailwind CSS    
-* Headless CMS    
-* Vercel hosting    
-* Cloudflare edge network    
-The development process will follow a phased delivery model.  
-  
-  
-  
-**2. Development Phases**  
-**2. Development Phases**  
-The project will be implemented across 6 phases.  
-The project will be implemented across 6 phases.  
-Phase 1 — Infrastructure Setup  
-Phase 1 — Infrastructure Setup  
-Phase 2 — Core Framework Build  
-Phase 3 — Content System  
-Phase 3 — Content System  
-Phase 4 — Core Website Pages  
-Phase 5 — Interactive Tools  
-Phase 6 — Optimization & Launch  
-  
-  
-  
-**Phase 1 — Infrastructure Setup**  
-**Goal**  
-**Goal**  
-Prepare the core development environment and infrastructure.  
-  
-  
-  
-**Tasks**  
-**Tasks**  
-**Repository Setup**  
-**Repository Setup**  
-Create project repository.  
-Create project repository.  
-Requirements:  
-Requirements:  
-GitHub repository  
-GitHub repository  
-TypeScript configuration  
-ESLint configuration  
-ESLint configuration  
-Prettier configuration  
-Prettier configuration  
-  
-  
-  
-**Framework Installation**  
-Install the application framework.  
-Required stack:  
-Required stack:  
-Next.js 16  
-Next.js 16  
-React 19  
-React 19  
-TypeScript  
-TypeScript  
-Tailwind CSS  
-Framer Motion  
-  
-  
-  
-**Hosting Configuration**  
-**Hosting Configuration**  
-Configure deployment pipeline using Vercel.  
-Tasks:  
-Tasks:  
-connect GitHub repository  
-connect GitHub repository  
-enable preview deployments  
-configure environment variables  
-configure environment variables  
-  
-  
-  
-**DNS and Security Setup**  
-**DNS and Security Setup**  
-Configure domain infrastructure through Cloudflare.  
-Configure domain infrastructure through Cloudflare.  
-Required settings:  
-Required settings:  
-DNS records  
-DNS records  
-SSL encryption  
-SSL encryption  
-Web Application Firewall  
-Web Application Firewall  
-Bot protection  
-Bot protection  
-rate limiting  
-  
-  
-  
-**Phase 2 — Core Framework Build**  
-**Phase 2 — Core Framework Build**  
-**Goal**  
-**Goal**  
-Establish the core application structure.  
-  
-  
-  
-**Application Structure**  
-**Application Structure**  
-Create folder architecture.  
-Create folder architecture.  
-/app  
-/app  
-/components  
-/components  
-/lib  
-/lib  
-/styles  
-/styles  
-/content  
-/content  
-/public  
-/public  
-  
-  
-  
-**Global Layout**  
-Create global layout component.  
-Create global layout component.  
-Responsibilities:  
-navigation  
-navigation  
-footer  
-footer  
-SEO metadata  
-SEO metadata  
-structured data  
-  
-  
-  
-**Design System Implementation**  
-Implement Tailwind design system.  
-Implement Tailwind design system.  
-Tasks:  
-Tasks:  
-configure brand color palette  
-configure typography  
-configure typography  
-define spacing system  
-build reusable UI components  
-build reusable UI components  
-  
-  
-  
-**Core UI Components**  
-Required reusable components:  
-Required reusable components:  
-navigation header  
-hero section  
-content grid  
-content grid  
-service cards  
-CTA sections  
-footer  
-  
-  
-  
-**Phase 3 — Content System**  
-**Phase 3 — Content System**  
-**Goal**  
-**Goal**  
-Implement content management.  
-Implement content management.  
-  
-  
-  
-**CMS Setup**  
-Configure headless CMS.  
-Configure headless CMS.  
-Recommended:  
-Recommended:  
-Sanity.io  
-Sanity.io  
-Tasks:  
-Tasks:  
-define schemas  
-connect API  
-connect API  
-enable content editing  
-enable content editing  
-  
-  
-  
-**Content Models**  
-Required models:  
-Service  
-Service  
-Location  
-Location  
-Industry  
-Industry  
-Case Study  
-Insight Article  
-FAQ  
-  
-  
-  
-**Content API Integration**  
-**Content API Integration**  
-Create content fetching utilities.  
-Requirements:  
-Requirements:  
-server-side data fetching  
-server-side data fetching  
-content caching  
-content caching  
-incremental static regeneration  
-  
-  
-  
-**Phase 4 — Core Website Pages**  
-**Goal**  
-**Goal**  
-Build core marketing pages.  
-  
-  
-  
-**Homepage**  
-Homepage sections:  
-Homepage sections:  
-hero  
-hero  
-brand narrative  
-services overview  
-services overview  
-industries served  
-consultation CTA  
-  
-  
-  
-**Service Pages**  
-Required service pages:  
-Required service pages:  
-office building cleaning  
-office building cleaning  
-warehouse cleaning  
-warehouse cleaning  
-day porter services  
-day porter services  
-floor care  
-sanitation services  
-Each page must include:  
-service overview  
-service overview  
-protocol explanation  
-protocol explanation  
-benefits  
-benefits  
-FAQ  
-FAQ  
-consultation CTA  
-consultation CTA  
-  
-  
-  
-**Industry Pages**  
-**Industry Pages**  
-Examples:  
-corporate offices  
-warehouse logistics  
-warehouse logistics  
-commercial property management  
-commercial property management  
-medical facilities  
-medical facilities  
-  
-  
-  
-**Location Pages**  
-**Location Pages**  
-Initial cities:  
-Initial cities:  
-Orlando  
-Orlando  
-Lake Mary  
-Sanford  
-Sanford  
-Winter Park  
-Tampa  
-Tampa  
-Location pages support local SEO expansion.  
-  
-  
-  
-**Phase 5 — Interactive Tools**  
-**Phase 5 — Interactive Tools**  
-**Goal**  
-**Goal**  
-Build the core conversion tools.  
-Build the core conversion tools.  
-  
-  
-  
-**Facility Audit Tool**  
-React component that evaluates facility condition.  
-React component that evaluates facility condition.  
-Inputs:  
-Inputs:  
-facility size  
-facility type  
-facility type  
-cleaning frequency  
-cleaning frequency  
-vendor satisfaction  
-Outputs:  
-facility health score  
-facility health score  
-risk assessment  
-risk assessment  
-service recommendation  
-service recommendation  
-  
-  
-  
-**TCO Calculator**  
-**TCO Calculator**  
-Calculator demonstrating long-term cost savings.  
-Calculator demonstrating long-term cost savings.  
-Inputs:  
-Inputs:  
-square footage  
-current cleaning cost  
-asset replacement costs  
-asset replacement costs  
-Outputs:  
-5-year cost comparison  
-5-year cost comparison  
-ROI estimate  
-ROI estimate  
-asset protection savings  
-asset protection savings  
-  
-  
-  
-**Consultation Request System**  
-**Consultation Request System**  
-Form requirements:  
-Form requirements:  
-name  
-name  
-company  
-company  
-facility type  
-facility type  
-square footage  
-email  
-phone  
-Integration requirements:  
-CRM webhook  
-email confirmation  
-email confirmation  
-analytics event  
-analytics event  
-  
-  
-  
-**Phase 6 — Optimization & Launch**  
-**Goal**  
-**Goal**  
-Finalize performance and deploy production version.  
-Finalize performance and deploy production version.  
-  
-  
-  
-**Performance Optimization**  
-Target metrics:  
-Target metrics:  
-LCP < 1.0 seconds  
-CLS = 0  
-CLS = 0  
-INP < 150ms  
-TTFB < 200ms  
-TTFB < 200ms  
-Optimization tasks:  
-image compression  
-code splitting  
-lazy loading  
-lazy loading  
-edge caching  
-edge caching  
-  
-  
-  
-**SEO Validation**  
-**SEO Validation**  
-Tasks:  
-Tasks:  
-generate sitemap  
-validate structured data  
-validate structured data  
-check metadata  
-check metadata  
-validate canonical URLs  
-  
-  
-  
-**Accessibility Audit**  
-Ensure compliance with:  
-WCAG 2.2 AA  
-  
-  
-  
-**Final Deployment**  
-**Final Deployment**  
-Deployment process:  
-Deployment process:  
-GitHub push  
-Vercel build  
-Vercel build  
-Cloudflare CDN distribution  
-Cloudflare CDN distribution  
-production verification  
-production verification  
-  
-  
-  
-**3. Development Timeline**  
-**3. Development Timeline**  
-Estimated development timeline:  
-Estimated development timeline:  
-Phase 1 — 3 days  
-Phase 2 — 7 days  
-Phase 2 — 7 days  
-Phase 3 — 7 days  
-Phase 4 — 10 days  
-Phase 4 — 10 days  
-Phase 5 — 7 days  
-Phase 6 — 4 days  
-Phase 6 — 4 days  
-Total estimated build time:  
-5–6 weeks  
-5–6 weeks  
-  
-  
-  
-**4. Deliverables**  
-**4. Deliverables**  
-Final deliverables include:  
-Final deliverables include:  
-production website  
-CMS editing system  
-CMS editing system  
-conversion tools  
-SEO infrastructure  
-SEO infrastructure  
-analytics dashboard  
-  
-  
-  
-**Final Engineering Goal**  
-The completed platform for Axiom Facility Partners must function as:  
-a high-performance digital authority platform  
-optimized for commercial lead generation  
-built for long-term search dominance  
-built for long-term search dominance  
-designed for enterprise credibility  
-designed for enterprise credibility  
-  
-  
-  
-If you want, I can also show you something very important the Gemini conversation missed — a major competitive SEO advantage that almost every commercial cleaning company ignores, and it could make Axiom rank faster than most new companies.  
-If you want, I can also show you something very important the Gemini conversation missed — a major competitive SEO advantage that almost every commercial cleaning company ignores, and it could make Axiom rank faster than most new companies.  
-  
+# Axiom Facility Partners — Developer Implementation Roadmap
+
+**Version:** 2.0
+**Last Updated:** March 2026
+**Project Type:** Premium Commercial Service Platform
+
+---
+
+## 1. Project Overview
+
+The Axiom platform is built using a modern Next.js architecture designed for high performance, strong SEO, scalable content, and premium UX.
+
+Core infrastructure:
+- Next.js 15.5 (App Router)
+- React 19 + TypeScript
+- Tailwind CSS 4
+- Framer Motion 12
+- PostgreSQL via Prisma (Railway)
+- Vercel hosting
+
+---
+
+## 2. Development Phases
+
+### Phase 1 — Infrastructure Setup (COMPLETED)
+
+- GitHub repository with TypeScript, ESLint, Prettier configuration
+- Next.js 15 with App Router + Turbopack dev server
+- Tailwind CSS 4 with custom navy/bronze/cream theme
+- Framer Motion for animations
+- Vercel deployment pipeline with preview environments
+- Environment variable configuration
+
+### Phase 2 — Core Framework Build (COMPLETED)
+
+- Application folder structure (`app/`, `components/`, `lib/`, `content/`, `public/`)
+- Root layout with Google Fonts (Inter), GTM, GA, structured data
+- Global design system: brand colors, typography, spacing
+- Core UI components: Header, Footer, Container, Hero, SectionWrapper, Button, AnimatedSection
+- Custom CSS: glass-card, text-gradient, gradient-border, diagonal-lines, hero-gradient
+
+### Phase 3 — Content System (COMPLETED)
+
+- TypeScript content data files (no external CMS):
+  - `services.ts` — 6 services with protocols, benefits, FAQs
+  - `industries.ts` — 4 industries with challenges, services
+  - `locations.ts` — 22 Central Florida cities
+  - `city-services.ts` — 155+ city+service landing page combinations
+  - `blog.ts` — Blog posts with categories and tags
+  - `testimonials.ts` — 6 client testimonials
+  - `about.ts`, `faqs.ts` — Company info and general FAQs
+  - `services-es.ts` — Spanish service translations
+- Content fetching via direct TypeScript imports at build time
+- `generateStaticParams()` for dynamic route generation
+- `generateMetadata()` for per-page SEO
+
+### Phase 4 — Core Website Pages (COMPLETED)
+
+- **Homepage:** Hero, stats bar, lobby image, services showcase (bento grid), Why Axiom (timeline), industries showcase (stacked cards), testimonials (carousel), Top Service Areas, CTA
+- **Service pages (6):** Detailed pages with protocols, benefits, FAQs, CTAs
+- **Industry pages (4):** Challenges, tailored services, long descriptions
+- **Location pages (22):** Local services, regional expertise, industry examples
+- **City-service pages (155+):** Hyper-local SEO pages with flat URLs
+- **Blog/Resources:** Article listing with search/filter, detail pages
+- **Static pages:** About, FAQ, Privacy, Terms, Consultation
+- **Spanish pages:** Homepage + service pages at `/es`
+
+### Phase 5 — Conversion & Admin (COMPLETED)
+
+- **Consultation form:** Multi-field lead capture with server-side validation
+- **Submission pipeline:** File storage + PostgreSQL + Resend email + Slack webhook
+- **Admin dashboard:** Token-based auth, submission management, article CRUD, site config, GBP post generator
+- **Cookie consent banner:** GDPR compliance
+
+### Phase 6 — SEO & Performance Optimization (COMPLETED)
+
+- Dynamic XML sitemap + image sitemap
+- 10+ Schema.org structured data types (JSON-LD)
+- Hreflang alternate links (en-US, es-US)
+- Dynamic OG image generation (Edge Runtime)
+- Core Web Vitals optimization: content-visibility, preconnect, immutable caching, lazy loading
+- `prefers-reduced-motion` support
+- Security headers: HSTS, CSP, X-Content-Type-Options
+
+---
+
+## 3. Remaining Work
+
+### Short-Term (Code Tasks)
+
+- Phone number in header (competitor analysis gap)
+- Client logos section on homepage
+- Case studies page template
+- Green/eco certification section
+- Live chat integration (differentiator — no competitor has this)
+
+### Medium-Term (Content + Marketing)
+
+- Additional blog articles targeting keyword gaps
+- Expanded Spanish translations beyond `/es` homepage
+- Google Business Profile optimization
+- Citation network deployment (Yelp, BBB, Bing Places, Apple Maps)
+- Review generation strategy (Year 1 target: 50 reviews)
+
+### Future Features (Roadmap)
+
+- Facility Audit Tool — interactive facility health assessment
+- TCO Calculator — total cost of ownership comparison tool
+- Client Transparency Portal — inspection reports, maintenance logs
+- Headless CMS migration (Sanity.io or equivalent)
+
+---
+
+## 4. Build & Deploy
+
+```bash
+npm run dev          # Dev server (Turbopack)
+npm run build        # prisma generate && next build
+npm run lint         # ESLint
+npx tsc --noEmit     # Type check
+```
+
+Deployment: Push to GitHub → Vercel auto-builds → preview (branches) or production (main).
