@@ -19,9 +19,9 @@ const trustSignals = [
     detail: 'Eco-friendly products & practices',
   },
   {
-    icon: 'M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z',
-    label: 'No Long-Term Contracts',
-    detail: 'Month-to-month flexibility',
+    icon: 'M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z',
+    label: 'Dedicated Account Manager',
+    detail: 'Single point of contact for your facility',
   },
   {
     icon: 'M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z',
@@ -40,7 +40,7 @@ export default function TrustBar() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-cream-50 py-16 lg:py-20">
+    <section ref={ref} className="relative overflow-hidden bg-cream-50 py-10 lg:py-12">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, #0A1628 1px, transparent 0)',
@@ -81,7 +81,7 @@ export default function TrustBar() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12"
+          className="mt-8"
         >
           <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-navy-400">
             Trusted by facilities across Central Florida

@@ -16,6 +16,7 @@ type Step =
   | 'facility'
   | 'size'
   | 'name'
+  | 'company'
   | 'email'
   | 'phone'
   | 'submitting'
@@ -23,20 +24,20 @@ type Step =
   | 'freeform';
 
 const SERVICE_OPTIONS = [
-  'Commercial Cleaning',
-  'Office Cleaning',
-  'Warehouse Cleaning',
+  'Office Building Cleaning',
+  'Warehouse Facility Cleaning',
+  'Facilities Management',
   'Day Porter Services',
-  'Floor Care',
-  'Post-Construction Cleanup',
+  'Floor Care & Maintenance',
+  'Disinfection Protocols',
 ];
 
 const FACILITY_OPTIONS = [
   'Office Building',
   'Warehouse / Distribution',
-  'Medical Facility',
-  'Retail / Shopping',
-  'Educational Campus',
+  'Medical Office',
+  'Commercial Property',
+  'Retail Space',
   'Other',
 ];
 
@@ -68,6 +69,7 @@ export default function ChatBot() {
     facility: '',
     size: '',
     name: '',
+    company: '',
     email: '',
     phone: '',
   });
@@ -188,6 +190,12 @@ export default function ChatBot() {
       switch (step) {
         case 'name':
           setLeadData((prev) => ({ ...prev, name: value }));
+          addBotMessage("What company or property are you with?");
+          setStep('company');
+          break;
+
+        case 'company':
+          setLeadData((prev) => ({ ...prev, company: value }));
           addBotMessage("What's your email address?");
           setStep('email');
           break;
@@ -221,12 +229,12 @@ export default function ChatBot() {
               body: JSON.stringify({
                 name: finalData.name,
                 email: finalData.email,
-                phone: finalData.phone,
-                company: '',
-                facilityType: finalData.facility,
-                squareFootage: finalData.size,
-                services: [finalData.service],
-                message: `[Chat Bot Lead] Service: ${finalData.service}, Facility: ${finalData.facility}, Size: ${finalData.size}`,
+                phone: finalData.phone || undefined,
+                company: leadData.company,
+                facilityType: leadData.facility,
+                squareFootage: leadData.size,
+                services: [leadData.service],
+                message: `[Chat Bot Lead] Service: ${leadData.service}, Facility: ${leadData.facility}, Size: ${leadData.size}`,
               }),
             });
 
@@ -255,7 +263,7 @@ export default function ChatBot() {
     [input, step, leadData, addBotMessage, addUserMessage]
   );
 
-  const showInput = step === 'name' || step === 'email' || step === 'phone';
+  const showInput = step === 'name' || step === 'company' || step === 'email' || step === 'phone';
 
   return (
     <>
@@ -409,9 +417,11 @@ export default function ChatBot() {
                   placeholder={
                     step === 'name'
                       ? 'Your name...'
-                      : step === 'email'
-                        ? 'your@email.com'
-                        : 'Phone number...'
+                      : step === 'company'
+                        ? 'Company or property name...'
+                        : step === 'email'
+                          ? 'your@email.com'
+                          : 'Phone number...'
                   }
                   className="flex-1 rounded-lg border border-navy-200 bg-cream-50 px-3 py-2 text-sm text-navy-900 placeholder:text-navy-400 focus:border-bronze-400 focus:outline-none focus:ring-1 focus:ring-bronze-400"
                   autoFocus
