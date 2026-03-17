@@ -17,15 +17,15 @@ export default function FAQAccordion({ faqs, dark = false }: FAQAccordionProps) 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className={`divide-y ${dark ? 'divide-white/10' : 'divide-navy-100/80'}`} itemScope itemType="https://schema.org/FAQPage">
+    <div className={`divide-y ${dark ? 'divide-white/10' : 'divide-navy-100/80'}`}>
       {faqs.map((faq, index) => (
-        <div key={index} className="group" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+        <div key={index} className="group">
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             aria-expanded={openIndex === index}
             className="flex w-full items-center justify-between py-6 text-left transition-colors"
           >
-            <span itemProp="name" className={`pr-6 text-base font-semibold transition-colors duration-300 group-hover:text-bronze-400 ${dark ? 'text-white' : 'text-navy-950'}`}>
+            <span className={`pr-6 text-base font-semibold transition-colors duration-300 group-hover:text-bronze-400 ${dark ? 'text-white' : 'text-navy-950'}`}>
               {faq.question}
             </span>
             <span
@@ -62,9 +62,9 @@ export default function FAQAccordion({ faqs, dark = false }: FAQAccordionProps) 
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="overflow-hidden"
               >
-                <div className="pb-6 pl-0 pr-12" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                <div className="pb-6 pl-0 pr-12">
                   <div className={`rounded-lg border p-4 ${dark ? 'border-white/10 bg-white/5' : 'border-navy-50 bg-navy-50/30'}`}>
-                    <p itemProp="text" data-answer="" className={`text-sm leading-relaxed ${dark ? 'text-navy-200' : 'text-navy-600'}`}>
+                    <p data-answer="" className={`text-sm leading-relaxed ${dark ? 'text-navy-200' : 'text-navy-600'}`}>
                       {faq.answer}
                     </p>
                   </div>
