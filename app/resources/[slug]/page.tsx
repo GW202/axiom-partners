@@ -16,6 +16,34 @@ import {
 
 export const dynamicParams = true;
 
+const INLINE_LINK_REGEX = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+function renderRichText(text: string) {
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let key = 0;
+  while ((match = INLINE_LINK_REGEX.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <Link
+        key={key++}
+        href={match[2]}
+        className="font-medium text-bronze-700 underline decoration-bronze-200 underline-offset-2 transition-colors hover:text-bronze-800 hover:decoration-bronze-400"
+      >
+        {match[1]}
+      </Link>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts.length > 0 ? parts : text;
+}
+
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
@@ -119,7 +147,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {post.content.map((paragraph, i) => (
               <AnimatedSection key={i} delay={i * 0.04}>
                 <p className="text-base leading-relaxed text-navy-600">
-                  {paragraph}
+                  {renderRichText(paragraph)}
                 </p>
               </AnimatedSection>
             ))}
