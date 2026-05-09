@@ -27,47 +27,6 @@ export const blogCategories: BlogCategory[] = [
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: 'orange-county-sbe-certified-cleaning-government-contracting',
-    title: 'Orange County SBE Certified Cleaning: A Guide to Local Government Contracting in Central Florida',
-    description:
-      'How Orange County\'s Small Business Enterprise certification works, what local government contracting opportunities are available, and how Central Florida cleaning vendors qualify for set-aside contracts.',
-    category: 'Central Florida',
-    author: 'Axiom Facility Partners',
-    publishedAt: '2026-04-25',
-    readTime: '8 min read',
-    tags: ['Orange County SBE', 'government contracting', 'local government', 'small business', 'Central Florida'],
-    content: [
-      'Orange County, Florida operates one of the most robust local government Small Business Enterprise (SBE) programs in the southeastern United States. The county\'s Office of Business Development maintains a certification framework specifically designed to expand procurement opportunities for qualified small businesses headquartered within Orange County — including commercial cleaning vendors. For Central Florida facility services companies considering local government contracting, understanding how SBE certification works is the first step toward accessing set-aside opportunities that can fundamentally transform a vendor\'s revenue base.',
-      'Orange County\'s SBE program eligibility centers on three primary criteria: business size, ownership structure, and geographic presence. Eligible businesses must operate within Orange County with a physical headquarters — not just a virtual address — maintain ownership and management independence, and meet size standards that vary by industry. For commercial cleaning and janitorial services (NAICS code 561720), the size threshold typically aligns with Small Business Administration definitions, though Orange County maintains its own specific thresholds that applicants must verify during the certification process.',
-      'The application process requires comprehensive documentation: business formation records, tax returns (typically the most recent three years), affidavits of ownership and control, financial statements, occupational licenses, and insurance certificates. Certification typically takes 60 to 90 days from complete application submission. The Office of Business Development reviews applications, may conduct site visits, and issues certifications that remain valid for periods specified in the program guidelines — typically requiring annual recertification with updated documentation.',
-      'Procurement opportunities for SBE-certified vendors include sheltered market contracts, where competition is limited to certified small businesses; evaluation preferences in competitive procurement, where SBE status adds points to the technical evaluation; and subcontracting opportunities where prime contractors must include SBE participation to meet contract goals. The cumulative effect for an active SBE-certified vendor can represent millions of dollars in addressable opportunity that non-certified competitors cannot pursue.',
-      'The Florida Department of Transportation operates a Disadvantaged Business Enterprise (DBE) program that intersects with cleaning services through facility maintenance contracts at toll plazas, rest areas, and FDOT facilities across Central Florida. Orlando International Airport\'s Greater Orlando Aviation Authority (GOAA) maintains its own DBE program affecting concessions and facility services contracts. Federal certifications including SBA\'s Small Business, 8(a), and HUBZone programs further expand access to federal procurement, and most agencies accept reciprocal certifications from comparable programs to streamline qualification across jurisdictions.',
-      'Contract structure for local government cleaning work differs from commercial contracts in ways that affect both pricing and operations. Most government contracts run multi-year — typically one to three years with renewal options — include detailed scope-of-work specifications based on cleaning task and frequency rather than total square footage, require defined response times for service issues, and specify performance evaluation systems that determine continued contract status. Pricing must accommodate documentation requirements, security screening costs, and the additional administrative burden government contracts carry.',
-      'The strategic value of SBE certification extends beyond individual contract awards. Active participation in Orange County\'s procurement system builds relationships with public sector facility managers, develops capability infrastructure that supports broader government contracting, creates references and past performance documentation that qualifies vendors for larger opportunities, and establishes the operational maturity that prime contractors look for in subcontracting partners. For Central Florida cleaning companies committed to long-term growth, the investment in SBE certification typically returns multiples of its administrative cost within the first contract cycle.',
-    ],
-    keyTakeaways: [
-      'Orange County SBE certification opens access to set-aside contracts and evaluation preferences',
-      'Eligibility requires Orange County headquarters, ownership independence, and size compliance',
-      'Certification typically takes 60-90 days and requires annual recertification',
-      'Federal SBA programs and DBE certifications (FDOT, GOAA) provide parallel pathways to public-sector work',
-      'Government contracts run multi-year but require specialized documentation and operations',
-    ],
-    faqs: [
-      {
-        question: 'What is Orange County SBE certification?',
-        answer: 'Orange County SBE (Small Business Enterprise) certification is a local government program administered by the Office of Business Development that qualifies eligible small businesses for procurement opportunities including sheltered market contracts, evaluation preferences in competitive procurement, and subcontracting participation. Certification requires business operations within Orange County, ownership independence, and compliance with industry-specific size standards.',
-      },
-      {
-        question: 'How does a cleaning company qualify for government contracting in Central Florida?',
-        answer: 'Central Florida cleaning vendors qualify for government contracting through several certification pathways: Orange County SBE certification for county work, federal SBA programs (Small Business, 8(a), HUBZone) for federal procurement, and Disadvantaged Business Enterprise (DBE) certification for FDOT and Greater Orlando Aviation Authority opportunities. Many vendors pursue multiple certifications to maximize addressable opportunity across local, state, and federal agencies.',
-      },
-      {
-        question: 'How long does Orange County SBE certification take?',
-        answer: 'The Orange County SBE certification process typically takes 60 to 90 days from complete application submission. The timeline includes Office of Business Development review of submitted documentation, potential site visits, and final certification issuance. Vendors should plan for annual recertification requirements once initial certification is granted, with renewal documentation typically due 30 to 60 days before certification expiration.',
-      },
-    ],
-  },
-  {
     slug: 'class-a-office-building-cleaning-standards-florida',
     title: 'Class A Office Building Cleaning Standards: What Premium Properties Demand',
     description:
